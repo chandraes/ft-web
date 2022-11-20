@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.user.create');
     }
 
     /**
@@ -36,7 +36,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        $data['password'] = bcrypt($data['password']);
+
+        User::create($data);
+
+        return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
 
     /**
@@ -47,8 +57,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        dd($id);
-        return view('backend.user.edit');
+        $user = User::find($id);
+        return view('backend.user.edit', compact('user'));
     }
 
     /**
@@ -60,7 +70,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'nullable|confirmed',
+        ]);
+
+        if ($data['password'] == null) {
+            unset($data['password']);
+        } else {
+            $data['password'] = bcrypt($data['password']);
+        }
+
+        User::whereId($id)->update($data);
+
+        return redirect()->route('users.index')->with('success', 'User Updated Successfully');
+
     }
 
     /**
@@ -71,6 +96,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::whereId($id)->delete();
+        return redirect()->route('users.index')->with('success', 'User Deleted Successfully');
     }
 }
