@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('visis', function (Blueprint $table) {
             $table->id();
             $table->text('visi');
-            $table->boolean('is_active')->default(0);
+            $table->boolean('is_active');
+            $table->index('is_active');
             $table->timestamps();
         });
     }

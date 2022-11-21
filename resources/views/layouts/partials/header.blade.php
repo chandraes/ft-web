@@ -4,14 +4,14 @@
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0);"></a>
             <div class="responsive-logo">
                 <a href="index.html" class="header-logo">
-                    <img src="../assets/images/brand/logo-3.png" class="mobile-logo logo-1" alt="logo">
-                    <img src="../assets/images/brand/logo.png" class="mobile-logo dark-logo-1" alt="logo">
+                    <img src="{{asset('assets/images/brand/logo-3.png')}}" class="mobile-logo logo-1" alt="logo">
+                    <img src="{{asset('assets/images/brand/logo.png')}}" class="mobile-logo dark-logo-1" alt="logo">
                 </a>
             </div>
             <!-- sidebar-toggle-->
             <a class="logo-horizontal " href="index.html">
-                <img src="../assets/images/brand/logo.png" class="header-brand-img desktop-logo" alt="logo">
-                <img src="../assets/images/brand/logo-3.png" class="header-brand-img light-logo1"
+                <img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
+                <img src="{{asset('assets/images/brand/logo-3.png')}}" class="header-brand-img light-logo1"
                     alt="logo">
             </a>
             <!-- LOGO -->
@@ -65,7 +65,6 @@
             <li class="breadcrumb-item active" aria-current="page">
                 @if (request()->is('users') || request()->is('users/*'))
                     Users
-
                 @endif
             </li>
         </ol>

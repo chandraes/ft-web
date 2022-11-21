@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Visi extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'visi',
+        'is_active'
+    ];
 }

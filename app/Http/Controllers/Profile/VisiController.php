@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Profiles\Visi;
 
 class VisiController extends Controller
 {
@@ -14,7 +15,9 @@ class VisiController extends Controller
      */
     public function index()
     {
-        return view('backend.profiles.visi.index');
+        $visi = Visi::all();
+
+        return view('backend.profiles.visi.index', compact('visi'));
     }
 
     /**
@@ -35,19 +38,22 @@ class VisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'visi' => 'required',
+            'is_active' => 'nullable'
+        ]);
+
+        if ($data['is_active'] == "on") {
+            Visi::where('is_active', 1)->update(['is_active' => 0]);
+        }
+
+        $data['is_active'] = $data['is_active'] == "on" ? 1 : 0;
+        // dd($data);
+        Visi::create($data);
+
+        return redirect()->route('visi.index')->with('success', 'Visi & Misi berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +63,9 @@ class VisiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $visi = Visi::findOrFail($id);
+
+        return view('backend.profiles.visi.edit', compact('visi'));
     }
 
     /**
@@ -69,7 +77,19 @@ class VisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'visi' => 'required',
+            'is_active' => 'nullable'
+        ]);
+
+        if ($data['is_active'] == "on") {
+            Visi::where('is_active', 1)->update(['is_active' => 0]);
+            $data['is_active'] = $data['is_active'] == "on" ? 1 : 0;
+        }
+
+        Visi::where('id', $id)->update($data);
+
+        return redirect()->route('visi.index')->with('success', 'Visi & Misi berhasil diupdate');
     }
 
     /**
@@ -80,6 +100,8 @@ class VisiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Visi::findOrFail($id)->delete();
+
+        return redirect()->route('visi.index')->with('success', 'Visi & Misi berhasil dihapus');
     }
 }

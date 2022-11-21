@@ -7,18 +7,19 @@
                 <h3 class="card-title">Visi & Misi</h3>
             </div>
             <div class="card-body">
-                <form action="{{route('visi.store')}}" method="POST">
+                <form action="{{route('visi.update', $visi->id)}}" method="POST">
+                    @method('PUT')
                     @csrf
-                    <textarea class="content" name="visi"></textarea>
+                    <textarea class="content" name="visi">{{$visi->visi}}</textarea>
                     <div class="row mt-4">
                         <div class="col-lg-12 col-md-6 col-12 mt-4 float-right">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="is_active" id="invalidCheck">
+                                <input class="form-check-input" type="checkbox" name="is_active" id="invalidCheck" @if ($visi->is_active == 1) checked @endif>
                                 <label class="form-check-label" for="invalidCheck">Active</label>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 mt-4 btn-list">
-                            <button type="submit" class="btn btn-success px-8 mt-2 btn-block">Save</button>
+                            <button type="submit" class="btn btn-success px-8 mt-2 btn-block">Update</button>
                             <a href="{{route('visi.index')}}"
                                 class="btn btn-primary ml-2 px-8 mt-2 btn-block">Cancel</a>
                         </div>
