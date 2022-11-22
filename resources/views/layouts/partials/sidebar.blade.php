@@ -36,15 +36,16 @@
                     <h3>{{__('Content')}}</h3>
                 </li>
                 <li class="slide {{
-                    request()->is('visi') || request()->routeIs('visi.*') ? 'is-expanded' : '' }}">
+                    request()->routeIs('visi.*') || request()->routeIs('fakultas.*') ? 'is-expanded' : '' }}">
                     <a class="side-menu__item
-                    {{ request()->routeIs('visi') || request()->routeIs('visi.*') ? 'active' : '' }}" data-bs-toggle="slide"
+                    {{ request()->routeIs('fakultas.*') || request()->routeIs('visi.*') ? 'active' : '' }}" data-bs-toggle="slide"
                         href="javascript:void(0);"><i class="side-menu__icon fa fa-id-badge pl-4"></i><span
                             class="side-menu__label">Profile</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li><a href="{{route('visi.index')}}" class="slide-item {{
                             request()->routeIs('visi') || request()->routeIs('visi.*') ? 'active' : '' }}"> Visi & Misi</a></li>
-                        <li><a href="cards.html" class="slide-item"> Fakultas</a></li>
+                        <li><a href="{{route('fakultas.index')}}" class="slide-item {{
+                            request()->routeIs('fakultas') || request()->routeIs('fakultas.*') ? 'active' : '' }}"> Fakultas</a></li>
                         <li><a href="calendar.html" class="slide-item"> Pimpinan</a></li>
                         <li><a href="calendar2.html" class="slide-item"> Dosen</a></li>
                         <li><a href="chat.html" class="slide-item"> Pegawai</a></li>

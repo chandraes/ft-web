@@ -24,9 +24,8 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'inde
 Route::resource('users', App\Http\Controllers\UserController::class)->except(['show']);
 
 Route::resource('profiles', App\Http\Controllers\ProfileCompController::class)->except(['show']);
-
-
-    Route::resource('visi', App\Http\Controllers\Profile\VisiController::class)->except(['show']);
+Route::resource('visi', App\Http\Controllers\Profile\VisiController::class)->except(['show']);
+Route::resource('fakultas', App\Http\Controllers\Profile\FakultasController::class)->except(['show']);
 
 
 
