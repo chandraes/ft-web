@@ -7,7 +7,9 @@
                 <h3 class="card-title">Profile Fakultas</h3>
             </div>
             <div class="card-body">
-                <form action="{{route('fakultas.store')}}" method="POST">
+                {{-- form upload image --}}
+
+                <form action="{{route('fakultas.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Title</label>
@@ -24,7 +26,7 @@
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Image</label>
                         <div class="form-group col-md-10">
-                            <input class="form-control" type="file">
+                            <input class="form-control" type="file" name="image">
                         </div>
                     </div>
                     <div class="col-lg-12 mb-4">

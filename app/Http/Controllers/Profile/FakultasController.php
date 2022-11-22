@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Profiles\Fakultas;
+use Illuminate\Support\Facades\File;
+use Ramsey\Uuid\Uuid;
 
 class FakultasController extends Controller
 {
@@ -46,20 +48,26 @@ class FakultasController extends Controller
             'is_active' => 'nullable'
         ]);
 
-        if ($data['is_active'] == "on") {
-            Fakultas::where('is_active', 1)->update(['is_active' => 0]);
+        if ($request->has('is_active')) {
+
+            if ($data['is_active'] == "on") {
+                Fakultas::where('is_active', 1)->update(['is_active' => 0]);
+                $data['is_active'] = 1;
+            }
+
+        } else {
+            $data['is_active'] = 0;
         }
 
         //store image
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $name = time() . '.' . $image->getClientOriginalExtension();
+            $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/images/fakultas');
             $image->move($destinationPath, $name);
-            $data['image'] = $name;
+            $data['image'] = '/images/fakultas/'.$name;
         }
 
-        $data['is_active'] = $data['is_active'] == "on" ? 1 : 0;
         // dd($data);
         Fakultas::create($data);
 
@@ -97,6 +105,17 @@ class FakultasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //delete image and fakultas data
+        $fakultas = Fakultas::find($id);
+        $image_path = public_path($fakultas->image);
+
+        if (file_exists($image_path)) {
+            //delete image from folder
+            File::delete($image_path);
+
+        }
+        $fakultas->delete();
+
+        return redirect()->route('fakultas.index')->with('success', 'Profile Fakultas berhasil dihapus');
     }
 }

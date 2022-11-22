@@ -40,7 +40,10 @@
                                 <td>{{$d->title}}</td>
                                 <td>{{$d->subtitle}}</td>
                                 <td>{!! substr($d->content, 0, 100) !!}</td>
-                                <td></td>
+                                <td class="text-center align-center">
+                                    <span class="avatar avatar-xxl bradius cover-image" data-bs-image-src="{{asset($d->image)}}" style="background: url(&quot;{{asset($d->image)}}&quot;) center center;"></span>
+
+                                </td>
                                 <td align="center">
                                     <div class="row">
                                         <div class="col-6">

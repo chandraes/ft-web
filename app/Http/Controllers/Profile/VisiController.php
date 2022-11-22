@@ -42,12 +42,13 @@ class VisiController extends Controller
             'visi' => 'required',
             'is_active' => 'nullable'
         ]);
-
-        if ($data['is_active'] == "on") {
-            Visi::where('is_active', 1)->update(['is_active' => 0]);
+        if ($request->has('is_active')) {
+            if ($data['is_active'] == "on") {
+                Visi::where('is_active', 1)->update(['is_active' => 0]);
+            }
+            $data['is_active'] = $data['is_active'] == "on" ? 1 : 0;
         }
 
-        $data['is_active'] = $data['is_active'] == "on" ? 1 : 0;
         // dd($data);
         Visi::create($data);
 
@@ -82,10 +83,17 @@ class VisiController extends Controller
             'is_active' => 'nullable'
         ]);
 
-        if ($data['is_active'] == "on") {
-            Visi::where('is_active', 1)->update(['is_active' => 0]);
-            $data['is_active'] = $data['is_active'] == "on" ? 1 : 0;
+        if ($request->has('is_active')) {
+
+            if ($data['is_active'] == "on") {
+                Visi::where('is_active', 1)->update(['is_active' => 0]);
+                $data['is_active'] = 1;
+            }
+        } else {
+            $data['is_active'] = 0;
         }
+
+
 
         Visi::where('id', $id)->update($data);
 
