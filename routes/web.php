@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
@@ -26,6 +24,7 @@ Route::resource('users', App\Http\Controllers\UserController::class)->except(['s
 Route::resource('profiles', App\Http\Controllers\ProfileCompController::class)->except(['show']);
 Route::resource('visi', App\Http\Controllers\Profile\VisiController::class)->except(['show']);
 Route::resource('fakultas', App\Http\Controllers\Profile\FakultasController::class)->except(['show']);
+Route::resource('carousel', App\Http\Controllers\CarouselController::class)->except(['show']);
 
 
 

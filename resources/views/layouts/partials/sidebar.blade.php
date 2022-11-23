@@ -35,6 +35,11 @@
                 <li class="sub-category">
                     <h3>{{__('Content')}}</h3>
                 </li>
+                <li>
+                    <a class="side-menu__item {{request()->routeIs('carousel.index') || request()->routeIs('carousel.*')  ? 'active' : '' }}"
+                        href="{{route('carousel.index')}}"><i class="side-menu__icon fa fa-camera-retro"></i><span
+                            class="side-menu__label">Carousels</span></a>
+                </li>
                 <li class="slide {{
                     request()->routeIs('visi.*') || request()->routeIs('fakultas.*') ? 'is-expanded' : '' }}">
                     <a class="side-menu__item

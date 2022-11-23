@@ -82,7 +82,8 @@ class FakultasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Fakultas::find($id);
+        return view('backend.profiles.fakultas.edit', compact('data'));
     }
 
     /**
