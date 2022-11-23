@@ -59,21 +59,17 @@
  <!-- PAGE-HEADER -->
  <div class="page-header">
     <div>
-        <h1 class="page-title">Dashboard</h1>
+        <h1 class="page-title">{{ ucfirst(request()->segment(1)) }}</h1>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">
-                @if (request()->is('users') || request()->is('users/*'))
-                    Users
-                @endif
+            <li class="breadcrumb-item active">
+                {{ ucfirst(request()->segment(1)) }} @if (request()->segment(2))   @endif
             </li>
+            @if (request()->segment(2))
+            <li class="breadcrumb-item active">
+                {{ ucfirst(request()->segment(2)) }}
+            </li>
+            @endif
         </ol>
     </div>
-    {{-- <div class="ms-auto pageheader-btn">
-
-        <form action="{{route('logout')}}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-success btn-icon text-white">Logout</button>
-        </form>
-    </div> --}}
 </div>
