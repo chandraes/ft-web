@@ -1,12 +1,12 @@
 <header class="main-header header-style-one">
     <!--Header-Upper-->
-    {{-- <div class="header-upper">
+    <div class="header-upper">
         <div class="auto-container">
             <div class="clearfix">
 
                 <!-- Logo Box -->
                 <div class="pull-left logo-box">
-                    <div class="logo"><a href="{{route('home')}}"><img src="{{asset('assets_front/images/logo.png')}}" alt="" title=""></a></div>
+                    <div class="logo"><a href="{{route('home')}}"><img src="{{asset('assets_front/images/logo.svg')}}" alt="" title=""></a></div>
                 </div>
 
                 <div class="pull-right upper-right clearfix">
@@ -42,7 +42,7 @@
 
             </div>
         </div>
-    </div> --}}
+    </div>
     <!--End Header Upper-->
 
     <!--Header Lower-->
@@ -171,7 +171,7 @@
                                                     <li><a href="shop-single.html">Shop Details</a></li>
                                                     <li><a href="shoping-cart.html">Cart Page</a></li>
                                                     <li><a href="checkout.html">Checkout Page</a></li>
-                                                    <li><a href="login.html">Login</a></li>
+                                                    <li><a href="{{route('login')}}">Login</a></li>
                                                     <li><a href="register.html">Register</a></li>
                                                 </ul>
                                             </div>
@@ -194,7 +194,7 @@
                                         <li><a href="shop-single.html">Shop Details</a></li>
                                         <li><a href="shoping-cart.html">Cart Page</a></li>
                                         <li><a href="checkout.html">Checkout Page</a></li>
-                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="{{route('login')}}">Login</a></li>
                                         <li><a href="register.html">Register</a></li>
                                     </ul>
                                 <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
@@ -355,7 +355,7 @@
                                                     <li><a href="shop-single.html">Shop Details</a></li>
                                                     <li><a href="shoping-cart.html">Cart Page</a></li>
                                                     <li><a href="checkout.html">Checkout Page</a></li>
-                                                    <li><a href="login.html">Login</a></li>
+                                                    <li><a href="{{route('login')}}">Login</a></li>
                                                     <li><a href="register.html">Register</a></li>
                                                 </ul>
                                             </div>
@@ -378,7 +378,7 @@
                                         <li><a href="shop-single.html">Shop Details</a></li>
                                         <li><a href="shoping-cart.html">Cart Page</a></li>
                                         <li><a href="checkout.html">Checkout Page</a></li>
-                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="{{route('login')}}">Login</a></li>
                                         <li><a href="register.html">Register</a></li>
                                     </ul>
                                 <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
@@ -533,7 +533,7 @@
                                                     <li><a href="shop-single.html">Shop Details</a></li>
                                                     <li><a href="shoping-cart.html">Cart Page</a></li>
                                                     <li><a href="checkout.html">Checkout Page</a></li>
-                                                    <li><a href="login.html">Login</a></li>
+                                                    <li><a href="{{route('login')}}">Login</a></li>
                                                     <li><a href="register.html">Register</a></li>
                                                 </ul>
                                             </div>
@@ -556,7 +556,7 @@
                                         <li><a href="shop-single.html">Shop Details</a></li>
                                         <li><a href="shoping-cart.html">Cart Page</a></li>
                                         <li><a href="checkout.html">Checkout Page</a></li>
-                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="{{route('login')}}">Login</a></li>
                                         <li><a href="register.html">Register</a></li>
                                     </ul>
                                 <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>

@@ -28,7 +28,7 @@
                     <div class="image-column col-lg-5 cl-md-12 col-sm-12">
                         <div class="inner-column">
                             <div class="image">
-                                <img src="images/main-slider/content-image-1.png" alt="">
+                                <img src="{{asset('assets_front/images/main-slider/content-image-1.png')}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -59,13 +59,13 @@
                     <div class="image-column col-lg-5 cl-md-12 col-sm-12">
                         <div class="inner-column">
                             <div class="image">
-                                <img src="images/main-slider/content-image-1.png" alt="">
+                                <img src="{{asset('assets_front/images/main-slider/content-image-1.png')}}" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div></div><div class="owl-item" style="width: 1600px;"><div class="slide" style="background-image:url(images/main-slider/image-1.jpg)">
+        </div></div><div class="owl-item" style="width: 1600px;"><div class="slide" style="background-image:url({{asset('assets_front/images/main-slider/image-1.jpg')}})">
             <div class="auto-container">
                 <div class="row clearfix">
                     <!-- Content Column -->
@@ -90,13 +90,13 @@
                     <div class="image-column col-lg-5 cl-md-12 col-sm-12">
                         <div class="inner-column">
                             <div class="image">
-                                <img src="images/main-slider/content-image-1.png" alt="">
+                                <img src="{{asset('assets_front/images/main-slider/content-image-1.png')}}" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div></div><div class="owl-item active" style="width: 1600px;"><div class="slide" style="background-image:url(images/main-slider/image-2.jpg)">
+        </div></div><div class="owl-item active" style="width: 1600px;"><div class="slide" style="background-image:url({{asset('assets_front/images/main-slider/image-2.jpg')}})">
             <div class="auto-container">
                 <div class="row clearfix">
                     <!-- Content Column -->
@@ -121,13 +121,13 @@
                     <div class="image-column col-lg-5 cl-md-12 col-sm-12">
                         <div class="inner-column">
                             <div class="image">
-                                <img src="images/main-slider/content-image-1.png" alt="">
+                                <img src="{{asset('assets_front/images/main-slider/content-image-1.png')}}" alt="tes">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div></div><div class="owl-item cloned" style="width: 1600px;"><div class="slide" style="background-image:url(images/main-slider/image-1.jpg)">
+        </div></div><div class="owl-item cloned" style="width: 1600px;"><div class="slide" style="background-image:url({{asset('assets_front/images/main-slider/image-1.jpg')}})">
             <div class="auto-container">
                 <div class="row clearfix">
                     <!-- Content Column -->
@@ -152,13 +152,13 @@
                     <div class="image-column col-lg-5 cl-md-12 col-sm-12">
                         <div class="inner-column">
                             <div class="image">
-                                <img src="images/main-slider/content-image-1.png" alt="">
+                                <img src="{{asset('assets_front/images/main-slider/content-image-1.png')}}" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div></div><div class="owl-item cloned" style="width: 1600px;"><div class="slide" style="background-image:url(images/main-slider/image-2.jpg)">
+        </div></div><div class="owl-item cloned" style="width: 1600px;"><div class="slide" style="background-image:url({{asset('assets_front/images/main-slider/image-2.jpg')}})">
             <div class="auto-container">
                 <div class="row clearfix">
                     <!-- Content Column -->
@@ -183,7 +183,7 @@
                     <div class="image-column col-lg-5 cl-md-12 col-sm-12">
                         <div class="inner-column">
                             <div class="image">
-                                <img src="images/main-slider/content-image-1.png" alt="">
+                                <img src="{{asset('assets_front/images/main-slider/content-image-1.png')}}" alt="">
                             </div>
                         </div>
                     </div>

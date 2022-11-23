@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Carousel;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\File;
 
 class CarouselController extends Controller
 {
@@ -84,6 +85,7 @@ class CarouselController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg',
         ]);
 
+        $db = Carousel::find($id);
         //store image
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -91,9 +93,15 @@ class CarouselController extends Controller
             $destinationPath = public_path('/images/carousel');
             $image->move($destinationPath, $name);
             $data['image'] = '/images/carousel/'.$name;
+
+            $image_old = public_path($db->image);
+            if (file_exists($image_old)) {
+            //delete image from folder
+             File::delete($image_old);
+            }
         }
 
-        Carousel::find($id)->update($data);
+        $db->update($data);
 
         return redirect()->route('carousel.index')->with('success', 'Carousel berhasil diupdate');
     }
@@ -106,7 +114,17 @@ class CarouselController extends Controller
      */
     public function destroy($id)
     {
-        Carousel::find($id)->delete();
+        $db = Carousel::find($id);
+
+        $image_old = public_path($db->image);
+
+        if (file_exists($image_old)) {
+        //delete image from folder
+            File::delete($image_old);
+        }
+
+        $db->delete();
+
         return redirect()->route('carousel.index')->with('success', 'Carousel berhasil dihapus');
     }
 }

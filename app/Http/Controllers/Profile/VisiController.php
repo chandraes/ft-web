@@ -94,7 +94,6 @@ class VisiController extends Controller
         }
 
 
-
         Visi::where('id', $id)->update($data);
 
         return redirect()->route('visi.index')->with('success', 'Visi & Misi berhasil diupdate');
