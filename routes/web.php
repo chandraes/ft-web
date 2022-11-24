@@ -28,6 +28,7 @@ Route::resource('visi', App\Http\Controllers\Profile\VisiController::class)->exc
 Route::resource('fakultas', App\Http\Controllers\Profile\FakultasController::class)->except(['show']);
 Route::resource('carousel', App\Http\Controllers\CarouselController::class)->except(['show']);
 Route::resource('pimpinan', App\Http\Controllers\Profile\PimpinanController::class)->except(['show']);
+Route::resource('dosen', App\Http\Controllers\Profile\DosenController::class)->except(['show']);
 
 
 
