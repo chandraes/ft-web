@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class CategoryDosen extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'jurusan_prodi'
+    ];
 }

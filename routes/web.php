@@ -31,6 +31,7 @@ Route::resource('pimpinan', App\Http\Controllers\Profile\PimpinanController::cla
 Route::resource('dosen', App\Http\Controllers\Profile\DosenController::class)->except(['show']);
 
 Route::post('dosen/category', [App\Http\Controllers\Profile\DosenController::class, 'category'])->name('dosen.category');
+Route::delete('dosen/category/{id}', [App\Http\Controllers\Profile\DosenController::class, 'categoryDelete'])->name('dosen.category.delete');
 
 
 

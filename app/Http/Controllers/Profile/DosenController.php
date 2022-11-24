@@ -87,4 +87,12 @@ class DosenController extends Controller
 
         return redirect()->back()->with('success', 'Jurusan berhasil ditambahkan');
     }
+
+    public function categoryDelete($id)
+    {
+        CategoryDosen::find($id)->delete();
+
+        return redirect()->back()->with('success', 'Jurusan berhasil dihapus');
+    }
+
 }
