@@ -41,7 +41,8 @@
                             class="side-menu__label">Carousels</span></a>
                 </li>
                 <li class="slide {{
-                    request()->routeIs('visi.*') || request()->routeIs('fakultas.*') || request()->routeIs('pimpinan.*') ? 'is-expanded' : '' }}">
+                    request()->routeIs('visi.*') || request()->routeIs('fakultas.*') || request()->routeIs('pimpinan.*')
+                    || request()->routeIs('dosen.*') ? 'is-expanded' : '' }}">
                     <a class="side-menu__item
                     {{ request()->routeIs('fakultas.*') || request()->routeIs('visi.*') ? 'active' : '' }}" data-bs-toggle="slide"
                         href="javascript:void(0);"><i class="side-menu__icon fa fa-id-badge pl-4"></i><span
@@ -53,7 +54,8 @@
                             request()->routeIs('fakultas') || request()->routeIs('fakultas.*') ? 'active' : '' }}"> Fakultas</a></li>
                         <li><a href="{{route('pimpinan.index')}}" class="slide-item {{
                             request()->routeIs('pimpinan') || request()->routeIs('pimpinan.*') ? 'active' : '' }}"> Pimpinan</a></li>
-                        <li><a href="calendar2.html" class="slide-item"> Dosen</a></li>
+                        <li><a href="{{route('dosen.index')}}" class="slide-item {{
+                            request()->routeIs('dosen') || request()->routeIs('dosen.*') ? 'active' : '' }}"> Dosen</a></li>
                         <li><a href="chat.html" class="slide-item"> Pegawai</a></li>
                     </ul>
                 </li>

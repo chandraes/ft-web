@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Profiles\Dosen;
+use App\Models\Profiles\CategoryDosen;
 
 class DosenController extends Controller
 {
@@ -14,7 +16,9 @@ class DosenController extends Controller
      */
     public function index()
     {
-        return view('backend.profiles.dosen.index');
+        $category = CategoryDosen::all();
+        $data = Dosen::all();
+        return view('backend.profiles.dosen.index', compact('data', 'category'));
     }
 
     /**
@@ -24,7 +28,8 @@ class DosenController extends Controller
      */
     public function create()
     {
-        return view('backend.profiles.dosen.create');
+        $category = CategoryDosen::all();
+        return view('backend.profiles.dosen.create', compact('category'));
     }
 
     /**
@@ -70,5 +75,16 @@ class DosenController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function category(Request $request)
+    {
+        $data = $request->validate([
+            'jurusan_prodi' => 'required'
+        ]);
+
+        CategoryDosen::create($data);
+
+        return redirect()->back()->with('success', 'Jurusan berhasil ditambahkan');
     }
 }

@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('category_dosens', function (Blueprint $table) {
+        Schema::create('dosens', function (Blueprint $table) {
             $table->id();
-            $table->string('jurusan_prodi');
+            $table->foreignId('category_dosen_id')->constrained();
+            $table->string('name');
+            $table->string('image')->default('/images/user.png');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_dosens');
+        Schema::dropIfExists('dosens');
     }
 };

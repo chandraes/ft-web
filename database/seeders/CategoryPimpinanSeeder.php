@@ -27,7 +27,7 @@ class CategoryPimpinanSeeder extends Seeder
             [
                 'name' => 'Pimpinan Juruasan & Program Studi',
                 'order' => 3,
-    ],
+            ],
         ]);
     }
 }

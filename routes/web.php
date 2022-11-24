@@ -30,5 +30,7 @@ Route::resource('carousel', App\Http\Controllers\CarouselController::class)->exc
 Route::resource('pimpinan', App\Http\Controllers\Profile\PimpinanController::class)->except(['show']);
 Route::resource('dosen', App\Http\Controllers\Profile\DosenController::class)->except(['show']);
 
+Route::post('dosen/category', [App\Http\Controllers\Profile\DosenController::class, 'category'])->name('dosen.category');
+
 
 
