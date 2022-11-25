@@ -44,7 +44,8 @@
                     request()->routeIs('visi.*') || request()->routeIs('fakultas.*') || request()->routeIs('pimpinan.*')
                     || request()->routeIs('dosen.*') ? 'is-expanded' : '' }}">
                     <a class="side-menu__item
-                    {{ request()->routeIs('fakultas.*') || request()->routeIs('visi.*') ? 'active' : '' }}" data-bs-toggle="slide"
+                    {{ request()->routeIs('fakultas.*') || request()->routeIs('visi.*') || request()->routeIs('dosen.*')
+                        || request()->routeIs('pimpinan.*') ? 'active' : '' }}" data-bs-toggle="slide"
                         href="javascript:void(0);"><i class="side-menu__icon fa fa-id-badge pl-4"></i><span
                             class="side-menu__label">Profile</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
