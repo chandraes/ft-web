@@ -42,10 +42,10 @@
                 </li>
                 <li class="slide {{
                     request()->routeIs('visi.*') || request()->routeIs('fakultas.*') || request()->routeIs('pimpinan.*')
-                    || request()->routeIs('dosen.*') ? 'is-expanded' : '' }}">
+                    || request()->routeIs('dosen.*') || request()->routeIs('pegawai.*') ? 'is-expanded' : '' }}">
                     <a class="side-menu__item
                     {{ request()->routeIs('fakultas.*') || request()->routeIs('visi.*') || request()->routeIs('dosen.*')
-                        || request()->routeIs('pimpinan.*') ? 'active' : '' }}" data-bs-toggle="slide"
+                        || request()->routeIs('pimpinan.*') || request()->routeIs('pegawai.*') ? 'active' : '' }}" data-bs-toggle="slide"
                         href="javascript:void(0);"><i class="side-menu__icon fa fa-id-badge pl-4"></i><span
                             class="side-menu__label">Profile</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
@@ -57,7 +57,8 @@
                             request()->routeIs('pimpinan') || request()->routeIs('pimpinan.*') ? 'active' : '' }}"> Pimpinan</a></li>
                         <li><a href="{{route('dosen.index')}}" class="slide-item {{
                             request()->routeIs('dosen') || request()->routeIs('dosen.*') ? 'active' : '' }}"> Dosen</a></li>
-                        <li><a href="chat.html" class="slide-item"> Pegawai</a></li>
+                        <li><a href="{{route('pegawai.index')}}" class="slide-item {{
+                            request()->routeIs('pegawai') || request()->routeIs('pegawai.*') ? 'active' : '' }}"> Pegawai</a></li>
                     </ul>
                 </li>
                 <li class="slide">

@@ -29,6 +29,7 @@ Route::resource('fakultas', App\Http\Controllers\Profile\FakultasController::cla
 Route::resource('carousel', App\Http\Controllers\CarouselController::class)->except(['show']);
 Route::resource('pimpinan', App\Http\Controllers\Profile\PimpinanController::class)->except(['show']);
 Route::resource('dosen', App\Http\Controllers\Profile\DosenController::class)->except(['show']);
+Route::resource('pegawai', App\Http\Controllers\Profile\PegawaiController::class)->except(['show']);
 
 Route::post('dosen/category', [App\Http\Controllers\Profile\DosenController::class, 'category'])->name('dosen.category');
 Route::delete('dosen/category/{id}', [App\Http\Controllers\Profile\DosenController::class, 'categoryDelete'])->name('dosen.category.delete');
