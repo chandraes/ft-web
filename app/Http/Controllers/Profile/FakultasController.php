@@ -95,7 +95,48 @@ class FakultasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|min:3',
+            'subtitle' => 'required|min:3',
+            'content' => 'required|min:10',
+            'image' => 'nullable',
+            'is_active' => 'nullable'
+        ]);
+
+        if ($request->has('is_active')) {
+
+            if ($data['is_active'] == "on") {
+                Fakultas::where('is_active', 1)->update(['is_active' => 0]);
+                $data['is_active'] = 1;
+            }
+
+        } else {
+            $data['is_active'] = 0;
+        }
+
+        $db = Fakultas::find($id);
+        //store image
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/fakultas');
+            $image->move($destinationPath, $name);
+            $data['image'] = '/images/fakultas/'.$name;
+
+            $image_old = public_path($db->image);
+            
+            if (file_exists($image_old)) {
+            //delete image from folder
+             File::delete($image_old);
+            }
+        }
+
+
+
+        $db->update($data);
+
+        return redirect()->route('fakultas.index')->with('success', 'Profile Fakultas berhasil diubah');
+
     }
 
     /**
