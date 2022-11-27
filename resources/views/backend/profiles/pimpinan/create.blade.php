@@ -46,7 +46,7 @@
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 btn-list">
                             <button type="submit" class="btn btn-success px-8 mt-2 btn-block">Save</button>
-                            <a href="{{route(request()->segment(1).'.index')}}"
+                            <a href="{{route(request()->segment(2).'.index')}}"
                                 class="btn btn-primary ml-2 px-8 mt-2 btn-block">Cancel</a>
                         </div>
                     </div>

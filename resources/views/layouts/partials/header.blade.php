@@ -59,15 +59,15 @@
  <!-- PAGE-HEADER -->
  <div class="page-header">
     <div>
-        <h1 class="page-title">{{ ucfirst(request()->segment(1)) }}</h1>
+        <h1 class="page-title">{{ ucfirst(request()->segment(2)) }}</h1>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
             <li class="breadcrumb-item active">
-                {{ ucfirst(request()->segment(1)) }} @if (request()->segment(2))   @endif
+                {{ ucfirst(request()->segment(2)) }} @if (request()->segment(3))   @endif
             </li>
-            @if (request()->segment(2))
+            @if (request()->segment(3))
             <li class="breadcrumb-item active">
-                {{ ucfirst(request()->segment(2)) }}
+                {{ ucfirst(request()->segment(3)) }}
             </li>
             @endif
         </ol>
