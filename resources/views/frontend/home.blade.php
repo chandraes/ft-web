@@ -40,7 +40,7 @@
                     <!-- Content Column -->
                     <div class="content-column col-lg-7 cl-md-12 col-sm-12">
                         <div class="inner-column">
-                            <div class="title">Genral Contracting</div>
+                            <div class="title">Genral Contractingtes</div>
                             <h1>Build Everything <br> You Needs</h1>
                             <div class="text">Build a Better Way Delivering Projects in Ways <br> that Can't be Duplicated</div>
                             <div class="clearfix">
@@ -71,7 +71,7 @@
                     <!-- Content Column -->
                     <div class="content-column col-lg-7 cl-md-12 col-sm-12">
                         <div class="inner-column">
-                            <div class="title">Genral Contracting</div>
+                            <div class="title">Genral Contractingtes</div>
                             <h1>Build Everything <br> You Needs</h1>
                             <div class="text">Build a Better Way Delivering Projects in Ways <br> that Can't be Duplicated</div>
                             <div class="clearfix">
@@ -102,7 +102,7 @@
                     <!-- Content Column -->
                     <div class="content-column col-lg-7 cl-md-12 col-sm-12">
                         <div class="inner-column">
-                            <div class="title">Genral Contracting</div>
+                            <div class="title">Genral Contractingtes</div>
                             <h1>Build Everything <br> You Needs</h1>
                             <div class="text">Build a Better Way Delivering Projects in Ways <br> that Can't be Duplicated</div>
                             <div class="clearfix">
