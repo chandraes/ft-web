@@ -1,0 +1,278 @@
+@charset "utf-8";
+/* CSS Document */
+
+a,
+.theme_color,
+.btn-style-three:hover,
+.main-header .info-box .icon-box,
+.list-style-one li .icon,
+.sec-title .title,
+.btn-style-six:hover,
+.service-block .inner-box .icon,
+.fact-counter .column .inner .icon,
+.main-slider .play-box .play-button span,
+.main-menu .navigation > li > ul > li:hover > a,
+.project-section .filters .filter.active,
+.project-section .filters .filter:hover,
+.team-block .inner-box h4 a:hover,
+.news-block .inner-box h4 a:hover,
+.list-style-two li .icon,
+.list-link li a:hover,
+.main-slider-two h1 span,
+.process-block .inner-box .icon,
+.accordion-box .block .icon,
+.price-block .inner-box .price,
+.price-block .inner-box .price-list li:before,
+.main-footer .request-widget .phone:hover,
+.main-footer .footer-bottom .social-box li a:hover,
+.main-footer .news-widget .post h6 a:hover,
+.testimonial-block-two .inner-box .designation,
+.news-block .inner-box .lower-content .post-info li,
+.gallery-block .inner-box .lower-content h5 a:hover,
+.header-top .top-right .social-box li a:hover,
+.service-block-two .inner-box .lower-box h6 a:hover,
+.news-block-two .inner-box .content .post-info li,
+.news-block-two .inner-box h4 a:hover,
+.list-style-three li:before,
+.main-footer .lower-form-box .title-column .icon,
+.header-style-three .search-box .form-group button,
+.main-slider-three .play-box .play-button span,
+.about-section-two .content-column .bold-text,
+.about-section-two .images-column .text,
+.service-block-three .inner-box .icon,
+.service-block-three .inner-box:hover h5 a,
+.choose-block .inner-box .icon,
+.banner-widget .title,
+.blog-cat li a:hover,
+.page-breadcrumb li a,
+.social-icon-one li a,
+.privacy-section .date,
+.service-list li .icon,
+.service-list li a:hover,
+.sidebar .popular-posts .post a:hover,
+.testimonial-section-two .lower-text a,
+.team-block-two .inner-box h5 a:hover,
+.news-block-three .inner-box h4 a:hover,
+.footer-style-two .news-widget .post h6 a:hover,
+.footer-style-two .info-column .icon,
+.sidebar .search-box .form-group button,
+.news-block-four .inner-box h3 a:hover,
+.blog-detail .inner-box blockquote .quote-author,
+.blog-detail .post-share-options .tags a:hover,
+.blog-detail .post-share-options .tags span,
+.blog-detail .post-share-options .social-box li a:hover,
+.blog-detail .more-posts .prev a:hover,
+.blog-detail .more-posts .next a:hover,
+.styled-form .form-group .check-box .terms,
+.contact-info-section .info-column .icon,
+.sidebar-page-container .comments-area .comment-info .comment-time:before,
+.sidebar-page-container .comments-area .comment-box .theme-btn,
+.news-block-four .inner-box .lower-content .post-info li,
+.team-single-section .content-column .post-meta li .icon,
+.news-block-three .inner-box .lower-content .post-info li .icon,
+.gallery-block .inner-box .image-box .overlay-box .icon:hover,
+.testimonial-block .inner-box .author-image-outer .designation,
+.main-menu .navigation > li > ul > li > ul > li:hover > a,
+.project-section-two .tab-btns-box .p-tab-btn:hover,
+.service-detail .feature-column .inner-column .icon,
+.blog-detail .inner-box .lower-content .post-info li,
+.project-section-two .tab-btns-box .p-tab-btn.active-btn,
+.coming-soon .emailed-form .form-group input[type="submit"],
+.coming-soon .emailed-form button,
+.checkout-page .payment-options li .what-paypall,
+.shop-page .prod-tabs .reviews-container .rev-header .rating,
+.shop-single-section .info-column .details-header .rating span,
+.shop-single-section .info-column .details-header .item-price,
+.shop-page .prod-tabs .add-review .rating .rate-box:hover,
+.shop-page .prod-tabs .add-review .rating .rate-box:focus,
+.shop-page .prod-tabs .add-review .rating .rate-box:active,
+.cart-table tbody tr .remove-btn,
+.checkout-page .default-links li a{
+	color:#f7c61d;
+}
+
+.main-menu .navigation > li > ul > li > ul > li:hover > a::before,
+.main-menu .navigation > li > ul > li:hover > a::before{
+	text-shadow:8px 0 #f7c61d, -8px 0 #f7c61d;
+}
+
+/*Background Color*/
+
+.clock-hour,
+.clock-minute,
+.btn-style-one,
+.btn-style-three,
+.btn-style-four,
+.btn-style-six,
+.btn-style-two:before,
+.btn-style-five:before,
+.click-indicator div:nth-child(3),
+.click-indicator div:nth-child(6),
+.click-indicator div:nth-child(9),
+.click-indicator div:nth-child(12),
+.click-indicator div:nth-child(15),
+.services-section .owl-dots .owl-dot:hover,
+.services-section .owl-dots .owl-dot.active,
+.service-block .inner-box:hover .read-more,
+.skill-section .image-column .image .text,
+.main-header .main-menu .navigation > li:before,
+.header-style-one:before,
+.newsletter-section,
+.team-block .inner-box .image,
+.news-block .inner-box .image,
+.news-block .inner-box h4:before,
+.news-block .inner-box .image .post-date,
+.news-block .inner-box:hover .read-more,
+.team-block .inner-box .social-box li a:hover,
+.testimonial-block .inner-box:hover::before,
+.testimonial-section .owl-nav .owl-prev:hover,
+.testimonial-section .owl-nav .owl-next:hover,
+.header-top .inner-container:before,
+.accordion-box .block .acc-btn.active,
+.main-slider-two .owl-nav .owl-prev:hover,
+.main-slider-two .owl-nav .owl-next:hover,
+.service-block-two .inner-box .lower-box .icon,
+.services-section-two .owl-dots .owl-dot:hover,
+.services-section-two .owl-dots .owl-dot.active,
+.process-block .inner-box:hover .process-number,
+.process-block .inner-box:hover .color-layer-two,
+.goal-section .image-column .image .icon-button span,
+.request-quote-section .content-box .play-box .play-btn,
+.service-block-two .inner-box .overlay-box .read-more:hover,
+.news-block-two .inner-box:hover .read-more,
+.pricing-tabs .tab-buttons .tab-btn:hover,
+.news-block-two .inner-box h4:before,
+.pricing-tabs .tab-buttons .tab-btn.active-btn,
+.news-block-two .inner-box .image .post-date,
+.news-block-two .inner-box .image,
+.newsletter-form-two .form-group .submit-btn,
+.fact-counter-two .column .inner .icon,
+.choose-section .image-column .award-box,
+.team-block-two .inner-box .image,
+.team-block-two .inner-box .social-box,
+.team-block-two .inner-box .lower-content:before,
+.newsletter-form.style-two .form-group .submit-btn,
+.news-block-three .inner-box .image,
+.news-block-three .inner-box h4:before,
+.footer-style-two .footer-bottom,
+.privacy-section .privacy-list li:before,
+.sidebar .sidebar-title h4:before,
+.news-block-three .inner-box .image .post-date,
+.team-single-section .content-column h2 span,
+.project-detail-section .social-box .social-list li a:hover,
+.social-widget .social-box li a:hover,
+.sidebar .popular-tags a:hover,
+.news-block-four .inner-box h3:before,
+.news-block-four .inner-box .image .post-date,
+.news-block-four .inner-box .image,
+.blog-detail .inner-box .image,
+.blog-detail .inner-box .image .post-date,
+.blog-detail .inner-box h3:before,
+.single-product-item .title-holder:before,
+.styled-form .account-btn:hover,
+.styled-form .form-group .radio-box label:before,
+.styled-form .form-group .check-box input[type="checkbox"]:checked + label:before,
+.about-section-two .images-column .image-two .play-box .play-button,
+.main-header.header-style-three .header-lower .inner-container,
+.service-detail .service-tabs .tab-btns .tab-btn:hover,
+.service-detail .service-tabs .tab-btns .tab-btn.active-btn,
+.project-detail-section .carousel-column .owl-nav .owl-prev:hover,
+.project-detail-section .carousel-column .owl-nav .owl-next:hover,
+.project-challenge-section .inner-container:before,
+.news-block-four .inner-box:hover .read-more,
+.project-mission-section .new-posts a:hover{
+	background-color:#f7c61d;
+}
+
+.gallery-block .inner-box .image-box .overlay-box,
+.about-section .image-column .experiance-box .box-inner{
+	background-color:rgba(247,198,29,0.90);
+}
+
+.price-block .inner-box:before{
+	background: -webkit-linear-gradient(to top, #060504 0%, #f7c61d 100%);
+	background: -moz-linear-gradient(to top, #060504 0%, #f7c61d 100%);
+	background: linear-gradient(to top, #060504 0%, #f7c61d 100%);
+}
+
+.cta-section-three .inner-container{
+	background: #f7c61d;
+	background: -webkit-linear-gradient(to top, #f7c61d 0%, #232222 100%);
+	background: -moz-linear-gradient(to top, #f7c61d 0%, #232222 100%);
+	background: linear-gradient(to top, #f7c61d 0%, #232222 100%);
+}
+
+.request-quote-section .content-box .play-box .ripple,
+.request-quote-section .content-box .play-box .ripple:before,
+.request-quote-section .content-box .play-box .ripple:after,
+.goal-section .image-column .image .icon-button .ripple,
+.goal-section .image-column .image .icon-button .ripple:before,
+.goal-section .image-column .image .icon-button .ripple:after{
+	-webkit-box-shadow: 0 0 0 0 rgba(247,198,29,0.90);
+    -moz-box-shadow: 0 0 0 0 rgba(247,198,29,0.90);
+    -ms-box-shadow: 0 0 0 0 rgba(247,198,29,0.90);
+    -o-box-shadow: 0 0 0 0 rgba(247,198,29,0.90);
+    box-shadow: 0 0 0 0 rgba(247,198,29,0.90);
+}
+
+.skills .skill-item .skill-bar .bar-inner .bar,
+.back-to-top::after{
+	border-bottom-color:#f7c61d;
+}
+
+.service-detail .service-tabs .tab-btns .tab-btn:before{
+	border-top-color:#f7c61d;
+}
+
+/*Border Color*/
+
+.social-icon-one li a,
+.btn-style-five:hover,
+.fact-counter .column .inner,
+.sidebar .popular-tags a:hover,
+.services-section .owl-dots .owl-dot:hover,
+.services-section .owl-dots .owl-dot.active,
+.gallery-block .inner-box .lower-content,
+.cta-section .cta-list li:before,
+.service-block .inner-box .read-more,
+.service-block .inner-box,
+.main-slider .title:before,
+.news-block .inner-box .read-more,
+.styled-form .account-btn:hover,
+.service-block-three .inner-box:hover,
+.news-block-two .inner-box .content .post-info li,
+.news-block .inner-box .lower-content .post-info li,
+.testimonial-section .owl-nav .owl-prev:hover,
+.testimonial-section .owl-nav .owl-next:hover,
+.main-slider-two .owl-nav .owl-prev:hover,
+.main-slider-two .owl-nav .owl-next:hover,
+.services-section-two .owl-dots .owl-dot:hover,
+.services-section-two .owl-dots .owl-dot.active,
+.news-block-two .inner-box .read-more,
+.main-slider-three .title:before,
+.social-widget .social-box li a:hover,
+.news-block-four .inner-box .read-more,
+.testimonial-block-two .inner-box .author-box,
+.project-detail-section .social-box .social-list li a:hover,
+.service-block-two .inner-box .overlay-box .read-more:hover,
+.default-form input[type="text"]:focus,
+.default-form input[type="email"]:focus,
+.default-form input[type="password"]:focus,
+.default-form select:focus,
+.default-form textarea:focus,
+.blog-detail .inner-box blockquote,
+.shop-form input:focus,
+.shop-form select:focus,
+.shop-form textarea:focus,
+.blog-detail .inner-box .lower-content .post-info li,
+.news-block-four .inner-box .lower-content .post-info li,
+.project-detail-section .carousel-column .owl-nav .owl-prev:hover,
+.project-detail-section .carousel-column .owl-nav .owl-next:hover,
+.comment-form .form-group input[type="text"]:focus,
+.comment-form .form-group input[type="password"]:focus,
+.comment-form .form-group input[type="tel"]:focus,
+.comment-form .form-group input[type="email"]:focus,
+.comment-form .form-group select:focus,
+.comment-form .form-group textarea:focus{
+	border-color:#f7c61d;
+}
