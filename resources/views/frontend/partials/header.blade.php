@@ -91,18 +91,15 @@
                                         <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
                                     </ul>
                                 <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
-                                <li class="dropdown"><a href="#">About us</a>
+                                <li class="dropdown"><a href="#">Profile</a>
                                     <ul>
-                                        <li><a href="about.html">About us</a></li>
-                                        <li><a href="faq.html">Faq's</a></li>
-                                        <li><a href="price.html">Price</a></li>
-                                        <li><a href="team.html">Team</a></li>
-                                        <li><a href="team-detail.html">Team Detail</a></li>
-                                        <li><a href="testimonial.html">Testimonial</a></li>
-                                        <li><a href="comming-soon.html">Comming Soon</a></li>
-                                        <li><a href="terms.html">Terms &amp; Condition</a></li>
-                                        <li><a href="privacy.html">Privacy &amp; Policy</a></li>
+                                        <li><a href="visimisi.html">Visi dan Misi</a></li>
+                                        <li><a href="Fakultas.html">Fakultas's</a></li>
+                                        <li><a href="Pimpinan.html">Pimpinan</a></li>
+                                        <li><a href="Dosen.html">Dosen</a></li>
+                                        <li><a href="Peg-administrasi.html">Tendik</a></li>
                                     </ul>
+                                    
                                 <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
                                 <li class="dropdown"><a href="#">Services</a>
                                     <ul>
