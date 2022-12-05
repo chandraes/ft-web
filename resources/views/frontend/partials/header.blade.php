@@ -96,7 +96,7 @@
                                     <ul>
                                         <li><a href="visimisi.html">Visi dan Misi</a></li>
                                         <li><a href="Fakultas.html">Fakultas</a></li>
-                                        <li><a href="Pimpinan.html">Pimpinan</a></li>
+                                        <li><a href="{{route('leader')}}">Pimpinan</a></li>
                                         <li><a href="Dosen.html">Dosen</a></li>
                                         <li><a href="Peg-administrasi.html">Tendik</a></li>
                                     </ul>
@@ -185,7 +185,7 @@
                                                     <li><a href="shop-single.html">Shop Details</a></li>
                                                     <li><a href="shoping-cart.html">Cart Page</a></li>
                                                     <li><a href="checkout.html">Checkout Page</a></li>
-                                                    <li><a href="login.html">Login</a></li>
+                                                    <li><a href="{{route('login')}}">Login</a></li>
                                                     <li><a href="register.html">Register</a></li>
                                                 </ul>
                                             </div>
@@ -208,8 +208,8 @@
                                         <li><a href="shop-single.html">Shop Details</a></li>
                                         <li><a href="shoping-cart.html">Cart Page</a></li>
                                         <li><a href="checkout.html">Checkout Page</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="register.html">Register</a></li>
+                                        <li><a href="{{route('login')}}">Login</a></li>
+                                        {{-- <li><a href="{{route('register')}}">Register</a></li> --}}
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a href="#">Contact</a>
@@ -249,7 +249,7 @@
         <div class="auto-container clearfix">
             <!--Logo-->
             <div class="logo pull-left">
-                <a href="index.html" title=""><img src="images/logo-small.png" alt="" title=""></a>
+                <a href="index.html" title=""><img src="{{asset('assets_front/images/logo-small.png')}}" alt="" title=""></a>
             </div>
             <!--Right Col-->
             <div class="pull-right">
@@ -282,7 +282,7 @@
         <div class="close-btn"><span class="icon flaticon-multiply"></span></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
+            <div class="nav-logo"><a href="index.html"><img src="{{asset('assets_front/images/logo.png')}}" alt="" title=""></a></div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>

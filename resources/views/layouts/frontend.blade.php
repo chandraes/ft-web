@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
 <!--Color Switcher Mockup-->
-<link href="{{asset('assets_front/css/color-switcher-design.css')}}" rel="stylesheet">
+{{-- <link href="{{asset('assets_front/css/color-switcher-design.css')}}" rel="stylesheet"> --}}
 
 <!-- Color Themes -->
 <link id="theme-color-file" href="{{asset('assets_front/css/color-themes/purple-theme.css')}}" rel="stylesheet">
@@ -21,7 +21,7 @@
 <link rel="shortcut icon" href="{{asset('assets_front/images/favicon.png')}}" type="image/x-icon">
 <link rel="icon" href="{{asset('assets_front/images/favicon.png')}}" type="image/x-icon">
 
-@vite(['resources/sass/app.scss', 'resources/js/app.js'])
+{{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -93,7 +93,7 @@
     @yield('content')
 
 	<!-- About Section -->
-	<section class="about-section">
+	{{-- <section class="about-section">
 		<div class="auto-container">
 			<div class="inner-container" style="background-image:url(images/background/pattern-1.png)">
 				<div class="row clearfix">
@@ -141,10 +141,10 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- End About Section -->
 
-	<!-- Services Section -->
+	{{-- <!-- Services Section -->
 	<section class="services-section">
 		<div class="side-image">
 			<img src="images/resource/service-image.png" alt="" />
@@ -405,10 +405,10 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- End Skill Section -->
 
-	<!-- Project Section -->
+	{{-- <!-- Project Section -->
 	<section class="project-section">
 		<div class="side-image">
 			<img src="images/resource/project.png" alt="" />
@@ -597,11 +597,11 @@
 				<a class="btn-style-six theme-btn" href="contact.html"><span class="txt">Contact Now</span></a>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- End CTA Section -->
 
 	<!-- Testimonial Section -->
-	<section class="testimonial-section" style="background-image:url(images/background/pattern-3.png)">
+	{{-- <section class="testimonial-section" style="background-image:url(images/background/pattern-3.png)">
 		<div class="auto-container">
 			<!-- Sec Title -->
 			<div class="sec-title">
@@ -700,10 +700,10 @@
 
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- End Testimonial Section -->
 
-	<!-- Team Section -->
+	{{-- <!-- Team Section -->
 	<section class="team-section">
 		<div class="auto-container">
 			<!-- Sec Title -->
@@ -781,11 +781,11 @@
 
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- End Team Section -->
 
 	<!-- News Section -->
-	<section class="news-section" style="background-image:url(images/background/pattern-5.png)">
+	{{-- <section class="news-section" style="background-image:url(images/background/pattern-5.png)">
 		<div class="auto-container">
 			<!-- Sec Title -->
 			<div class="sec-title centered">
@@ -853,11 +853,11 @@
 
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- End News Section -->
 
 	<!-- Clients Section -->
-    <section class="clients-section">
+    {{-- <section class="clients-section">
         <div class="auto-container">
             <div class="sponsors-outer">
                 <!-- Sponsors Carousel -->
@@ -874,11 +874,11 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
     <!-- End Clients Section -->
 
 	<!-- Newsletter Section -->
-	<section class="newsletter-section">
+	{{-- <section class="newsletter-section">
 		<div class="auto-container">
 			<div class="row clearfix">
 
@@ -915,7 +915,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- End Newsletter Section -->
 
 	@include('frontend.partials.footer')
@@ -938,7 +938,7 @@
 <!-- End Header Search -->
 
 <!-- Color Palate / Color Switcher -->
-<div class="color-palate">
+{{-- <div class="color-palate">
     <div class="color-trigger">
         <i class="fa fa-gear"></i>
     </div>
@@ -968,7 +968,7 @@
     <h6>Dark Verion</h6>
 	<ul class="dark-version option-box"> <li class="box">Yes</li> <li>No</li></ul>
 
-</div>
+</div> --}}
 
 <!--Scroll to top-->
 <div class="back-to-top scroll-to-target show-back-to-top" data-target="html">TOP</div>
@@ -988,7 +988,7 @@
 <script src="{{asset('assets_front/js/jquery-ui.js')}}"></script>
 <script src="{{asset('assets_front/js/tilt.jquery.min.js')}}"></script>
 <script src="{{asset('assets_front/js/mixitup.js')}}"></script>
-
+<script src="{{asset('assets_front/js/map-script.js')}}"></script>
 
 </body>
 </html>

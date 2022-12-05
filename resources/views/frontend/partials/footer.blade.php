@@ -1,7 +1,7 @@
 <!-- Main Footer -->
-<footer class="main-footer" style="background-image:url(images/background/3.jpg)">
+<footer class="main-footer" style="background-image:url({{asset('assets_front/images/background/3.jpg')}})">
     <div class="side-image">
-        <img src="images/resource/footer-image.png" alt="" />
+        <img src="{{asset('assets_front/images/resource/footer-image.png')}}" alt="" />
     </div>
     <div class="auto-container">
         <!--Widgets Section-->
