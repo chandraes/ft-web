@@ -21,7 +21,7 @@
 <link rel="shortcut icon" href="{{asset('assets_front/images/favicon.png')}}" type="image/x-icon">
 <link rel="icon" href="{{asset('assets_front/images/favicon.png')}}" type="image/x-icon">
 
-{{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -51,13 +51,13 @@
 						X
 					</a>
 				</div>
-				<div class="sidebar-textwidget">
+				<div class="sidebar-text-widget">
 
 					<!-- Sidebar Info Content -->
 					<div class="sidebar-info-contents">
 						<div class="content-inner">
 							<div class="logo">
-								<a href="index.html"><img src="images/logo-2.png" alt="" /></a>
+								<a href="index.html"><img src="{{asset('assets_front/images/logo-2.png')}}" alt="" /></a>
 							</div>
 							<div class="content-box">
 								<h2>About Us</h2>

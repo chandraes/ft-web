@@ -6,42 +6,40 @@
 
                 <!-- Logo Box -->
                 <div class="pull-left logo-box">
-                    <div class="logo"></div>
+                    <div class="logo"><a href="{{route('home')}}"><img src="{{asset('assets_front/images/logo.svg')}}" alt="" title=""></a></div>
                 </div>
 
                 <div class="pull-right upper-right clearfix">
+
                     <!--Info Box-->
                     <div class="upper-column info-box">
                         <div class="icon-box"><span class="flaticon-phone"></span></div>
                         <ul>
-                            <li></li>
-                            <li><strong><a href="tel:<?php echo esc_attr(montro_phone_number($options->get('phone_number_v1'))); ?>"><?php echo wp_kses($options->get('phone_number_v1'), $allowed_html); ?></a></strong></li>
+                            <li>Requesting a Call:</li>
+                            <li><strong><a href="tel:+301-357-1234">(301) 357 1234</a></strong></li>
                         </ul>
                     </div>
-                    <?php } ?>
 
-                    <?php if( $options->get('show_working_hours_v1') ){ ?>
                     <!--Info Box-->
                     <div class="upper-column info-box">
                         <div class="icon-box"><span class="flaticon-clock-1"></span></div>
                         <ul>
-                            <li><?php echo wp_kses($options->get('working_hours_title_v1'), $allowed_html); ?></li>
-                            <li><strong><?php echo wp_kses($options->get('working_hours_v1'), $allowed_html); ?></strong></li>
+                            <li>Sunday - Friday:</li>
+                            <li><strong>9am - 8pm</strong></li>
                         </ul>
                     </div>
-                    <?php } ?>
 
-                    <?php if( $options->get('show_address_v1') ){ ?>
                     <!--Info Box-->
                     <div class="upper-column info-box">
                         <div class="icon-box"><span class="flaticon-location-1"></span></div>
                         <ul>
-                            <li><?php echo wp_kses($options->get('address_v1'), $allowed_html); ?></li>
-                            <li><strong><?php echo wp_kses($options->get('address_city_v1'), $allowed_html); ?></strong></li>
+                            <li>1428 Callison Laney Building</li>
+                            <li><strong>California</strong></li>
                         </ul>
                     </div>
-                    <?php } ?>
+
                 </div>
+
             </div>
         </div>
     </div>
@@ -49,13 +47,13 @@
 
     <!--Header Lower-->
     <div class="header-lower">
+
         <div class="auto-container">
             <div class="clearfix">
-                <div class="nav-outer clearfix <?php if( $options->get('sidebar_info_v1') ) echo 'pad-left'; ?>">
-                    <?php if( $options->get('sidebar_info_v1') ){ ?>
+
+                <div class="nav-outer clearfix">
                     <!-- Nav Btn -->
                     <div class="nav-btn navSidebar-button"><span class="icon flaticon-menu"></span></div>
-                    <?php } ?>
 
                     <!-- Mobile Navigation Toggler -->
                     <div class="mobile-nav-toggler"><span class="icon flaticon-menu-2"></span></div>
@@ -71,35 +69,173 @@
 
                         <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
-                                <?php wp_nav_menu( array( 'theme_location' => 'main_menu', 'container_id' => 'navbar-collapse-1',
-                                    'container_class'=>'navbar-collapse collapse navbar-right',
-                                    'menu_class'=>'nav navbar-nav',
-                                    'fallback_cb'=>false,
-                                    'items_wrap' => '%3$s',
-                                    'container'=>false,
-                                    'depth'=>'3',
-                                    'walker'=> new Bootstrap_walker()
-                                ) ); ?>
+                                <li class="current dropdown"><a href="#">Home</a>
+                                    <ul>
+                                        <li><a href="index.html">Homepage One</a></li>
+                                        <li><a href="index-2.html">Homepage Two</a></li>
+                                        <li><a href="index-3.html">Homepage Three</a></li>
+                                        <li class="updates">New Updates</li>
+                                        <li class="dropdown"><a href="#">One Pager Style</a>
+                                            <ul>
+                                                <li><a href="index-4.html">HomePage One</a></li>
+                                                <li><a href="index-5.html">HomePage Two</a></li>
+                                                <li><a href="index-6.html">HomePage Three</a></li>
+                                            </ul>
+                                        <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                        <li class="dropdown"><a href="#">Header Styles</a>
+                                            <ul>
+                                                <li><a href="index.html">Header Style One</a></li>
+                                                <li><a href="index-2.html">Header Style Two</a></li>
+                                                <li><a href="index-3.html">Header Style Three</a></li>
+                                            </ul>
+                                        <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Profile</a>
+                                    <ul>
+                                        <li><a href="visimisi.html">Visi dan Misi</a></li>
+                                        <li><a href="Fakultas.html">Fakultas</a></li>
+                                        <li><a href="Pimpinan.html">Pimpinan</a></li>
+                                        <li><a href="Dosen.html">Dosen</a></li>
+                                        <li><a href="Peg-administrasi.html">Tendik</a></li>
+                                    </ul>
+
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Akademik</a>
+                                    <ul>
+                                        <li class="dropdown"><a href="Program-Sarjana.html">Program Sarjana</a>
+                                        <ul>
+                                            <li><a href="teknik_mesin.html">Teknik Mesin</a></li>
+                                            <li><a href="teknik_sipil.html">Teknik Sipil</a></li>
+                                            <li><a href="teknik_tambang.html">Teknik Pertambangan</a></li>
+                                            <li><a href="teknik_elektro.html">Teknik Elektro</a></li>
+                                            <li><a href="teknik_kimia.html">Teknik Kimia</a></li>
+                                            <li><a href="teknik_arsitektur.html">Teknik Arsitektur</a></li>
+                                            <li><a href="teknik_geologi.html">Teknik Geologi</a></li>
+                                        </ul>
+                                        <li class="dropdown"><a href="Program-Pascasarjana.html">Program Pascasarjana</a>
+                                        <ul>
+                                            <li><a href="teknik_psmesin.html">Teknik Mesin</a></li>
+                                            <li><a href="teknik_pssipil.html">Teknik Sipil</a></li>
+                                            <li><a href="teknik_pstambang.html">Teknik Pertambangan</a></li>
+                                            <li><a href="teknik_pskimia.html">Teknik Kimia</a></li>
+                                        </ul>
+                                        <li class="dropdown"><a href="Program-doktor.html">Program Doktor</a>
+                                        <ul>
+                                            <li><a href="ilmu_teknik.html">Ilmu Teknik</a></li>
+                                        </ul>
+                                        <li><a href="Laboratorium">Laboratorium</a></li>
+                                        <li><a href="Informasi-beasiswa.html">Informasi Beasiswa</a></li>
+                                        <li><a href="Tracert-study.html">Tracer Study</a></li>
+                                    </ul>
+                                </li>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Kemahasiswaan</a>
+                                    <ul>
+                                        <li><a href="Mahasiswa.html">Mahasiswa</a></li>
+                                        <li><a href="Alumni.html">Alumni</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown has-mega-menu"><a href="#">Pages</a>
+                                    <div class="mega-menu">
+                                        <div class="mega-menu-bar row clearfix">
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3>About Us</h3>
+                                                <ul>
+                                                    <li><a href="about.html">About us</a></li>
+                                                    <li><a href="price.html">Price</a></li>
+                                                    <li><a href="faq.html">Faq's</a></li>
+                                                    <li><a href="team.html">Team</a></li>
+                                                    <li><a href="team-detail.html">Team Detail</a></li>
+                                                    <li><a href="testimonial.html">Testimonial</a></li>
+                                                    <li><a href="comming-soon.html">Comming Soon</a></li>
+                                                    <li><a href="error-page.html">Error Page</a></li>
+                                                    <li><a href="terms.html">Terms &amp; Condition</a></li>
+                                                    <li><a href="privacy.html">Privacy &amp; Policy</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3>Services</h3>
+                                                <ul>
+                                                    <li><a href="services.html">Services</a></li>
+                                                    <li><a href="general-contracting.html">General Contracting</a></li>
+                                                    <li><a href="apartment-design.html">Apartment Design</a></li>
+                                                    <li><a href="metrial-managment.html">Metrial Managment</a></li>
+                                                    <li><a href="building-renovation.html">Building Renovation</a></li>
+                                                    <li><a href="building-construction.html">Building Construction</a></li>
+                                                    <li><a href="architecture-design.html">Architecture Design</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3>Informasi</h3>
+                                                <ul>
+                                                    <li><a href="blog.html">Our Blog</a></li>
+                                                    <li><a href="blog-classic.html">Blog Classic</a></li>
+                                                    <li><a href="blog-leftsidebar.html">Blog Left Sidebar</a></li>
+                                                    <li><a href="blog-rightsidebar.html">Blog Right Sidebar</a></li>
+                                                    <li><a href="news-detail.html">Blog Details</a></li>
+                                                    <li><a href="error-page.html">Error Page</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3>Our Shop</h3>
+                                                <ul>
+                                                    <li><a href="shop.html">Shop</a></li>
+                                                    <li><a href="shop-single.html">Shop Details</a></li>
+                                                    <li><a href="shoping-cart.html">Cart Page</a></li>
+                                                    <li><a href="checkout.html">Checkout Page</a></li>
+                                                    <li><a href="{{route('login')}}">Login</a></li>
+                                                    <li><a href="register.html">Register</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Blog</a>
+                                    <ul>
+                                        <li><a href="blog.html">Our Blog</a></li>
+                                        <li><a href="blog-classic.html">Blog Classic</a></li>
+                                        <li><a href="blog-leftsidebar.html">Blog Left Sidebar</a></li>
+                                        <li><a href="blog-rightsidebar.html">Blog Right Sidebar</a></li>
+                                        <li><a href="news-detail.html">Blog Details</a></li>
+                                        <li><a href="error-page.html">Error Page</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Shop</a>
+                                    <ul>
+                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="shop-single.html">Shop Details</a></li>
+                                        <li><a href="shoping-cart.html">Cart Page</a></li>
+                                        <li><a href="checkout.html">Checkout Page</a></li>
+                                        <li><a href="{{route('login')}}">Login</a></li>
+                                        <li><a href="{{route('register')}}">Register</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Contact</a>
+                                    <ul>
+                                        <li><a href="contact.html">Contact us 01</a></li>
+                                        <li><a href="contact-2.html">Contact us 02</a></li>
+                                        <li><a href="contact-3.html">Contact us 03</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
                              </ul>
                         </div>
                     </nav>
                     <!-- Main Menu End-->
-
                     <!-- Options Box -->
                     <div class="options-box clearfix">
-                        <?php if( $options->get('show_search_v1') ){ ?>
+
                         <!--Search Box-->
                         <div class="search-box-outer">
                             <div class="search-box-btn"><span class="fa fa-search"></span></div>
                         </div>
-                        <?php } ?>
 
-                        <?php if( $options->get('show_button_v1') ){ ?>
                         <div class="btn-box">
-                            <a href="<?php echo esc_url($options->get('button_link_v1')); ?>" class="theme-btn btn-style-one"><span class="txt"><?php echo wp_kses($options->get('button_name_v1'), $allowed_html); ?></span></a>
+                            <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Get A Quote</span></a>
                         </div>
-                        <?php } ?>
+
                     </div>
+
                 </div>
             </div>
         </div>
@@ -111,30 +247,178 @@
         <div class="auto-container clearfix">
             <!--Logo-->
             <div class="logo pull-left">
-                <?php echo montro_logo( $logo_type, $sticky_logo, $sticky_logo_dimension, $logo_text, $logo_typography ); ?>
+                <a href="index.html" title=""><img src="images/logo-small.png" alt="" title=""></a>
             </div>
             <!--Right Col-->
             <div class="pull-right">
                 <!-- Main Menu -->
                 <nav class="main-menu">
                     <!--Keep This Empty / Menu will come through Javascript-->
-                </nav><!-- Main Menu End-->
+
+                        <div class="navbar-header">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                            <ul class="navigation clearfix">
+                                <li class="current dropdown"><a href="#">Home</a>
+                                    <ul>
+                                        <li><a href="index.html">Homepage One</a></li>
+                                        <li><a href="index-2.html">Homepage Two</a></li>
+                                        <li><a href="index-3.html">Homepage Three</a></li>
+                                        <li class="updates">New Updates</li>
+                                        <li class="dropdown"><a href="#">One Pager Style</a>
+                                            <ul>
+                                                <li><a href="index-4.html">HomePage One</a></li>
+                                                <li><a href="index-5.html">HomePage Two</a></li>
+                                                <li><a href="index-6.html">HomePage Three</a></li>
+                                            </ul>
+                                        <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                        <li class="dropdown"><a href="#">Header Styles</a>
+                                            <ul>
+                                                <li><a href="index.html">Header Style One</a></li>
+                                                <li><a href="index-2.html">Header Style Two</a></li>
+                                                <li><a href="index-3.html">Header Style Three</a></li>
+                                            </ul>
+                                        <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">About us</a>
+                                    <ul>
+                                        <li><a href="about.html">About us</a></li>
+                                        <li><a href="faq.html">Faq's</a></li>
+                                        <li><a href="price.html">Price</a></li>
+                                        <li><a href="team.html">Team</a></li>
+                                        <li><a href="team-detail.html">Team Detail</a></li>
+                                        <li><a href="testimonial.html">Testimonial</a></li>
+                                        <li><a href="comming-soon.html">Comming Soon</a></li>
+                                        <li><a href="terms.html">Terms &amp; Condition</a></li>
+                                        <li><a href="privacy.html">Privacy &amp; Policy</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Services</a>
+                                    <ul>
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="general-contracting.html">General Contracting</a></li>
+                                        <li><a href="apartment-design.html">Apartment Design</a></li>
+                                        <li><a href="metrial-managment.html">Metrial Managment</a></li>
+                                        <li><a href="building-renovation.html">Building Renovation</a></li>
+                                        <li><a href="building-construction.html">Building Construction</a></li>
+                                        <li><a href="architecture-design.html">Architecture Design</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Projects</a>
+                                    <ul>
+                                        <li><a href="projects.html">Our Projects</a></li>
+                                        <li><a href="portfolio-two.html">Projects 02</a></li>
+                                            <li><a href="portfolio-three.html">Projects 03</a></li>
+                                        <li><a href="portfolio-detail.html">Projects Detail</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown has-mega-menu"><a href="#">Pages</a>
+                                    <div class="mega-menu">
+                                        <div class="mega-menu-bar row clearfix">
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3>About Us</h3>
+                                                <ul>
+                                                    <li><a href="about.html">About us</a></li>
+                                                    <li><a href="price.html">Price</a></li>
+                                                    <li><a href="faq.html">Faq's</a></li>
+                                                    <li><a href="team.html">Team</a></li>
+                                                    <li><a href="team-detail.html">Team Detail</a></li>
+                                                    <li><a href="testimonial.html">Testimonial</a></li>
+                                                    <li><a href="comming-soon.html">Comming Soon</a></li>
+                                                    <li><a href="error-page.html">Error Page</a></li>
+                                                    <li><a href="terms.html">Terms &amp; Condition</a></li>
+                                                    <li><a href="privacy.html">Privacy &amp; Policy</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3>Services</h3>
+                                                <ul>
+                                                    <li><a href="services.html">Services</a></li>
+                                                    <li><a href="general-contracting.html">General Contracting</a></li>
+                                                    <li><a href="apartment-design.html">Apartment Design</a></li>
+                                                    <li><a href="metrial-managment.html">Metrial Managment</a></li>
+                                                    <li><a href="building-renovation.html">Building Renovation</a></li>
+                                                    <li><a href="building-construction.html">Building Construction</a></li>
+                                                    <li><a href="architecture-design.html">Architecture Design</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3></h3>
+                                                <ul>
+                                                    <li><a href="blog.html">Our Blog</a></li>
+                                                    <li><a href="blog-classic.html">Blog Classic</a></li>
+                                                    <li><a href="blog-leftsidebar.html">Blog Left Sidebar</a></li>
+                                                    <li><a href="blog-rightsidebar.html">Blog Right Sidebar</a></li>
+                                                    <li><a href="news-detail.html">Blog Details</a></li>
+                                                    <li><a href="error-page.html">Error Page</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3>Our Shop</h3>
+                                                <ul>
+                                                    <li><a href="shop.html">Shop</a></li>
+                                                    <li><a href="shop-single.html">Shop Details</a></li>
+                                                    <li><a href="shoping-cart.html">Cart Page</a></li>
+                                                    <li><a href="checkout.html">Checkout Page</a></li>
+                                                    <li><a href="{{route('login')}}">Login</a></li>
+                                                    <li><a href="register.html">Register</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Informasi</a>
+                                    <ul>
+                                        <li><a href="blog.html">Our Blog</a></li>
+                                        <li><a href="blog-classic.html">Blog Classic</a></li>
+                                        <li><a href="blog-leftsidebar.html">Blog Left Sidebar</a></li>
+                                        <li><a href="blog-rightsidebar.html">Blog Right Sidebar</a></li>
+                                        <li><a href="news-detail.html">Blog Details</a></li>
+                                        <li><a href="error-page.html">Error Page</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Shop</a>
+                                    <ul>
+                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="shop-single.html">Shop Details</a></li>
+                                        <li><a href="shoping-cart.html">Cart Page</a></li>
+                                        <li><a href="checkout.html">Checkout Page</a></li>
+                                        <li><a href="{{route('login')}}">Login</a></li>
+                                        <li><a href="register.html">Register</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Contact</a>
+                                    <ul>
+                                        <li><a href="contact.html">Contact us 01</a></li>
+                                        <li><a href="contact-2.html">Contact us 02</a></li>
+                                        <li><a href="contact-3.html">Contact us 03</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                             </ul>
+                        </div>
+                    </nav><!-- Main Menu End-->
 
                 <!-- Options Box -->
                 <div class="options-box clearfix">
-                    <?php if( $options->get('show_search_v1') ){ ?>
+
                     <!--Search Box-->
                     <div class="search-box-outer">
                         <div class="search-box-btn"><span class="fa fa-search"></span></div>
                     </div>
-                    <?php } ?>
 
-                    <?php if( $options->get('show_button_v1') ){ ?>
                     <div class="btn-box">
-                        <a href="<?php echo esc_url($options->get('button_link_v1')); ?>" class="theme-btn btn-style-one"><span class="txt"><?php echo wp_kses($options->get('button_name_v1'), $allowed_html); ?></span></a>
+                        <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Get A Quote</span></a>
                     </div>
-                    <?php } ?>
+
                 </div>
+
             </div>
         </div>
     </div><!-- End Sticky Menu -->
@@ -144,83 +428,161 @@
         <div class="menu-backdrop"></div>
         <div class="close-btn"><span class="icon flaticon-multiply"></span></div>
 
-        <nav class="menu-box">
-            <div class="nav-logo"><?php echo montro_logo( $logo_type, $mobile_logo, $mobile_logo_dimension, $logo_text, $logo_typography ); ?></div>
+        <nav class="menu-box mCustomScrollbar _mCS_1 mCS_no_scrollbar"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 708px;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+            <div class="nav-logo"><a href="index.html"><img src="images/logo.png" alt="" title="" class="mCS_img_loaded"></a></div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-            </div>
-        </nav>
+
+                        <div class="navbar-header">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                            <ul class="navigation clearfix">
+                                <li class="current dropdown"><a href="#">Home</a>
+                                    <ul>
+                                        <li><a href="index.html">Homepage One</a></li>
+                                        <li><a href="index-2.html">Homepage Two</a></li>
+                                        <li><a href="index-3.html">Homepage Three</a></li>
+                                        <li class="updates">New Updates</li>
+                                        <li class="dropdown"><a href="#">One Pager Style</a>
+                                            <ul>
+                                                <li><a href="index-4.html">HomePage One</a></li>
+                                                <li><a href="index-5.html">HomePage Two</a></li>
+                                                <li><a href="index-6.html">HomePage Three</a></li>
+                                            </ul>
+                                        <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                        <li class="dropdown"><a href="#">Header Styles</a>
+                                            <ul>
+                                                <li><a href="index.html">Header Style One</a></li>
+                                                <li><a href="index-2.html">Header Style Two</a></li>
+                                                <li><a href="index-3.html">Header Style Three</a></li>
+                                            </ul>
+                                        <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">About us</a>
+                                    <ul>
+                                        <li><a href="about.html">About us</a></li>
+                                        <li><a href="faq.html">Faq's</a></li>
+                                        <li><a href="price.html">Price</a></li>
+                                        <li><a href="team.html">Team</a></li>
+                                        <li><a href="team-detail.html">Team Detail</a></li>
+                                        <li><a href="testimonial.html">Testimonial</a></li>
+                                        <li><a href="comming-soon.html">Comming Soon</a></li>
+                                        <li><a href="terms.html">Terms &amp; Condition</a></li>
+                                        <li><a href="privacy.html">Privacy &amp; Policy</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Services</a>
+                                    <ul>
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="general-contracting.html">General Contracting</a></li>
+                                        <li><a href="apartment-design.html">Apartment Design</a></li>
+                                        <li><a href="metrial-managment.html">Metrial Managment</a></li>
+                                        <li><a href="building-renovation.html">Building Renovation</a></li>
+                                        <li><a href="building-construction.html">Building Construction</a></li>
+                                        <li><a href="architecture-design.html">Architecture Design</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Projects</a>
+                                    <ul>
+                                        <li><a href="projects.html">Our Projects</a></li>
+                                        <li><a href="portfolio-two.html">Projects 02</a></li>
+                                            <li><a href="portfolio-three.html">Projects 03</a></li>
+                                        <li><a href="portfolio-detail.html">Projects Detail</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown has-mega-menu"><a href="#">Pages</a>
+                                    <div class="mega-menu">
+                                        <div class="mega-menu-bar row clearfix">
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3>About Us</h3>
+                                                <ul>
+                                                    <li><a href="about.html">About us</a></li>
+                                                    <li><a href="price.html">Price</a></li>
+                                                    <li><a href="faq.html">Faq's</a></li>
+                                                    <li><a href="team.html">Team</a></li>
+                                                    <li><a href="team-detail.html">Team Detail</a></li>
+                                                    <li><a href="testimonial.html">Testimonial</a></li>
+                                                    <li><a href="comming-soon.html">Comming Soon</a></li>
+                                                    <li><a href="error-page.html">Error Page</a></li>
+                                                    <li><a href="terms.html">Terms &amp; Condition</a></li>
+                                                    <li><a href="privacy.html">Privacy &amp; Policy</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3>Services</h3>
+                                                <ul>
+                                                    <li><a href="services.html">Services</a></li>
+                                                    <li><a href="general-contracting.html">General Contracting</a></li>
+                                                    <li><a href="apartment-design.html">Apartment Design</a></li>
+                                                    <li><a href="metrial-managment.html">Metrial Managment</a></li>
+                                                    <li><a href="building-renovation.html">Building Renovation</a></li>
+                                                    <li><a href="building-construction.html">Building Construction</a></li>
+                                                    <li><a href="architecture-design.html">Architecture Design</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3>Blog</h3>
+                                                <ul>
+                                                    <li><a href="blog.html">Our Blog</a></li>
+                                                    <li><a href="blog-classic.html">Blog Classic</a></li>
+                                                    <li><a href="blog-leftsidebar.html">Blog Left Sidebar</a></li>
+                                                    <li><a href="blog-rightsidebar.html">Blog Right Sidebar</a></li>
+                                                    <li><a href="news-detail.html">Blog Details</a></li>
+                                                    <li><a href="error-page.html">Error Page</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="column col-lg-3 col-md-4 col-sm-12">
+                                                <h3>Our Shop</h3>
+                                                <ul>
+                                                    <li><a href="shop.html">Shop</a></li>
+                                                    <li><a href="shop-single.html">Shop Details</a></li>
+                                                    <li><a href="shoping-cart.html">Cart Page</a></li>
+                                                    <li><a href="checkout.html">Checkout Page</a></li>
+                                                    <li><a href="{{route('login')}}">Login</a></li>
+                                                    <li><a href="register.html">Register</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Blog</a>
+                                    <ul>
+                                        <li><a href="blog.html">Our Blog</a></li>
+                                        <li><a href="blog-classic.html">Blog Classic</a></li>
+                                        <li><a href="blog-leftsidebar.html">Blog Left Sidebar</a></li>
+                                        <li><a href="blog-rightsidebar.html">Blog Right Sidebar</a></li>
+                                        <li><a href="news-detail.html">Blog Details</a></li>
+                                        <li><a href="error-page.html">Error Page</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Shop</a>
+                                    <ul>
+                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="shop-single.html">Shop Details</a></li>
+                                        <li><a href="shoping-cart.html">Cart Page</a></li>
+                                        <li><a href="checkout.html">Checkout Page</a></li>
+                                        <li><a href="{{route('login')}}">Login</a></li>
+                                        <li><a href="register.html">Register</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                <li class="dropdown"><a href="#">Contact</a>
+                                    <ul>
+                                        <li><a href="contact.html">Contact us 01</a></li>
+                                        <li><a href="contact-2.html">Contact us 02</a></li>
+                                        <li><a href="contact-3.html">Contact us 03</a></li>
+                                    </ul>
+                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                             </ul>
+                        </div>
+                    </div>
+        </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; height: 0px; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></nav>
     </div><!-- End Mobile Menu -->
 
 </header>
-<!-- End Main Header -->
-
-<?php if( $options->get('sidebar_info_v1') ){ ?>
-<!-- Sidebar Cart Item -->
-<div class="xs-sidebar-group info-group">
-    <div class="xs-overlay xs-bg-black"></div>
-    <div class="xs-sidebar-widget">
-        <div class="sidebar-widget-container">
-            <div class="widget-heading">
-                <a href="#" class="close-side-widget">
-                    X
-                </a>
-            </div>
-
-            <div class="sidebar-textwidget">
-                <!-- Sidebar Info Content -->
-                <div class="sidebar-info-contents">
-                    <div class="content-inner">
-                        <div class="logo">
-                            <?php echo montro_logo( $logo_type, $sidebar_logo, $sidebar_logo_dimension, $logo_text, $logo_typography ); ?>
-                        </div>
-                        <div class="content-box">
-                            <h2><?php echo wp_kses($options->get('sidebar_about_title_v1'), $allowed_html); ?></h2>
-                            <p class="text"><?php echo wp_kses($options->get('sidebar_about_text_v1'), $allowed_html); ?></p>
-
-                            <?php if( $options->get('show_sidebar_button_v1') ){ ?>
-                            <a href="<?php echo esc_url($options->get('sidebar_button_link_v1')); ?>" class="theme-btn btn-style-two"><span class="txt"><?php echo wp_kses($options->get('sidebar_button_name_v1'), $allowed_html); ?></span></a>
-                            <?php } ?>
-                        </div>
-                        <div class="contact-info">
-                            <h2><?php echo wp_kses($options->get('sidebar_contact_title_v1'), $allowed_html); ?></h2>
-                            <ul class="list-style-one">
-                                <?php if( $options->get('sidebar_address_v1') ){ ?>
-                                <li><span class="icon fa fa-location-arrow"></span><?php echo wp_kses($options->get('sidebar_address_v1'), $allowed_html); ?></li>
-                                <?php } ?>
-
-                                <?php if( $options->get('sidebar_phone_number_v1') ){ ?>
-                                <li><span class="icon fa fa-phone"></span><?php echo wp_kses($options->get('sidebar_phone_number_v1'), $allowed_html); ?></li>
-                                <?php } ?>
-
-                                <?php if( $options->get('sidebar_email_address_v1') ){ ?>
-                                <li><span class="icon fa fa-envelope"></span><?php echo sanitize_email($options->get('sidebar_email_address_v1')); ?></li>
-                                <?php } ?>
-
-                                <?php if( $options->get('sidebar_working_hours_v1') ){ ?>
-                                <li><span class="icon fa fa-clock-o"></span><?php echo wp_kses($options->get('sidebar_working_hours_v1'), $allowed_html); ?></li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-
-                        <?php if($options->get( 'show_sidebar_social_media_v1' )) {
-                        $icons = $options->get( 'icons_social_share' );
-                        if ( ! empty( $icons ) ) { ?>
-                        <!-- Social Box -->
-                        <ul class="social-box">
-                            <?php foreach ( $icons as $h_icon ) {
-                            $social_icons = json_decode( urldecode( montro_set( $h_icon, 'data' ) ) );
-                            if ( montro_set( $social_icons, 'enable' ) == '' ) {
-                                continue;
-                            }
-                            $icon_class = explode( '-', montro_set( $social_icons, 'icon' ) ); ?>
-                            <li><a href="<?php echo esc_url(montro_set( $social_icons, 'url' )); ?>" style="background-color:<?php echo esc_attr(montro_set( $social_icons, 'background' )); ?>; color: <?php echo esc_attr(montro_set( $social_icons, 'color' )); ?>" class="fa <?php echo esc_attr( montro_set( $social_icons, 'icon' ) ); ?>" aria-hidden="true" target="_blank"></a></li>
-                            <?php } ?>
-                        </ul>
-                        <?php } } ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

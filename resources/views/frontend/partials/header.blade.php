@@ -7,7 +7,7 @@
 
                 <!-- Logo Box -->
                 <div class="pull-left logo-box">
-                    <div class="logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
+                    <div class="logo"><a href="index.html"><img src="{{asset('assets_front/images/logo.png')}}" alt="" title=""></a></div>
                 </div>
 
                 <div class="pull-right upper-right clearfix">
@@ -91,43 +91,42 @@
                                             </ul>
                                         </li>
                                     </ul>
-<<<<<<< HEAD
-                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
+                                </li>
                                 <li class="dropdown"><a href="#">Profile</a>
                                     <ul>
                                         <li><a href="visimisi.html">Visi dan Misi</a></li>
-                                        <li><a href="Fakultas.html">Fakultas's</a></li>
+                                        <li><a href="Fakultas.html">Fakultas</a></li>
                                         <li><a href="Pimpinan.html">Pimpinan</a></li>
                                         <li><a href="Dosen.html">Dosen</a></li>
                                         <li><a href="Peg-administrasi.html">Tendik</a></li>
                                     </ul>
-                                    
-                                <div class="dropdown-btn"><span class="fa fa-angle-down"></span></div></li>
-=======
                                 </li>
-                                <li class="dropdown"><a href="#">About us</a>
+                                <li class="dropdown"><a href="#">Akademik</a>
                                     <ul>
-                                        <li><a href="about.html">About us</a></li>
-                                        <li><a href="faq.html">Faq's</a></li>
-                                        <li><a href="price.html">Price</a></li>
-                                        <li><a href="team.html">Team</a></li>
-                                        <li><a href="team-detail.html">Team Detail</a></li>
-                                        <li><a href="testimonial.html">Testimonial</a></li>
-                                        <li><a href="comming-soon.html">Comming Soon</a></li>
-                                        <li><a href="terms.html">Terms & Condition</a></li>
-                                        <li><a href="privacy.html">Privacy & Policy</a></li>
-                                    </ul>
-                                </li>
->>>>>>> f15a95f8aa2e025dbc9dd453bafbaa9374394805
-                                <li class="dropdown"><a href="#">Services</a>
-                                    <ul>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="general-contracting.html">General Contracting</a></li>
-                                        <li><a href="apartment-design.html">Apartment Design</a></li>
-                                        <li><a href="metrial-managment.html">Metrial Managment</a></li>
-                                        <li><a href="building-renovation.html">Building Renovation</a></li>
-                                        <li><a href="building-construction.html">Building Construction</a></li>
-                                        <li><a href="architecture-design.html">Architecture Design</a></li>
+                                        <li class="dropdown"><a href="Program-Sarjana.html">Program Sarjana</a>
+                                        <ul>
+                                            <li><a href="teknik_mesin.html">Teknik Mesin</a></li>
+                                            <li><a href="teknik_sipil.html">Teknik Sipil</a></li>
+                                            <li><a href="teknik_tambang.html">Teknik Pertambangan</a></li>
+                                            <li><a href="teknik_elektro.html">Teknik Elektro</a></li>
+                                            <li><a href="teknik_kimia.html">Teknik Kimia</a></li>
+                                            <li><a href="teknik_arsitektur.html">Teknik Arsitektur</a></li>
+                                            <li><a href="teknik_geologi.html">Teknik Geologi</a></li>
+                                        </ul>
+                                        <li class="dropdown"><a href="Program-Pascasarjana.html">Program Pascasarjana</a>
+                                        <ul>
+                                            <li><a href="teknik_psmesin.html">Teknik Mesin</a></li>
+                                            <li><a href="teknik_pssipil.html">Teknik Sipil</a></li>
+                                            <li><a href="teknik_pstambang.html">Teknik Pertambangan</a></li>
+                                            <li><a href="teknik_pskimia.html">Teknik Kimia</a></li>
+                                        </ul>
+                                        <li class="dropdown"><a href="Program-doktor.html">Program Doktor</a>
+                                        <ul>
+                                            <li><a href="ilmu_teknik.html">Ilmu Teknik</a></li>
+                                        </ul>
+                                        <li><a href="Laboratorium">Laboratorium</a></li>
+                                        <li><a href="Informasi-beasiswa.html">Informasi Beasiswa</a></li>
+                                        <li><a href="Tracert-study.html">Tracer Study</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a href="#">Projects</a>
