@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Carousel;
 
+
 class HomeController extends Controller
 {
 
@@ -16,7 +17,7 @@ class HomeController extends Controller
     public function index()
     {
         $carousels = Carousel::all();
-
+        // $categoryInformation = CategoryInformation::all();
         return view('frontend.home', compact('carousels'));
     }
 }

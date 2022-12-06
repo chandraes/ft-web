@@ -35,6 +35,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('pimpinan', App\Http\Controllers\Profile\PimpinanController::class)->except(['show']);
     Route::resource('dosen', App\Http\Controllers\Profile\DosenController::class)->except(['show']);
     Route::resource('pegawai', App\Http\Controllers\Profile\PegawaiController::class)->except(['show']);
+    
+    Route::resource('informasi', App\Http\Controllers\Information\InformationController::class)->except(['show']);
 
 
     Route::post('dosen/category', [App\Http\Controllers\Profile\DosenController::class, 'category'])->name('dosen.category');

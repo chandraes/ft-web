@@ -4,35 +4,29 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header border-bottom-0">
-                <h3 class="card-title">Profile {{ucfirst(request()->segment(2))}}</h3>
+                <h3 class="card-title">Add {{ucfirst(request()->segment(2))}}</h3>
             </div>
             <div class="card-body">
-                <form action="{{route('pimpinan.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('informasi.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-4">
-                        <label class="col-md-2 form-label">Nama</label>
+                        <label class="col-md-2 form-label">Kategori Informasi</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nama">
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <label class="col-md-2 form-label">Jabatan</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control @error('jabatan') is-invalid @enderror" name="jabatan" placeholder="Jabatan">
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <label class="col-md-2 form-label">Kategori Jabatan</label>
-                        <div class="col-md-10">
-                            <select name="category_pimpinan_id" class="form-control form-select @error('category_pimpinan_id')
+                            <select name="category_information_id" class="form-control form-select @error('category_information_id')
                             is-invalid
                             @enderror ">
-                                <option value="">Pilih Kategori Jabatan</option>
+                                <option value="">Pilih Kategori Informasi</option>
                                 @foreach ($category as $c)
                                 <option value="{{$c->id}}">{{$c->name}}</option>
                                 @endforeach
                             </select>
 
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label class="col-md-2 form-label">Title</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Nama">
                         </div>
                     </div>
                     <div class="row mb-4">

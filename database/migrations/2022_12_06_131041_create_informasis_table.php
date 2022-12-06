@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('category_information', function (Blueprint $table) {
+        Schema::create('informasis', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('category_information_id')->constrained('category_information');
+            $table->string('title');
+            $table->string('image')->default('/images/informasi/default.png');
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_information');
+        Schema::dropIfExists('informasis');
     }
 };

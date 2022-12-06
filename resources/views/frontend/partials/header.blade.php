@@ -1,3 +1,7 @@
+@php
+    $categoryInformations = App\Models\Informasi\CategoryInformation::all();
+@endphp
+
 <header class="main-header header-style-one">
 
     <!--Header-Upper-->
@@ -110,12 +114,11 @@
                                         <li><a href="Tracert-study.html">Tracer Study</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Projects</a>
+                                <li class="dropdown"><a href="#">Informasi</a>
                                     <ul>
-                                        <li><a href="projects.html">Our Projects</a></li>
-                                        <li><a href="portfolio-two.html">Projects 02</a></li>
-                                            <li><a href="portfolio-three.html">Projects 03</a></li>
-                                        <li><a href="portfolio-detail.html">Projects Detail</a></li>
+                                        @foreach ($categoryInformations as $c)
+                                        <li><a href="#">{{$c->name}}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li class="dropdown has-mega-menu"><a href="#">Pages</a>
