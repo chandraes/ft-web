@@ -70,27 +70,8 @@
 
                         <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
-                                <li class="current dropdown"><a href="#">Home</a>
-                                    <ul>
-                                        <li><a href="index.html">Homepage One</a></li>
-                                        <li><a href="index-2.html">Homepage Two</a></li>
-                                        <li><a href="index-3.html">Homepage Three</a></li>
-                                        <li class="updates">New Updates</li>
-                                        <li class="dropdown"><a href="#">One Pager Style</a>
-                                            <ul>
-                                                <li><a href="index-4.html">HomePage One</a></li>
-                                                <li><a href="index-5.html">HomePage Two</a></li>
-                                                <li><a href="index-6.html">HomePage Three</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Header Styles</a>
-                                            <ul>
-                                                <li><a href="index.html">Header Style One</a></li>
-                                                <li><a href="index-2.html">Header Style Two</a></li>
-                                                <li><a href="index-3.html">Header Style Three</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                <li class="current"><a href="{{route('home')}}">Home</a>
+
                                 </li>
                                 <li class="dropdown"><a href="#">Profile</a>
                                     <ul>

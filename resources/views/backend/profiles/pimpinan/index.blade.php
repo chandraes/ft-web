@@ -32,14 +32,13 @@
                             @foreach ($data as $d)
                             <tr>
                                 <td class="text-center align-middle" align="center">
-                                    {{$d->category->name}}
+                                    {{$d->category_name}}
                                 </td>
                                 <td class="align-middle">{{$d->name}}</td>
                                 <td class="align-middle">{{$d->jabatan}}</td>
-                                <td class="align-middle">{!! substr($d->description, 0, 100). ".........." !!}</td>
+                                <td class="align-middle">{!! $d->description !!}</td>
                                 <td class="text-center align-center">
                                     <span class="avatar avatar-xxl bradius cover-image" data-bs-image-src="{{asset($d->image)}}" style="background: url(&quot;{{asset($d->image)}}&quot;) center center;"></span>
-
                                 </td>
                                 <td align="center">
                                     <div class="row">

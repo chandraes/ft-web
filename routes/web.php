@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('leader', [App\Http\Controllers\frontend\PimpinanController::class, 'index'])->name('leader');
+Route::get('leader/{id}', [App\Http\Controllers\frontend\PimpinanController::class, 'detail'])->name('detail-leader');
 
 
 Auth::routes([
@@ -28,8 +29,6 @@ Route::prefix('admin')->group(function () {
     Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('users', App\Http\Controllers\UserController::class)->except(['show']);
-
-    Route::resource('profiles', App\Http\Controllers\ProfileCompController::class)->except(['show']);
     Route::resource('visi', App\Http\Controllers\Profile\VisiController::class)->except(['show']);
     Route::resource('fakultas', App\Http\Controllers\Profile\FakultasController::class)->except(['show']);
     Route::resource('carousel', App\Http\Controllers\CarouselController::class)->except(['show']);

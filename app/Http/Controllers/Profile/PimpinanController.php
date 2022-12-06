@@ -18,7 +18,9 @@ class PimpinanController extends Controller
      */
     public function index()
     {
-        $data = Pimpinan::all();
+        $data = Pimpinan::join('category_pimpinans', 'category_pimpinans.id', '=', 'pimpinans.category_pimpinan_id')
+            ->select('pimpinans.*', 'category_pimpinans.name as category_name')
+            ->get();
 
         return view('backend.profiles.pimpinan.index', compact('data'));
     }

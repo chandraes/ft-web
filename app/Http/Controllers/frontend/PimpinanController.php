@@ -11,7 +11,13 @@ class PimpinanController extends Controller
     public function index()
     {
         $pimpinans = Pimpinan::all();
-        return view('frontend.pimpinan', compact('pimpinans'));
+        return view('frontend.pimpinan.index', compact('pimpinans'));
+    }
+
+    public function detail($id)
+    {
+        $pimpinan = Pimpinan::findOrFail($id);
+        return view('frontend.pimpinan.detail', compact('pimpinan'));
     }
 
 }
