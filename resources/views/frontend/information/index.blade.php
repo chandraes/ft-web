@@ -44,6 +44,7 @@
 
                     <!--Styled Pagination-->
                     <ul class="styled-pagination text-center">
+                        {{$information->links()}}
                         <li class="prev"><a href="#"><span class="fa fa-angle-double-left"></span> Prev</a></li>
                         <li><a href="#">1</a></li>
                         <li><a href="#" class="active">2</a></li>
