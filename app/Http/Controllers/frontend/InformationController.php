@@ -20,4 +20,15 @@ class InformationController extends Controller
         $information = Informasi::find($id);
         return view('frontend.information.detail', compact('information'));
     }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->validate([
+            'keyword' => 'required|min:1'
+        ]);
+
+        $information = Informasi::whereFullText('title', $keyword)->paginate(5);
+
+        return view('frontend.information.index', compact('information'));
+    }
 }

@@ -12,9 +12,10 @@
                 <div class="sidebar-title">
                     <h4>Search</h4>
                 </div>
-                <form method="post" action="contact.html">
+                <form method="post" action="{{route('search')}}">
+                    @csrf
                     <div class="form-group">
-                        <input type="search" name="search-field" value="" placeholder="Search Here"
+                        <input type="search" name="keyword" value="" placeholder="Search Here"
                             required>
                         <button type="submit"><span class="icon fa fa-search"></span></button>
                     </div>

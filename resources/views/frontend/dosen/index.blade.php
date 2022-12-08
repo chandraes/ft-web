@@ -27,7 +27,7 @@
                     <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <div class="pattern-layer" style="background-image:url({{asset($d->image)}})"></div>
                         <div class="image">
-                            <a href="{{route('detail-employee', ['id'=> $d->id])}}"><img src="{{asset($d->image)}}" style="height: 300px"/></a>
+                            <a href="{{route('detail-employee', ['id'=> $d->id])}}"><img src="{{asset($d->image)}}"/></a>
                             <!-- Social Box -->
                             {{-- <ul class="social-box">
 								<li><a href="https://www.facebook.com/" class="fa fa-facebook-f"></a></li>

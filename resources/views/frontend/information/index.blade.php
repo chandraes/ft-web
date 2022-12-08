@@ -4,7 +4,12 @@
     <div class="auto-container">
         <ul class="page-breadcrumb">
             <li><a href="{{route('home')}}">home</a></li>
+            @if (request()->routeIs('search'))
+            <li>Search</li>
+            @else
             <li>{{request()->segment(3)}}</li>
+            @endif
+
         </ul>
         <h2>{{request()->segment(3)}}</h2>
     </div>

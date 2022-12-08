@@ -6,7 +6,7 @@
 <section class="main-slider">
     <div class="main-slider-carousel owl-carousel owl-theme">
 
-        <div class="slide" style="background-image:url({{$c->image}})">
+        <div class="slide" style="background-image:url({{$c->image}}); height: 600px">
             <div class="auto-container">
                 <div class="row clearfix">
                     <!-- Content Column -->
@@ -26,18 +26,9 @@
                                                 class="ripple"></i></span></a>
                                     See Our Achivity
                                 </div> --}}
-                            </div> --}}
+                            {{-- </div> --}}
                         </div>
                     </div>
-
-                    <!-- Image Column -->
-                    {{-- <div class="image-column col-lg-5 cl-md-12 col-sm-12">
-                        <div class="inner-column">
-                            <div class="image">
-                                <img src="{{asset('assets_front/images/main-slider/content-image-1.png')}}" alt="" />
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>

@@ -1,7 +1,29 @@
-<!-- Main Footer -->
+@php
+     $last = App\Models\Informasi\Informasi::latest()->take(2)->get();
+@endphp
+
+<!-- Clients Section -->
+<section class="clients-section">
+    <div class="auto-container">
+        <div class="sponsors-outer">
+            <!-- Sponsors Carousel -->
+            <ul class="sponsors-carousel owl-carousel owl-theme">
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/1.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/2.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/3.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/4.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/5.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/1.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/2.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/3.png" alt=""></a></figure></li>
+            </ul>
+        </div>
+
+    </div>
+</section>
 <footer class="main-footer" style="background-image:url({{asset('images/background-footer.jpg')}})">
     <div class="side-image">
-        <img src="{{asset('assets_front/images/resource/footer-image.png')}}" alt="" />
+        {{-- <img src="{{asset('assets_front/images/resource/footer-image.png')}}" alt="" /> --}}
     </div>
     <div class="auto-container">
         <!--Widgets Section-->
@@ -31,17 +53,13 @@
                                 <h4>Resent Post</h4>
                                 <!-- Footer Column -->
                                 <div class="widget-content">
+                                    @foreach ($last as $l)
                                     <div class="post">
-                                        <div class="thumb"><a href="news-detail.html"><img src="images/resource/post-thumb-1.jpg" alt=""></a></div>
-                                        <h6><a href="news-detail.html">Commercial design for project</a></h6>
-                                        <span class="date">August 1, 2021</span>
+                                        <div class="thumb"><a href="news-detail.html"><img src="{{asset($l->image)}}" alt=""></a></div>
+                                        <h6><a href="news-detail.html">{{$l->title}}</a></h6>
+                                        <span class="date">{{date_format($l->created_at, "F d, Y")}}</span>
                                     </div>
-
-                                    <div class="post">
-                                        <div class="thumb"><a href="news-detail.html"><img src="images/resource/post-thumb-2.jpg" alt=""></a></div>
-                                        <h6><a href="news-detail.html">Guide to remodeling your building.</a></h6>
-                                        <span class="date">August 1, 2021</span>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -91,18 +109,18 @@
             <div class="row clearfix">
                 <!-- Column -->
                 <div class="column col-lg-6 col-md-12 col-sm-12">
-                    <div class="copyright">Copyright &copy; 2021 <a href="https://themeforest.net/user/noor_tech">Kanstr</a> All rights reserved.</div>
+                    <div class="copyright">Copyright &copy; 2022 <a href="#">Fakultas Teknik UNSRI</a> All rights reserved.</div>
                 </div>
                 <!-- Column -->
                 <div class="column col-lg-6 col-md-12 col-sm-12">
                     <!-- Social Box -->
-                    <ul class="social-box">
+                    {{-- <ul class="social-box">
                         <li><a href="https://www.facebook.com/" class="fa fa-facebook-f"></a></li>
                         <li><a href="https://www.twitter.com/" class="fa fa-twitter"></a></li>
                         <li><a href="https://www.linkedin.com/" class="fa fa-linkedin"></a></li>
                         <li><a href="https://www.instagram.com/" class="fa fa-instagram"></a></li>
                         <li><a href="https://www.youtube.com/" class="fa fa-youtube-play"></a></li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </div>
