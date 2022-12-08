@@ -5,9 +5,9 @@
     <div class="auto-container">
         <ul class="page-breadcrumb">
             <li><a href="{{route('home')}}">home</a></li>
-            <li>{{__('Karyawan')}}</li>
+            <li>{{__('Dosen')}}</li>
         </ul>
-        <h2>{{__('Pimpinan Staff Kepegawaian')}}</h2>
+        <h2>{{__('Dosen')}}</h2>
     </div>
 </section>
 <!-- End Page Title -->
@@ -18,16 +18,16 @@
         <!-- Sec Title -->
         <div class="sec-title centered">
             <div class="title"><span class="separator"></span>Our Leader<span class="separator-two"></span></div>
-            <h2>Staff Kepegawaian</h2>
+            <h2>Dosen</h2>
         </div>
         <div class="row clearfix aligns-items-center justify-content-center">
             <!-- Team Block -->
-            @foreach ($pegawais as $e)
+            @foreach ($dosens as $d)
                 <div class="team-block col-lg-4 col-md-6 col-sm-12 ">
                     <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="pattern-layer" style="background-image:url({{asset($e->image)}})"></div>
+                        <div class="pattern-layer" style="background-image:url({{asset($d->image)}})"></div>
                         <div class="image">
-                            <a href="{{route('detail-employee', ['id'=> $e->id])}}"><img src="{{asset($e->image)}}" style="height: 300px"/></a>
+                            <a href="{{route('detail-employee', ['id'=> $d->id])}}"><img src="{{asset($d->image)}}" style="height: 300px"/></a>
                             <!-- Social Box -->
                             {{-- <ul class="social-box">
 								<li><a href="https://www.facebook.com/" class="fa fa-facebook-f"></a></li>
@@ -38,8 +38,8 @@
 							</ul> --}}
                         </div>
                         <div class="lower-content">
-                            <h4><a href="{{route('detail-employee', ['id'=> $e->id])}}">{{$e->name}}</a></h4>
-                            <div class="designation">{{$e->jabatan}}</div>
+                            <h4><a href="{{route('detail-employee', ['id'=> $d->id])}}">{{$d->name}}</a></h4>
+                            <div class="designation">{{$d->jabatan}}</div>
                         </div>
                     </div>
                 </div>

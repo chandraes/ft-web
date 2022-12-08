@@ -17,21 +17,25 @@
             <!-- Content Side -->
             <div class="content-side col-lg-8 col-md-12 col-sm-12">
                 <div class="blog-classic">
+                    @if ($information->count() == 0)
+                    <h2>Nothing to Show ...</h2>
+                    @endif
                     @foreach ($information as $d)
                     <div class="news-block-four">
                         <div class="inner-box">
                             <div class="image">
-                                <a href="news-detail.html"><img src="{{asset($d->image)}}" /></a>
+                                <a href="{{route('detail-information', $d->id)}}"><img src="{{asset($d->image)}}" /></a>
                                 <div class="post-date">{{date_format($d->created_at, "d")}}
-                                    <br><span>{{date_format($d->created_at, "M/y")}}</span></div>
+                                    <br><span>{{date_format($d->created_at, "M/y")}}</span>
+                                </div>
                             </div>
                             <div class="lower-content mt-3">
-                                <h3><a href="news-detail.html">{{$d->title}}</a></h3>
+                                <h3><a href="{{route('detail-information', $d->id)}}">{{$d->title}}</a></h3>
                                 <div class="text mb-6">
                                     @php
                                     @endphp
                                 </div>
-                                <a class="read-more mt-6" href="news-detail.html">Read More</a>
+                                <a class="read-more mt-6" href="{{route('detail-information', $d->id)}}">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -40,101 +44,15 @@
 
 
                     <!-- News Block Four -->
-
-
-                    <!--Styled Pagination-->
-                    <ul class="styled-pagination text-center">
-                        {{$information->links()}}
-                        <li class="prev"><a href="#"><span class="fa fa-angle-double-left"></span> Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#" class="active">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li class="next"><a href="#">Next <span class="fa fa-angle-double-right"></span></a></li>
-                    </ul>
-                    <!--End Styled Pagination-->
+                    <div class="text-center align-middle">
+                        {{ $information->links() }}
+                    </div>
 
                 </div>
             </div>
 
             <!-- Sidebar Side -->
-            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
-                <aside class="sidebar sticky-top">
-
-                    <!-- Search Widget -->
-                    <div class="sidebar-widget search-box">
-                        <div class="widget-content">
-                            <div class="sidebar-title">
-                                <h4>Search</h4>
-                            </div>
-                            <form method="post" action="contact.html">
-                                <div class="form-group">
-                                    <input type="search" name="search-field" value="" placeholder="Search Here"
-                                        required>
-                                    <button type="submit"><span class="icon fa fa-search"></span></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Categories Widget -->
-                    <div class="sidebar-widget categories-widget">
-                        <div class="widget-content">
-                            <div class="sidebar-title">
-                                <h4>Categories</h4>
-                            </div>
-                            <ul class="blog-cat">
-                                <li><a href="portfolio-detail.html">General Contracting <span>( 01 )</span></a></li>
-                                <li><a href="portfolio-detail.html">Apartment Design <span>( 25 )</span></a></li>
-                                <li><a href="portfolio-detail.html">Metrial Managment <span>( 66 )</span></a></li>
-                                <li><a href="portfolio-detail.html">Building Renovation <span>( 12 )</span></a></li>
-                                <li><a href="portfolio-detail.html">Building Construction <span>( 11 )</span></a></li>
-                                <li><a href="portfolio-detail.html">Architecture Design <span>( 02 )</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Posts Widget -->
-                    <div class="sidebar-widget popular-posts">
-                        <div class="widget-content">
-                            <div class="sidebar-title">
-                                <h4>Popular Articles</h4>
-                            </div>
-                            <article class="post">
-                                <figure class="post-thumb"><img src="images/resource/post-thumb-3.jpg" alt=""><a
-                                        href="news-detail.html" class="overlay-box"><span
-                                            class="icon fa fa-link"></span></a></figure>
-                                <div class="text"><a href="news-detail.html">Commercial design for project</a></div>
-                                <div class="post-info">November 21, 2021</div>
-                            </article>
-                            <article class="post">
-                                <figure class="post-thumb"><img src="images/resource/post-thumb-4.jpg" alt=""><a
-                                        href="news-detail.html" class="overlay-box"><span
-                                            class="icon fa fa-link"></span></a></figure>
-                                <div class="text"><a href="news-detail.html">Guide to remodeling your building.</a>
-                                </div>
-                                <div class="post-info">November 28, 2021</div>
-                            </article>
-                            <article class="post">
-                                <figure class="post-thumb"><img src="images/resource/post-thumb-5.jpg" alt=""><a
-                                        href="news-detail.html" class="overlay-box"><span
-                                            class="icon fa fa-link"></span></a></figure>
-                                <div class="text"><a href="news-detail.html">Best factory award of the year 2021</a>
-                                </div>
-                                <div class="post-info">December 04, 2021</div>
-                            </article>
-                            <article class="post">
-                                <figure class="post-thumb"><img src="images/resource/post-thumb-6.jpg" alt=""><a
-                                        href="news-detail.html" class="overlay-box"><span
-                                            class="icon fa fa-link"></span></a></figure>
-                                <div class="text"><a href="news-detail.html">What are the benefits of Leed
-                                        certification?</a></div>
-                                <div class="post-info">December 04, 2021</div>
-                            </article>
-                        </div>
-                    </div>
-
-                </aside>
-            </div>
+            @include('frontend.information.inc.side')
 
         </div>
     </div>

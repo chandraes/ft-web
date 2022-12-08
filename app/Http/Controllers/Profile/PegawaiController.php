@@ -43,7 +43,7 @@ class PegawaiController extends Controller
             'name' => 'required|min:3',
             'jabatan' => 'nullable',
             'description' => 'nullable',
-            'image' => 'nullable',
+            'image' => 'nullable|mimes:png,jpg,jpeg',
         ]);
 
         if ($request->hasFile('image')) {
@@ -84,7 +84,7 @@ class PegawaiController extends Controller
             'name' => 'required|min:3',
             'jabatan' => 'required|min:3',
             'description' => 'nullable',
-            'image' => 'nullable',
+            'image' => 'nullable|mimes:jpeg,jpg,png',
         ]);
 
         $pegawai = Pegawai::findOrFail($id);
@@ -96,7 +96,7 @@ class PegawaiController extends Controller
             $image->move($destinationPath, $name);
             $data['image'] = '/images/pegawai/'.$name;
 
-            $image_old = public_path($db->image);
+            $image_old = public_path($pegawai->image);
             if (file_exists($image_old)) {
             //delete image from folder
              File::delete($image_old);

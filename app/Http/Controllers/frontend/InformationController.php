@@ -12,7 +12,12 @@ class InformationController extends Controller
     public function index($id, $name)
     {
         $information = Informasi::where('category_information_id', $id)->paginate(5);
-        // dd($information);
         return view('frontend.information.index', compact('information'));
+    }
+
+    public function detail($id)
+    {
+        $information = Informasi::find($id);
+        return view('frontend.information.detail', compact('information'));
     }
 }

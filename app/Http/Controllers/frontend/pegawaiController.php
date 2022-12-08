@@ -15,5 +15,9 @@ class pegawaiController extends Controller
         return view('frontend.pegawai.index', compact('pegawais'));
     }
 
-
+    public function detail($id)
+    {
+        $pegawai = Pegawai::findOrFail($id);
+        return view('frontend.pegawai.detailpeg', compact('pegawai'));
+    }
 }

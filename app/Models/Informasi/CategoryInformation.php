@@ -15,8 +15,8 @@ class CategoryInformation extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function information(): HasMany
+    public function information()
     {
-        return $this->hasMany(Informasi::class,'category_information_id','id');
+        return $this->hasMany(Informasi::class,'category_information_id', 'id');
     }
 }

@@ -87,7 +87,7 @@
                                         <li><a href="{{route('vision')}}">Visi dan Misi</a></li>
                                         <li><a href="Fakultas.html">Fakultas</a></li>
                                         <li><a href="{{route('leader')}}">Pimpinan</a></li>
-                                        <li><a href="Dosen.html">Dosen</a></li>
+                                        <li><a href="{{route('dosen')}}">Dosen</a></li>
                                         <li><a href="{{route('employee')}}">Tendik</a></li>
                                     </ul>
                                 </li>
@@ -119,7 +119,7 @@
                                         <li><a href="Tracert-study.html">Tracer Study</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown @if (request()->routeIs('information'))
+                                <li class="dropdown @if (request()->routeIs('information') || request()->routeIs('detail-information'))
                                     current
                                 @endif"><a href="#">Informasi</a>
                                     <ul>
