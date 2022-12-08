@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Informasi\CategoryInformation;
 use App\Models\Informasi\Informasi;
+use Illuminate\Support\Facades\File;
 use Ramsey\Uuid\Uuid;
 
 class InformationController extends Controller
@@ -60,7 +61,7 @@ class InformationController extends Controller
         }
 
         Informasi::create($data);
-        return redirect()->route('information.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('informasi.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -94,6 +95,14 @@ class InformationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Informasi::find($id);
+
+        $image_path = public_path($data->image);
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $data->delete();
+
+        return redirect()->route('informasi.index')->with('success', 'Data berhasil dihapus');
     }
 }

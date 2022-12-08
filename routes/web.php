@@ -18,7 +18,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get('leader', [App\Http\Controllers\frontend\PimpinanController::class, 'index'])->name('leader');
 Route::get('leader/{id}', [App\Http\Controllers\frontend\PimpinanController::class, 'detail'])->name('detail-leader');
-
+Route::get('vision', [App\Http\Controllers\frontend\visimisiController::class, 'index'])->name('vision');
+Route::get('information/{id}/{name}', [App\Http\Controllers\frontend\InformationController::class, 'index'])->name('information');
+Route::get('employee', [App\Http\Controllers\frontend\pegawaiController::class, 'index'])->name('employee');
 
 Auth::routes([
     'register' => false
@@ -35,7 +37,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('pimpinan', App\Http\Controllers\Profile\PimpinanController::class)->except(['show']);
     Route::resource('dosen', App\Http\Controllers\Profile\DosenController::class)->except(['show']);
     Route::resource('pegawai', App\Http\Controllers\Profile\PegawaiController::class)->except(['show']);
-    
+
     Route::resource('informasi', App\Http\Controllers\Information\InformationController::class)->except(['show']);
 
 

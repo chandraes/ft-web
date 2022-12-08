@@ -5,33 +5,31 @@
     <div class="auto-container">
         <ul class="page-breadcrumb">
             <li><a href="{{route('home')}}">home</a></li>
-            <li>Leader</li>
         </ul>
-        <h2>Pimpinan</h2>
+        <h2>Visi & Misi</h2>
     </div>
 </section>
 <!-- End Page Title -->
 
-<!-- Page Title -->
-<section class="page-title" style="background-image: url(images/background/7.jpg)">
-    <div class="auto-container">
-        <ul class="page-breadcrumb">
-            <li><a href="index.html">home</a></li>
-        </ul>
-        <h2>Visi Misi</h2>
-    </div>
-</section>
-
-!-- Privacy Section -->
+<!-- Privacy Section -->
 	<section class="privacy-section">
 		<div class="auto-container">
-			<!-- Privacy Content -->
-			<div class="privacy-content">
-				<h2>Visi Misi</h2>
-            </div>
+            <!-- Privacy Content -->
+            @foreach ($visis as $v)
+            <div class="privacy-content">
+                <div class="row clearfix">
+                    <!-- Content Column -->
+                    <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                        <div class="inner-column">
 
-
-    <!--- Belom selesai -->
+                            <div class="text">
+                                {!!$v->visi!!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+    </section>
 
 @endsection
 

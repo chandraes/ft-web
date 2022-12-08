@@ -38,7 +38,7 @@
                             @foreach ($data as $d)
                             <tr>
                                 <td class="text-center align-middle" align="center">
-                                    {{$d->category->name}}
+                                    {{$d->jurusan_prodi}}
                                 </td>
                                 <td class="align-middle">{{$d->name}}</td>
                                 <td class="align-middle">{!! substr($d->description, 0, 100). ".........." !!}</td>

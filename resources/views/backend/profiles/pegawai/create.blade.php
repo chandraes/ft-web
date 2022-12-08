@@ -7,7 +7,7 @@
                 <h3 class="card-title">Profile {{ucfirst(request()->segment(1))}}</h3>
             </div>
             <div class="card-body">
-                <form action="{{route('pimpinan.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('pegawai.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Nama</label>

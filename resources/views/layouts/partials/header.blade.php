@@ -3,15 +3,15 @@
         <div class="d-flex align-items-center">
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0);"></a>
             <div class="responsive-logo">
-                <a href="index.html" class="header-logo">
-                    <img src="{{asset('assets/images/brand/logo-3.png')}}" class="mobile-logo logo-1" alt="logo">
-                    <img src="{{asset('assets/images/brand/logo.png')}}" class="mobile-logo dark-logo-1" alt="logo">
+                <a href="{{route('dashboard')}}" class="header-logo">
+                    <img src="{{asset('images/ft-logo.png')}}" class="mobile-logo logo-1" alt="logo">
+                    <img src="{{asset('images/ft-logo.png')}}" class="mobile-logo dark-logo-1" alt="logo">
                 </a>
             </div>
             <!-- sidebar-toggle-->
-            <a class="logo-horizontal " href="index.html">
-                <img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
-                <img src="{{asset('assets/images/brand/logo-3.png')}}" class="header-brand-img light-logo1"
+            <a class="logo-horizontal " href="{{route('dashboard')}}">
+                <img src="{{asset('images/ft-logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
+                <img src="{{asset('images/ft-logo.png')}}" class="header-brand-img light-logo1"
                     alt="logo">
             </a>
             <!-- LOGO -->

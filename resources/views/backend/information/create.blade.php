@@ -30,12 +30,12 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-md-2 form-label">Image</label>
+                        <label class="col-md-2 form-label">Cover Image</label>
                         <div class="form-group col-md-10">
                             <input class="form-control" type="file" name="image">
                         </div>
                     </div>
-                    <textarea class="content" name="description"></textarea>
+                    <textarea class="content" name="content"></textarea>
                     <div class="row mt-4">
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 btn-list">

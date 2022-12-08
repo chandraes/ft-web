@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Profiles\Dosen;
 use App\Models\Profiles\CategoryDosen;
+use Illuminate\Support\Facades\File;
+use Ramsey\Uuid\Uuid;
 
 class DosenController extends Controller
 {
@@ -17,7 +19,9 @@ class DosenController extends Controller
     public function index()
     {
         $category = CategoryDosen::all();
-        $data = Dosen::all();
+        $data = Dosen::join('category_dosens', 'category_dosens.id', '=', 'dosens.category_dosen_id')
+            ->select('dosens.*', 'category_dosens.jurusan_prodi')
+            ->get();
         return view('backend.profiles.dosen.index', compact('data', 'category'));
     }
 
@@ -40,7 +44,24 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|min:3',
+            'category_dosen_id' => 'required',
+            'description' => 'nullable',
+            'image' => 'nullable',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/dosen');
+            $image->move($destinationPath, $name);
+            $data['image'] = '/images/dosen/'.$name;
+        }
+
+        Dosen::create($data);
+
+        return redirect()->route('dosen.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -51,7 +72,9 @@ class DosenController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = CategoryDosen::all();
+        $data = Dosen::find($id);
+        return view('backend.profiles.dosen.edit', compact('data', 'category'));
     }
 
     /**
@@ -63,7 +86,30 @@ class DosenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|min:3',
+            'category_dosen_id' => 'required',
+            'description' => 'nullable',
+            'image' => 'nullable',
+        ]);
+
+        $dosen = Dosen::find($id);
+
+        if ($request->hasFile('image')) {
+            $image_path = public_path($dosen->image);
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $image = $request->file('image');
+            $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/dosen');
+            $image->move($destinationPath, $name);
+            $data['image'] = '/images/dosen/'.$name;
+        }
+
+        $dosen->update($data);
+
+        return redirect()->route('dosen.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -74,7 +120,14 @@ class DosenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dosen = Dosen::find($id);
+        $image_path = public_path($dosen->image);
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $dosen->delete();
+
+        return redirect()->route('dosen.index')->with('success', 'Data berhasil dihapus');
     }
 
     public function category(Request $request)

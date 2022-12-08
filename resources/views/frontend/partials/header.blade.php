@@ -11,7 +11,7 @@
 
                 <!-- Logo Box -->
                 <div class="pull-left logo-box">
-                    <div class="logo"><a href="index.html"><img src="{{asset('assets_front/images/logo.png')}}" alt="" title=""></a></div>
+                    <div class="logo"><a href="{{route('home')}}"><img src="{{asset('images/ft-logo.png')}}" alt="ft-logo" title="FT-Logo" width="200"></a></div>
                 </div>
 
                 <div class="pull-right upper-right clearfix">
@@ -74,16 +74,21 @@
 
                         <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
-                                <li class="current"><a href="{{route('home')}}">Home</a>
+                                <li class="@if (request()->routeIs('home'))
+                                    current
+                                @endif"><a href="{{route('home')}}">Home</a>
 
                                 </li>
-                                <li class="dropdown"><a href="#">Profile</a>
+                                <li class="dropdown
+                                @if (request()->routeIs('vision') || request()->routeIs('leader'))
+                                    current
+                                @endif"><a href="#">Profile</a>
                                     <ul>
-                                        <li><a href="visimisi.html">Visi dan Misi</a></li>
+                                        <li><a href="{{route('vision')}}">Visi dan Misi</a></li>
                                         <li><a href="Fakultas.html">Fakultas</a></li>
                                         <li><a href="{{route('leader')}}">Pimpinan</a></li>
                                         <li><a href="Dosen.html">Dosen</a></li>
-                                        <li><a href="Peg-administrasi.html">Tendik</a></li>
+                                        <li><a href="{{route('employee')}}">Tendik</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a href="#">Akademik</a>
@@ -114,14 +119,16 @@
                                         <li><a href="Tracert-study.html">Tracer Study</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Informasi</a>
+                                <li class="dropdown @if (request()->routeIs('information'))
+                                    current
+                                @endif"><a href="#">Informasi</a>
                                     <ul>
                                         @foreach ($categoryInformations as $c)
-                                        <li><a href="#">{{$c->name}}</a></li>
+                                        <li><a href="{{route('information', ['id'=> $c->id, 'name'=> $c->name])}}">{{$c->name}}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li class="dropdown has-mega-menu"><a href="#">Pages</a>
+                                {{-- <li class="dropdown has-mega-menu"><a href="#">Pages</a>
                                     <div class="mega-menu">
                                         <div class="mega-menu-bar row clearfix">
                                             <div class="column col-lg-3 col-md-4 col-sm-12">
@@ -185,7 +192,7 @@
                                         <li><a href="news-detail.html">Blog Details</a></li>
                                         <li><a href="error-page.html">Error Page</a></li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li class="dropdown"><a href="#">Shop</a>
                                     <ul>
                                         <li><a href="shop.html">Shop</a></li>
@@ -216,10 +223,6 @@
                             <div class="search-box-btn"><span class="fa fa-search"></span></div>
                         </div>
 
-                        <div class="btn-box">
-                            <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Get A Quote</span></a>
-                        </div>
-
                     </div>
 
                 </div>
@@ -233,7 +236,7 @@
         <div class="auto-container clearfix">
             <!--Logo-->
             <div class="logo pull-left">
-                <a href="index.html" title=""><img src="{{asset('assets_front/images/logo-small.png')}}" alt="" title=""></a>
+                <a href="{{route('home')}}" title=""><img src="{{asset('images/ft-logo.png')}}" width="135" alt="" title=""></a>
             </div>
             <!--Right Col-->
             <div class="pull-right">
@@ -248,10 +251,6 @@
                     <!--Search Box-->
                     <div class="search-box-outer">
                         <div class="search-box-btn"><span class="fa fa-search"></span></div>
-                    </div>
-
-                    <div class="btn-box">
-                        <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Get A Quote</span></a>
                     </div>
 
                 </div>

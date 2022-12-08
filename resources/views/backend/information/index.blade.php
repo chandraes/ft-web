@@ -24,6 +24,7 @@
                                 <th class="bg-transparent border-bottom-0">Title</th>
                                 <th class="bg-transparent border-bottom-0">Image</th>
                                 <th class="bg-transparent border-bottom-0">Content</th>
+                                <th class="bg-transparent border-bottom-0 w-5">Date</th>
                                 <th class="bg-transparent border-bottom-0">Action</th>
                             </tr>
                         </thead>
@@ -39,11 +40,12 @@
                                     <span class="avatar avatar-xxl bradius cover-image" data-bs-image-src="{{asset($d->image)}}" style="background: url(&quot;{{asset($d->image)}}&quot;) center center;"></span>
                                 </td>
                                 <td class="align-middle">{!! $d->content !!}</td>
+                                <td class="align-middle text-center">{{date_format($d->created_at, "d-m-Y")}}</td>
                                 <td class="align-middle text-center">
                                     <div class="row">
                                         <div class="col-6">
                                             <a class="btn btn-primary btn-sm rounded-11 mx-2 btn-block" data-bs-toggle="tooltip"
-                                            href="{{route('carousel.edit', $d->id)}}" data-bs-original-title="Edit"><i><svg
+                                            href="{{route('informasi.edit', $d->id)}}" data-bs-original-title="Edit"><i><svg
                                                     class="table-edit" xmlns="http://www.w3.org/2000/svg" height="20"
                                                     viewBox="0 0 24 24" width="16">
                                                     <path d="M0 0h24v24H0V0z" fill="none" />
@@ -52,7 +54,7 @@
                                                 </svg></i></a>
                                         </div>
                                             <div class="col-6">
-                                                <form  id="delete-item" action="{{route('carousel.destroy', $d->id)}}" method="post">
+                                                <form  id="delete-item" action="{{route('informasi.destroy', $d->id)}}" method="post">
                                                     @method('DELETE')
                                                     @csrf
                                                     <button type="submit" class="btn btn-danger btn-sm rounded-11 mx-2 btn-block" data-bs-toggle="tooltip"

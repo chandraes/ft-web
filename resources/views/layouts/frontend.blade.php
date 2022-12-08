@@ -18,8 +18,8 @@
 <!-- Color Themes -->
 <link id="theme-color-file" href="{{asset('assets_front/css/color-themes/purple-theme.css')}}" rel="stylesheet">
 
-<link rel="shortcut icon" href="{{asset('assets_front/images/favicon.png')}}" type="image/x-icon">
-<link rel="icon" href="{{asset('assets_front/images/favicon.png')}}" type="image/x-icon">
+<link rel="shortcut icon" href="{{asset('images/unsri-logo.png')}}" type="image/x-icon">
+<link rel="icon" href="{{asset('images/unsri-logo.png')}}" type="image/x-icon">
 
 {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 <!-- Responsive -->

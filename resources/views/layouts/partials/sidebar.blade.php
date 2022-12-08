@@ -3,10 +3,10 @@
     <aside class="app-sidebar">
         <div class="side-header">
             <a class="header-brand1" href="{{route('dashboard')}}">
-                <img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
-                <img src="{{asset('assets/images/brand/logo-1.png')}}" class="header-brand-img toggle-logo" alt="logo">
-                <img src="{{asset('assets/images/brand/logo-2.png')}}" class="header-brand-img light-logo" alt="logo">
-                <img src="{{asset('assets/images/brand/logo-3.png')}}" class="header-brand-img light-logo1" alt="logo">
+                <img src="{{asset('images/ft-logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
+                <img src="{{asset('images/unsri-logo.png')}}" class="header-brand-img toggle-logo" alt="logo">
+                <img src="{{asset('images/unsri-logo.png')}}" class="header-brand-img light-logo" alt="logo">
+                <img src="{{asset('images/ft-logo.png')}}" class="header-brand-img light-logo1" alt="logo">
             </a>
             <!-- LOGO -->
         </div>
@@ -68,7 +68,7 @@
                 </li>
 
 
-                
+
             </ul>
             <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24"
                     height="24" viewBox="0 0 24 24">
