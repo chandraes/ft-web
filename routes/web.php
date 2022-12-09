@@ -25,6 +25,8 @@ Route::post('search', [App\Http\Controllers\frontend\InformationController::clas
 Route::get('employee', [App\Http\Controllers\frontend\pegawaiController::class, 'index'])->name('employee');
 Route::get('employee/{id}', [App\Http\Controllers\frontend\pegawaiController::class, 'detail'])->name('detail-employee');
 Route::get('dosen', [App\Http\Controllers\frontend\dosenController::class, 'index'])->name('dosen');
+Route::get('dosen/{id}', [App\Http\Controllers\frontend\dosenController::class, 'detail'])->name('detail-dosen');
+Route::get('fakultas', [App\Http\Controllers\frontend\fakultasController::class, 'index'])->name('fakultas');
 
 Auth::routes([
     'register' => false
@@ -43,6 +45,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('pegawai', App\Http\Controllers\Profile\PegawaiController::class)->except(['show']);
 
     Route::resource('informasi', App\Http\Controllers\Information\InformationController::class)->except(['show']);
+    Route::resource('link-terkait', App\Http\Controllers\LinkTerkaitController::class)->except(['show']);
 
 
     Route::post('dosen/category', [App\Http\Controllers\Profile\DosenController::class, 'category'])->name('dosen.category');

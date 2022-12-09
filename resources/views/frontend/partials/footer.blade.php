@@ -86,7 +86,7 @@
                             </div>
                         </div>
 
-                        <!-- Footer Column -->
+                        {{-- <!-- Footer Column -->
                         <div class="footer-column col-lg-6 col-md-6 col-sm-12">
                             <div class="footer-widget request-widget">
                                 <h4>Get Free Estimate</h4>
@@ -94,7 +94,7 @@
                                 <div class="text">Our online scheduling and payment system is safe.</div>
                                 <a class="btn-style-six theme-btn" href="contact.html"><span class="txt">Request With Online Form</span></a>
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>

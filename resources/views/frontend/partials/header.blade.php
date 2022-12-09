@@ -1,5 +1,6 @@
 @php
     $categoryInformations = App\Models\Informasi\CategoryInformation::all();
+    $linkTerkait = App\Models\LinkTerkait::all();
 @endphp
 
 <header class="main-header header-style-one">
@@ -85,7 +86,7 @@
                                 @endif"><a href="#">Profile</a>
                                     <ul>
                                         <li><a href="{{route('vision')}}">Visi dan Misi</a></li>
-                                        <li><a href="Fakultas.html">Fakultas</a></li>
+                                        <li><a href="{{route('fakultas')}}">Fakultas</a></li>
                                         <li><a href="{{route('leader')}}">Pimpinan</a></li>
                                         <li><a href="{{route('dosen')}}">Dosen</a></li>
                                         <li><a href="{{route('employee')}}">Tendik</a></li>
@@ -95,20 +96,20 @@
                                     <ul>
                                         <li class="dropdown"><a href="Program-Sarjana.html">Program Sarjana</a>
                                         <ul>
-                                            <li><a href="teknik_mesin.html">Teknik Mesin</a></li>
-                                            <li><a href="teknik_sipil.html">Teknik Sipil</a></li>
-                                            <li><a href="teknik_tambang.html">Teknik Pertambangan</a></li>
-                                            <li><a href="teknik_elektro.html">Teknik Elektro</a></li>
-                                            <li><a href="teknik_kimia.html">Teknik Kimia</a></li>
-                                            <li><a href="teknik_arsitektur.html">Teknik Arsitektur</a></li>
-                                            <li><a href="teknik_geologi.html">Teknik Geologi</a></li>
+                                            <li><a href="https://mesin.ft.unsri.ac.id/s1/">Teknik Mesin</a></li>
+                                            <li><a href="http://sipil.ft.unsri.ac.id/s1/">Teknik Sipil</a></li>
+                                            <li><a href="https://pertambangan.ft.unsri.ac.id/">Teknik Pertambangan</a></li>
+                                            <li><a href="http://elektro.ft.unsri.ac.id/">Teknik Elektro</a></li>
+                                            <li><a href="http://kimia.ft.unsri.ac.id/s1/">Teknik Kimia</a></li>
+                                            <li><a href="http://arsitektur.ft.unsri.ac.id/">Teknik Arsitektur</a></li>
+                                            <li><a href="http://geologi.ft.unsri.ac.id/">Teknik Geologi</a></li>
                                         </ul>
                                         <li class="dropdown"><a href="Program-Pascasarjana.html">Program Pascasarjana</a>
                                         <ul>
-                                            <li><a href="teknik_psmesin.html">Teknik Mesin</a></li>
-                                            <li><a href="teknik_pssipil.html">Teknik Sipil</a></li>
-                                            <li><a href="teknik_pstambang.html">Teknik Pertambangan</a></li>
-                                            <li><a href="teknik_pskimia.html">Teknik Kimia</a></li>
+                                            <li><a href="https://mesin.ft.unsri.ac.id/s2/">Teknik Mesin</a></li>
+                                            <li><a href="http://sipil.ft.unsri.ac.id/s2">Teknik Sipil</a></li>
+                                            <li><a href="https://pertambangan.ft.unsri.ac.id/">Teknik Pertambangan</a></li>
+                                            <li><a href="http://kimia.ft.unsri.ac.id/s2">Teknik Kimia</a></li>
                                         </ul>
                                         <li class="dropdown"><a href="Program-doktor.html">Program Doktor</a>
                                         <ul>
@@ -128,6 +129,15 @@
                                         @endforeach
                                     </ul>
                                 </li>
+                                @if ($linkTerkait->count() > 0)
+                                <li class="dropdown"><a href="#">Link Terkait</a>
+                                    <ul>
+                                        @foreach ($linkTerkait as $l)
+                                        <li><a href="{{$l->link}}" target="_blank">{{$l->name}}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                @endif
                                 <li class="dropdown"><a href="#">Shop</a>
                                     <ul>
                                         <li><a href="shop.html">Shop</a></li>
@@ -200,7 +210,7 @@
         <div class="close-btn"><span class="icon flaticon-multiply"></span></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html"><img src="{{asset('assets_front/images/logo.png')}}" alt="" title=""></a></div>
+            <div class="nav-logo"><a href="index.html"><img src="{{asset('images/ft-logo.png')}}" alt="" title=""></a></div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>
