@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Carousel;
+use App\Models\Informasi\Informasi;
 
 
 class HomeController extends Controller
@@ -17,7 +18,9 @@ class HomeController extends Controller
     public function index()
     {
         $carousels = Carousel::all();
+        $news = Informasi::select('id','title', 'image', 'content', 'created_at')->latest()->take(3)->get();
+        // dd($news);
         // $categoryInformation = CategoryInformation::all();
-        return view('frontend.home', compact('carousels'));
+        return view('frontend.home', compact('carousels', 'news'));
     }
 }

@@ -16,18 +16,27 @@
                         <label class="col-md-2 form-label">Title</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Judul" value="{{$data->title}}">
+                            @error('title')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Subtitle</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('subtitle') is-invalid @enderror" name="subtitle" placeholder="Sub Judul" value="{{$data->subtitle}}">
+                            @error('subtitle')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Image</label>
                         <div class="form-group col-md-10">
                             <input class="form-control @error('image') is-invalid @enderror" type="file" name="image">
+                            @error('image')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                         @if (!empty($data->image))
                         <div class="col-md-2"></div>

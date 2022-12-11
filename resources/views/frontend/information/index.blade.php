@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                             <div class="lower-content mt-3">
-                                <h3><a href="{{route('detail-information', $d->id)}}">{{$d->title}}</a></h3>
+                                <h3><a href="{{date_format($d->created_at, "M/y")}}{{date_format($d->created_at, "M/y")}}">{{$d->title}}</a></h3>
                                 <div class="text mb-6">
                                     @php
                                     @endphp

@@ -70,6 +70,10 @@
                     <a class="side-menu__item {{request()->routeIs('link-terkait.index') || request()->routeIs('link-terkait.*')  ? 'active' : '' }}"
                         href="{{route('link-terkait.index')}}"><i class="side-menu__icon fa fa-link"></i><span
                             class="side-menu__label">Link Terkait</span></a>
+                </li><li>
+                    <a class="side-menu__item {{request()->routeIs('partner.index') || request()->routeIs('partner.*')  ? 'active' : '' }}"
+                        href="{{route('partner.index')}}"><i class="side-menu__icon fa fa-handshake-o"></i><span
+                            class="side-menu__label">Partner</span></a>
                 </li>
 
 

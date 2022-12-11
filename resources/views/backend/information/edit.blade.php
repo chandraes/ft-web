@@ -20,23 +20,32 @@
                                 @foreach ($category as $c)
                                 <option @if ($data->category_information_id == $c->id)
                                     selected
-                                @endif
-                                 value="{{$c->id}}">{{$c->name}}</option>
+                                    @endif
+                                    value="{{$c->id}}">{{$c->name}}</option>
                                 @endforeach
                             </select>
-
+                            @error('category_information_id')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Title</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Nama" value="{{$data->title}}">
+                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
+                                placeholder="Nama" value="{{$data->title}}">
+                            @error('title')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Cover Image</label>
                         <div class="form-group col-md-10">
                             <input class="form-control" type="file" name="image">
+                            @error('image')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                         @if (!empty($data->image))
                         <div class="col-md-2"></div>
@@ -46,6 +55,9 @@
                         @endif
                     </div>
                     <textarea class="content" name="content">{!! $data->content !!}</textarea>
+                    @error('content')
+                    <span class="text-red">{{$message}}</span>
+                    @enderror
                     <div class="row mt-4">
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 btn-list">
