@@ -10,6 +10,10 @@ class CategoryInformation extends Model
     use HasFactory;
     protected $table = 'category_information';
 
+    protected $fillable = [
+        'name'
+    ];
+
     /**
      * Get all of the information for the CategoryInformation
      *

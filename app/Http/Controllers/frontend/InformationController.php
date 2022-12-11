@@ -24,7 +24,7 @@ class InformationController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->validate([
-            'keyword' => 'required|min:1'
+            'keyword' => 'required|min:1|string|max:255'
         ]);
 
         $information = Informasi::whereFullText('title', $keyword)->paginate(5);

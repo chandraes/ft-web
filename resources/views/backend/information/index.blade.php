@@ -11,6 +11,8 @@
             <div class="card-header">
                 <h3 class="card-title mb-0">{{__('List Informasi')}}</h3>
                 <div class="card-options">
+                    <a class="modal-effect btn btn-success d-grid mx-3" data-bs-effect="effect-slide-in-right"
+                        data-bs-toggle="modal" href="#category">Add Category</a>
                     <a href="{{route('informasi.create')}}" class="btn btn-primary">{{__('Add New')}}</a>
                 </div>
             </div>
@@ -37,9 +39,10 @@
                                 <td class="align-middle">{{$d->category_name}}</td>
                                 <td class="align-middle">{{$d->title}}</td>
                                 <td class="text-center align-middle">
+
                                     <span class="avatar avatar-xxl bradius cover-image" data-bs-image-src="{{asset($d->image)}}" style="background: url(&quot;{{asset($d->image)}}&quot;) center center;"></span>
                                 </td>
-                                <td class="align-middle">{!! $d->content !!}</td>
+                                <td class="align-middle">{!! Str::limit($d->content, 50)!!} .........</td>
                                 <td class="align-middle text-center">{{date_format($d->created_at, "d-m-Y")}}</td>
                                 <td class="align-middle text-center">
                                     <div class="row">
@@ -81,6 +84,72 @@
     <!-- COL END -->
 </div>
 <!-- ROW-5 END -->
+<div class="modal fade" id="category">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content modal-content-demo">
+            <div class="modal-header">
+                <h6 class="modal-title">List Category</h6><button aria-label="Close" class="btn-close"
+                    data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <table id="data-table" class="table table-bordered text-nowrap mb-0">
+                    <thead>
+                        <tr class="text-center align-middle">
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>ACT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($category as $c)
+                        <tr>
+                            <td class="text-center align-middle">{{$loop->iteration}}</td>
+                            <td class="align-middle">{{$c->name}}</td>
+                            <td align="center">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <form id="delete-category" action="{{route('informasi.category.delete', $c->id)}}"
+                                            method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit"
+                                                class="btn btn-danger btn-sm rounded-11 mx-2 btn-block"
+                                                data-bs-toggle="tooltip" data-bs-original-title="Delete"><i><svg
+                                                        class="table-delete" xmlns="http://www.w3.org/2000/svg"
+                                                        height="20" viewBox="0 0 24 24" width="16">
+                                                        <path d="M0 0h24v24H0V0z" fill="none" />
+                                                        <path
+                                                            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5z" />
+                                                    </svg></i>
+                                            </button>
+                                    </div>
+
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <form action="{{route('informasi.category')}}" method="post">
+                    @csrf
+                    <div class="mt-3">
+                        <label for="name">Category</label>
+                        <input type="text" name="name" id="name" class="form-control @error('name')
+                    is-invalid
+                    @enderror" placeholder="Add category">
+                    </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+                <button class="btn btn-light" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 @endsection
 @push('js')
 <script src="{{asset('assets/plugins/datatable/responsive.bootstrap5.min.js')}}"></script>
@@ -104,6 +173,13 @@
 
         $(document).on('submit', '#delete-item', function(){
             var result = confirm('Do you want to perform this action?');
+            if(!result){
+                return false;
+            }
+        });
+
+        $(document).on('submit', '#delete-category', function(){
+            var result = confirm('All item in this category will be deleted!! Do you want to perform this action?');
             if(!result){
                 return false;
             }

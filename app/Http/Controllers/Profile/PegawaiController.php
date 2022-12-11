@@ -41,7 +41,7 @@ class PegawaiController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|min:3',
-            'jabatan' => 'nullable',
+            'jabatan' => 'nullable|string|max:255',
             'description' => 'nullable',
             'image' => 'nullable|mimes:png,jpg,jpeg',
         ]);
@@ -81,8 +81,8 @@ class PegawaiController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'name' => 'required|min:3',
-            'jabatan' => 'required|min:3',
+            'name' => 'required|min:3|string|max:255',
+            'jabatan' => 'nullable|max:255|string',
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpeg,jpg,png',
         ]);

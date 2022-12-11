@@ -39,8 +39,8 @@ class CarouselController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required|min:3',
-            'subtitle' => 'required|min:3',
+            'title' => 'required|min:3|string|max:255',
+            'subtitle' => 'required|min:3|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg',
         ]);
 
@@ -80,8 +80,8 @@ class CarouselController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'title' => 'required|min:3',
-            'subtitle' => 'required|min:3',
+            'title' => 'required|min:3|string|max:255',
+            'subtitle' => 'required|min:3|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg',
         ]);
 

@@ -45,6 +45,9 @@ Route::prefix('admin')->group(function () {
     Route::resource('pegawai', App\Http\Controllers\Profile\PegawaiController::class)->except(['show']);
 
     Route::resource('informasi', App\Http\Controllers\Information\InformationController::class)->except(['show']);
+    Route::post('informasi/category', [App\Http\Controllers\Information\InformationController::class, 'category'])->name('informasi.category');
+    Route::delete('informasi/category/{id}', [App\Http\Controllers\Information\InformationController::class, 'categoryDelete'])->name('informasi.category.delete');
+    
     Route::resource('link-terkait', App\Http\Controllers\LinkTerkaitController::class)->except(['show']);
 
 

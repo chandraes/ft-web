@@ -5,7 +5,6 @@
     <div class="auto-container">
         <ul class="page-breadcrumb">
             <li><a href="{{route('home')}}">home</a></li>
-            <li>{{__('Dosen')}}</li>
         </ul>
         <h2>{{__('Dosen')}}</h2>
     </div>
@@ -39,7 +38,7 @@
                         </div>
                         <div class="lower-content">
                             <h4><a href="{{route('detail-dosen', ['id'=> $d->id])}}">{{$d->name}}</a></h4>
-                            <div class="designation">{{$d->jabatan}}</div>
+                            <div class="designation">{{$d->category_dosen_id}}</div>
                         </div>
                     </div>
                 </div>

@@ -45,7 +45,7 @@ class DosenController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|min:3',
+            'name' => 'required|min:3|string|max:255',
             'category_dosen_id' => 'required',
             'description' => 'nullable',
             'image' => 'nullable',
@@ -87,7 +87,7 @@ class DosenController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'name' => 'required|min:3',
+            'name' => 'required|min:3|string|max:255',
             'category_dosen_id' => 'required',
             'description' => 'nullable',
             'image' => 'nullable',

@@ -46,7 +46,7 @@ class InformationController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required|min:3',
+            'title' => 'required|min:3|string|max:255',
             'category_information_id' => 'required',
             'content' => 'nullable',
             'image' => 'nullable|mimes:png,jpg,jpeg',
@@ -72,7 +72,9 @@ class InformationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = CategoryInformation::select('id','name')->get();
+        $data = Informasi::findOrFail($id);
+        return view('backend.information.edit', compact('category', 'data'));
     }
 
     /**
@@ -84,7 +86,33 @@ class InformationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|min:3|string|max:255',
+            'category_information_id' => 'required',
+            'content' => 'nullable',
+            'image' => 'nullable|mimes:png,jpg,jpeg',
+        ]);
+
+        $db = Informasi::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/information');
+            $image->move($destinationPath, $name);
+            $data['image'] = '/images/information/'.$name;
+
+            $image_old = public_path($db->image);
+
+            if (file_exists($image_old)) {
+            //delete image from folder
+             File::delete($image_old);
+            }
+        }
+
+        Informasi::whereId($id)->update($data);
+
+        return redirect()->route('informasi.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -105,4 +133,27 @@ class InformationController extends Controller
 
         return redirect()->route('informasi.index')->with('success', 'Data berhasil dihapus');
     }
+
+    public function category(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|min:3',
+        ]);
+
+        CategoryInformation::create($data);
+        return redirect()->route('informasi.index')->with('success', 'Data berhasil ditambahkan');
+    }
+
+    public function categoryDelete($id)
+    {
+        $item = Informasi::where('category_information_id', $id)->delete();
+
+        $data = CategoryInformation::find($id);
+
+        $data->delete();
+
+        return redirect()->route('informasi.index')->with('success', 'Data berhasil dihapus');
+
+    }
+
 }

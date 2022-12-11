@@ -69,7 +69,7 @@ class LinkTerkaitController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'name' => 'required|min:3',
+            'name' => 'required|min:3|string|max:255',
             'link' => 'required|active_url'
         ]);
 

@@ -41,8 +41,8 @@ class FakultasController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required|min:3',
-            'subtitle' => 'required|min:3',
+            'title' => 'required|min:3|string|max:255',
+            'subtitle' => 'required|min:3|string|max:255',
             'content' => 'required|min:10',
             'image' => 'nullable',
             'is_active' => 'nullable'
@@ -96,8 +96,8 @@ class FakultasController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'title' => 'required|min:3',
-            'subtitle' => 'required|min:3',
+            'title' => 'required|min:3|string|max:255',
+            'subtitle' => 'required|min:3|string|max:255',
             'content' => 'required|min:10',
             'image' => 'nullable',
             'is_active' => 'nullable'
@@ -124,7 +124,7 @@ class FakultasController extends Controller
             $data['image'] = '/images/fakultas/'.$name;
 
             $image_old = public_path($db->image);
-            
+
             if (file_exists($image_old)) {
             //delete image from folder
              File::delete($image_old);

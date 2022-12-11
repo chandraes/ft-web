@@ -45,8 +45,8 @@ class PimpinanController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|min:3',
-            'jabatan' => 'required|min:3',
+            'name' => 'required|min:3|string|max:255',
+            'jabatan' => 'required|min:3|string|max:255',
             'category_pimpinan_id' => 'required',
             'description' => 'nullable',
             'image' => 'nullable',
@@ -89,8 +89,8 @@ class PimpinanController extends Controller
     {
 
         $data = $request->validate([
-            'name' => 'required|min:3',
-            'jabatan' => 'required|min:3',
+            'name' => 'required|min:3|string|max:255',
+            'jabatan' => 'required|min:3|string|max:255',
             'category_pimpinan_id' => 'required',
             'description' => 'nullable',
             'image' => 'nullable',

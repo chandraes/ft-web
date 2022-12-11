@@ -113,11 +113,11 @@
                                         </ul>
                                         <li class="dropdown"><a href="Program-doktor.html">Program Doktor</a>
                                         <ul>
-                                            <li><a href="ilmu_teknik.html">Ilmu Teknik</a></li>
+                                            <li><a href="https://pps.unsri.ac.id/ilmu-teknik/">Ilmu Teknik</a></li>
                                         </ul>
                                         <li><a href="Laboratorium">Laboratorium</a></li>
                                         <li><a href="Informasi-beasiswa.html">Informasi Beasiswa</a></li>
-                                        <li><a href="Tracert-study.html">Tracer Study</a></li>
+                                        <li><a href="http://www.tracerstudy.ft.unsri.ac.id/">Tracer Study</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown @if (request()->routeIs('information') || request()->routeIs('detail-information'))
