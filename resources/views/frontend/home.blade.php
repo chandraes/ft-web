@@ -36,6 +36,57 @@
     </div>
 </section>
 
+<!-- About Section -->
+<section class="about-section">
+    <div class="auto-container">
+        <div class="inner-container" style="background-image:url({{asset('assets_front/images/background/pattern-1.png')}})">
+            <div class="row clearfix">
+                <!-- Content Column -->
+                <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <!-- Sec Title -->
+                        <div class="sec-title">
+                            <div class="title"><span class="separator"></span>About Us</div>
+                            <h2>Tentang Fakultas Teknik UNSRI</h2>
+                        </div>
+                        <div class="text">
+                            <p>{!!$about->about!!}</p>
+                        </div>
+                        {{-- <div class="clearfix">
+                            <div class="pull-left">
+                                <a class="btn-style-four theme-btn" href="about.html"><span class="txt">Read More</span></a>
+                            </div>
+                            <div class="pull-left">
+                                <div class="signature">
+                                    <img src="images/icons/signature.png" alt="" />
+                                </div>
+                            </div>
+                        </div> --}}
+                    </div>
+                </div>
+                <!-- Image Column -->
+                <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="image">
+                            <img src="{{$about->image}}" alt="" />
+                            <!-- Experiance Box -->
+                            <div class="experiance-box">
+                                <div class="box-inner">
+                                    <div class="count-outer count-box">
+                                        <span class="count-text" data-speed="3500" data-stop="25">0</span>+
+                                    </div>
+                                    <h6>Year OF <br> Experience</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Section -->
+
 
 {{-- Information --}}
 <section class="news-section" style="background-image:url({{asset('assets_front/images/background/pattern-5.png')}})">

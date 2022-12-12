@@ -1,7 +1,10 @@
 @php
      $last = App\Models\Informasi\Informasi::latest()->take(2)->get();
     $partners = App\Models\Partner::all();
+    $about = App\Models\About::first();
+    $linkTerkait = App\Models\LinkTerkait::all();
 @endphp
+
 
 <!-- Clients Section -->
 <section class="clients-section">
@@ -37,10 +40,10 @@
                             <div class="footer-widget links-widget">
                                 <h4>Get In Touch</h4>
                                 <ul class="list-style-two">
-                                    <li><span class="icon fa fa-send"></span>National Vicksr 88 broklyn <br> golden street, USA</li>
-                                    <li><span class="icon fa fa-envelope"></span>Email : <a href="mailto:name@yourmail.com">name@yourmail.com</a></li>
-                                    <li><span class="icon fa fa-phone"></span>Phone : <a href="tel:+22-5-789-0001">+22 (5) 789 0001</a></li>
-                                    <li><span class="icon fa fa-globe"></span>Support : <a href="tel:+15-2-654-0002">+15 (2) 654 0002</a></li>
+                                    <li><span class="icon fa fa-send"></span>{{$about->address}}</li>
+                                    <li><span class="icon fa fa-envelope"></span>Email : <a href="mailto:{{$about->email}}">{{$about->email}}</a></li>
+                                    <li><span class="icon fa fa-phone"></span>Phone : <a href="tel:{{$about->phone}}">{{$about->phone}}</a></li>
+                                    <li><span class="icon fa fa-globe"></span>Fax : {{$about->fax}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -72,14 +75,11 @@
                         <!-- Footer Column -->
                         <div class="footer-column col-lg-6 col-md-6 col-sm-12">
                             <div class="footer-widget links-widget">
-                                <h4>Services</h4>
+                                <h4>Link Terkait</h4>
                                 <ul class="list-link">
-                                    <li><a href="apartment-design.html">Construction Manage</a></li>
-                                    <li><a href="apartment-design.html">Construction Consultants</a></li>
-                                    <li><a href="apartment-design.html">Architecture & Building</a></li>
-                                    <li><a href="apartment-design.html">Home Renovations</a></li>
-                                    <li><a href="apartment-design.html">Tiling & Painiting</a></li>
-                                    <li><a href="apartment-design.html">Interior Design</a></li>
+                                    @foreach ($linkTerkait as $l)
+                                    <li><a href="{{$l->link}}">{{$l->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -112,13 +112,12 @@
                 <!-- Column -->
                 <div class="column col-lg-6 col-md-12 col-sm-12">
                     <!-- Social Box -->
-                    {{-- <ul class="social-box">
-                        <li><a href="https://www.facebook.com/" class="fa fa-facebook-f"></a></li>
-                        <li><a href="https://www.twitter.com/" class="fa fa-twitter"></a></li>
-                        <li><a href="https://www.linkedin.com/" class="fa fa-linkedin"></a></li>
-                        <li><a href="https://www.instagram.com/" class="fa fa-instagram"></a></li>
-                        <li><a href="https://www.youtube.com/" class="fa fa-youtube-play"></a></li>
-                    </ul> --}}
+                    <ul class="social-box">
+                        <li><a href="{{$about->facebook}}" class="fa fa-facebook-f"></a></li>
+                        <li><a href="{{$about->twitter}}" class="fa fa-twitter"></a></li>
+                        <li><a href="{{$about->instagram}}" class="fa fa-instagram"></a></li>
+                        <li><a href="{{$about->youtube}}" class="fa fa-youtube-play"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>

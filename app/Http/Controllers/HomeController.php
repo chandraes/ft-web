@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Carousel;
 use App\Models\Informasi\Informasi;
 use App\Models\Partner;
+use App\Models\About;
 
 
 class HomeController extends Controller
@@ -20,8 +21,9 @@ class HomeController extends Controller
     {
         $carousels = Carousel::all();
         $news = Informasi::select('id','title', 'image', 'content', 'created_at')->latest()->take(3)->get();
+        $about = About::find(1);
         // dd($news);
         // $categoryInformation = CategoryInformation::all();
-        return view('frontend.home', compact('carousels', 'news'));
+        return view('frontend.home', compact('carousels', 'news', 'about'));
     }
 }

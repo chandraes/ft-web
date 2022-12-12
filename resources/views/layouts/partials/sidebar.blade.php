@@ -32,6 +32,11 @@
                         href="{{route('users.index')}}"><i class="side-menu__icon fa fa-users"></i><span
                             class="side-menu__label">Users</span></a>
                 </li>
+                <li>
+                    <a class="side-menu__item {{request()->routeIs('tentang') || request()->routeIs('tentang.*')  ? 'active' : '' }}"
+                        href="{{route('tentang')}}"><i class="side-menu__icon fa fa-address-card-o"></i><span
+                            class="side-menu__label">About</span></a>
+                </li>
                 <li class="sub-category">
                     <h3>{{__('Content')}}</h3>
                 </li>

@@ -28,6 +28,8 @@ Route::get('dosen', [App\Http\Controllers\frontend\dosenController::class, 'inde
 Route::get('dosen/{id}', [App\Http\Controllers\frontend\dosenController::class, 'detail'])->name('detail-dosen');
 Route::get('fakultas', [App\Http\Controllers\frontend\fakultasController::class, 'index'])->name('fakultas');
 Route::get('journal', [App\Http\Controllers\frontend\JournalController::class, 'index'])->name('journal');
+Route::get('contact', [App\Http\Controllers\frontend\ContactController::class, 'index'])->name('contact');
+
 
 Auth::routes([
     'register' => false
@@ -52,6 +54,9 @@ Route::prefix('admin')->group(function () {
     Route::resource('link-terkait', App\Http\Controllers\LinkTerkaitController::class)->except(['show']);
     Route::resource('partner', App\Http\Controllers\PartnerController::class)->except(['show']);
     Route::resource('jurnal', App\Http\Controllers\JurnalController::class)->except(['show']);
+    Route::get('tentang', [App\Http\Controllers\AboutController::class, 'index'])->name('tentang');
+    Route::post('tentang', [App\Http\Controllers\AboutController::class, 'createOrUpdate'])->name('tentang.createOrUpdate');
+
 
 
     Route::post('dosen/category', [App\Http\Controllers\Profile\DosenController::class, 'category'])->name('dosen.category');

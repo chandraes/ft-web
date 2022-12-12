@@ -1,6 +1,7 @@
 @php
-    $categoryInformations = App\Models\Informasi\CategoryInformation::all();
-    $linkTerkait = App\Models\LinkTerkait::all();
+$categoryInformations = App\Models\Informasi\CategoryInformation::all();
+$linkTerkait = App\Models\LinkTerkait::all();
+$about = App\Models\About::first();
 @endphp
 
 <header class="main-header header-style-one">
@@ -12,7 +13,8 @@
 
                 <!-- Logo Box -->
                 <div class="pull-left logo-box">
-                    <div class="logo"><a href="{{route('home')}}"><img src="{{asset('images/ft-logo.png')}}" alt="ft-logo" title="FT-Logo" width="200"></a></div>
+                    <div class="logo"><a href="{{route('home')}}"><img src="{{asset('images/ft-logo.png')}}"
+                                alt="ft-logo" title="FT-Logo" width="200"></a></div>
                 </div>
 
                 <div class="pull-right upper-right clearfix">
@@ -22,27 +24,27 @@
                         <div class="icon-box"><span class="flaticon-phone"></span></div>
                         <ul>
                             <li>Phone:</li>
-                            <li><strong><a href="tel:+711-580-739">0711-580739</a></strong></li>
-                        </ul>
-                    </div>
-
-                     <!--Info Box-->
-                     <div class="upper-column info-box">
-                        <div class="icon-box"><span class="flaticon-email"></span></div>
-                        <ul>
-                            <li>Fax:</li>
-                            <li><strong>0711-580741</strong></li>
+                            <li><strong><a href="tel:{{$about->phone}}">{{$about->phone}}</a></strong></li>
                         </ul>
                     </div>
 
                     <!--Info Box-->
                     <div class="upper-column info-box">
-                        <div class="icon-box"><span class="flaticon-location-1"></span></div>
+                        <div class="icon-box"><span class="flaticon-email"></span></div>
                         <ul>
-                            <li>1428 Callison Laney Building</li>
-                            <li><strong>California</strong></li>
+                            <li>Fax:</li>
+                            <li><strong>{{$about->fax}}</strong></li>
                         </ul>
                     </div>
+                    <!--Info Box-->
+                    <div class="upper-column info-box">
+                        <div class="icon-box"><span class="flaticon-email"></span></div>
+                        <ul>
+                            <li>E-Mail:</li>
+                            <li><strong><a href="mailto:{{$about->email}}">{{$about->email}}</a></strong></li>
+                        </ul>
+                    </div>
+
 
                 </div>
 
@@ -66,7 +68,9 @@
                     <!-- Main Menu -->
                     <nav class="main-menu show navbar-expand-md">
                         <div class="navbar-header">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -95,26 +99,30 @@
                                 <li class="dropdown"><a href="#">Akademik</a>
                                     <ul>
                                         <li class="dropdown"><a href="Program-Sarjana.html">Program Sarjana</a>
-                                        <ul>
-                                            <li><a href="https://mesin.ft.unsri.ac.id/s1/">Teknik Mesin</a></li>
-                                            <li><a href="http://sipil.ft.unsri.ac.id/s1/">Teknik Sipil</a></li>
-                                            <li><a href="https://pertambangan.ft.unsri.ac.id/">Teknik Pertambangan</a></li>
-                                            <li><a href="http://elektro.ft.unsri.ac.id/">Teknik Elektro</a></li>
-                                            <li><a href="http://kimia.ft.unsri.ac.id/s1/">Teknik Kimia</a></li>
-                                            <li><a href="http://arsitektur.ft.unsri.ac.id/">Teknik Arsitektur</a></li>
-                                            <li><a href="http://geologi.ft.unsri.ac.id/">Teknik Geologi</a></li>
-                                        </ul>
-                                        <li class="dropdown"><a href="Program-Pascasarjana.html">Program Pascasarjana</a>
-                                        <ul>
-                                            <li><a href="https://mesin.ft.unsri.ac.id/s2/">Teknik Mesin</a></li>
-                                            <li><a href="http://sipil.ft.unsri.ac.id/s2">Teknik Sipil</a></li>
-                                            <li><a href="https://pertambangan.ft.unsri.ac.id/">Teknik Pertambangan</a></li>
-                                            <li><a href="http://kimia.ft.unsri.ac.id/s2">Teknik Kimia</a></li>
-                                        </ul>
+                                            <ul>
+                                                <li><a href="https://mesin.ft.unsri.ac.id/s1/">Teknik Mesin</a></li>
+                                                <li><a href="http://sipil.ft.unsri.ac.id/s1/">Teknik Sipil</a></li>
+                                                <li><a href="https://pertambangan.ft.unsri.ac.id/">Teknik
+                                                        Pertambangan</a></li>
+                                                <li><a href="http://elektro.ft.unsri.ac.id/">Teknik Elektro</a></li>
+                                                <li><a href="http://kimia.ft.unsri.ac.id/s1/">Teknik Kimia</a></li>
+                                                <li><a href="http://arsitektur.ft.unsri.ac.id/">Teknik Arsitektur</a>
+                                                </li>
+                                                <li><a href="http://geologi.ft.unsri.ac.id/">Teknik Geologi</a></li>
+                                            </ul>
+                                        <li class="dropdown"><a href="Program-Pascasarjana.html">Program
+                                                Pascasarjana</a>
+                                            <ul>
+                                                <li><a href="https://mesin.ft.unsri.ac.id/s2/">Teknik Mesin</a></li>
+                                                <li><a href="http://sipil.ft.unsri.ac.id/s2">Teknik Sipil</a></li>
+                                                <li><a href="https://pertambangan.ft.unsri.ac.id/">Teknik
+                                                        Pertambangan</a></li>
+                                                <li><a href="http://kimia.ft.unsri.ac.id/s2">Teknik Kimia</a></li>
+                                            </ul>
                                         <li class="dropdown"><a href="Program-doktor.html">Program Doktor</a>
-                                        <ul>
-                                            <li><a href="https://pps.unsri.ac.id/ilmu-teknik/">Ilmu Teknik</a></li>
-                                        </ul>
+                                            <ul>
+                                                <li><a href="https://pps.unsri.ac.id/ilmu-teknik/">Ilmu Teknik</a></li>
+                                            </ul>
                                         <li><a href="Laboratorium">Laboratorium</a></li>
                                         <li><a href="Informasi-beasiswa.html">Informasi Beasiswa</a></li>
                                         <li><a href="http://www.tracerstudy.ft.unsri.ac.id/">Tracer Study</a></li>
@@ -126,7 +134,9 @@
                                 @endif"><a href="#">Informasi</a>
                                     <ul>
                                         @foreach ($categoryInformations as $c)
-                                        <li><a href="{{route('information', ['id'=> $c->id, 'name'=> $c->name])}}">{{$c->name}}</a></li>
+                                        <li><a
+                                                href="{{route('information', ['id'=> $c->id, 'name'=> $c->name])}}">{{$c->name}}</a>
+                                        </li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -154,14 +164,12 @@
                                         {{-- <li><a href="{{route('register')}}">Register</a></li> --}}
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Contact</a>
-                                    <ul>
-                                        <li><a href="contact.html">Contact us 01</a></li>
-                                        <li><a href="contact-2.html">Contact us 02</a></li>
-                                        <li><a href="contact-3.html">Contact us 03</a></li>
-                                    </ul>
+                                <li class="@if (request()->routeIs('contact'))
+                                    current
+                                @endif"><a href="{{route('contact')}}">Contact Us</a>
+
                                 </li>
-                             </ul>
+                            </ul>
                         </div>
                     </nav>
                     <!-- Main Menu End-->
@@ -187,7 +195,8 @@
         <div class="auto-container clearfix">
             <!--Logo-->
             <div class="logo pull-left">
-                <a href="{{route('home')}}" title=""><img src="{{asset('images/ft-logo.png')}}" width="135" alt="" title=""></a>
+                <a href="{{route('home')}}" title=""><img src="{{asset('images/ft-logo.png')}}" width="135" alt=""
+                        title=""></a>
             </div>
             <!--Right Col-->
             <div class="pull-right">
@@ -216,7 +225,8 @@
         <div class="close-btn"><span class="icon flaticon-multiply"></span></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html"><img src="{{asset('images/ft-logo.png')}}" alt="" title=""></a></div>
+            <div class="nav-logo"><a href="index.html"><img src="{{asset('images/ft-logo.png')}}" alt="" title=""></a>
+            </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>
