@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Carousel;
 use App\Models\Informasi\Informasi;
+use App\Models\Partner;
 
 
 class HomeController extends Controller

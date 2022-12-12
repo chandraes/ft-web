@@ -1,5 +1,6 @@
 @php
      $last = App\Models\Informasi\Informasi::latest()->take(2)->get();
+    $partners = App\Models\Partner::all();
 @endphp
 
 <!-- Clients Section -->
@@ -8,14 +9,11 @@
         <div class="sponsors-outer">
             <!-- Sponsors Carousel -->
             <ul class="sponsors-carousel owl-carousel owl-theme">
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/1.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/2.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/3.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/4.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/5.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/1.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/2.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/3.png" alt=""></a></figure></li>
+                @foreach ($partners as $p)
+                <li class="slide-item"><figure class="image-box"><a href="{{$p->url}}"><img src="{{asset($p->image)}}" style="height: 100" alt=""></a></figure></li>
+                @endforeach
+
+
             </ul>
         </div>
 

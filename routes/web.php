@@ -50,6 +50,7 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('link-terkait', App\Http\Controllers\LinkTerkaitController::class)->except(['show']);
     Route::resource('partner', App\Http\Controllers\PartnerController::class)->except(['show']);
+    Route::resource('jurnal', App\Http\Controllers\JurnalController::class)->except(['show']);
 
 
     Route::post('dosen/category', [App\Http\Controllers\Profile\DosenController::class, 'category'])->name('dosen.category');

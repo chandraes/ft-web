@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Partner;
+use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\File;
 
 class PartnerController extends Controller
 {
@@ -36,7 +38,22 @@ class PartnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            'url' => 'nullable|active_url'
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/partner');
+            $image->move($destinationPath, $name);
+            $data['image'] = '/images/partner/'.$name;
+        }
+
+        Partner::create($data);
+
+        return redirect()->route('partner.index')->with('success', 'Partner berhasil ditambahkan');
     }
 
     /**
@@ -47,7 +64,8 @@ class PartnerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Partner::find($id);
+        return view('backend.partner.edit', compact('data'));
     }
 
     /**
@@ -59,7 +77,31 @@ class PartnerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            'url' => 'nullable|active_url'
+        ]);
+
+        $db = Partner::find($id);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/partner');
+            $image->move($destinationPath, $name);
+            $data['image'] = '/images/partner/'.$name;
+
+            $image_old = public_path($db->image);
+            if (file_exists($image_old)) {
+            //delete image from folder
+             File::delete($image_old);
+            }
+        }
+
+        Partner::find($id)->update($data);
+
+        return redirect()->route('partner.index')->with('success', 'Partner berhasil diubah');
+
     }
 
     /**
@@ -70,6 +112,13 @@ class PartnerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Partner::find($id);
+        $image_path = public_path($data->image);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $data->delete();
+        return redirect()->route('partner.index')->with('success', 'Partner berhasil dihapus');
+
     }
 }

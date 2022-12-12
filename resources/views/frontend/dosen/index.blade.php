@@ -38,7 +38,7 @@
                         </div>
                         <div class="lower-content">
                             <h4><a href="{{route('detail-dosen', ['id'=> $d->id])}}">{{$d->name}}</a></h4>
-                            <div class="designation">{{$d->category_dosen_id}}</div>
+                            <div class="designation">{{$d->jurusan_prodi}}</div>
                         </div>
                     </div>
                 </div>

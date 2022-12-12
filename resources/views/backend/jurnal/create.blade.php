@@ -4,34 +4,15 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header border-bottom-0">
-                <h3 class="card-title">Profile {{ucfirst(request()->segment(2))}}</h3>
+                <h3 class="card-title">Add {{ucfirst(request()->segment(2))}}</h3>
             </div>
             <div class="card-body">
-                <form action="{{route('dosen.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('pegawai.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-4">
-                        <label class="col-md-2 form-label">Nama</label>
+                        <label class="col-md-2 form-label">Title</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nama">
-                            @error('name')
-                            <span class="text-red">{{$message}}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <label class="col-md-2 form-label">Jurusan / Prodi</label>
-                        <div class="col-md-10">
-                            <select name="category_dosen_id" class="form-control form-select @error('category_dosen_id')
-                            is-invalid
-                            @enderror ">
-                                <option value="">Pilih Jurusan/Prodi</option>
-                                @foreach ($category as $c)
-                                <option value="{{$c->id}}">{{$c->jurusan_prodi}}</option>
-                                @endforeach
-                            </select>
-                            @error('category_dosen_id')
-                            <span class="text-red">{{$message}}</span>
-                            @enderror
+                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Title">
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -40,7 +21,7 @@
                             <input class="form-control" type="file" name="image">
                         </div>
                     </div>
-                    <textarea class="content" name="description"></textarea>
+                    <textarea class="content" name="content"></textarea>
                     <div class="row mt-4">
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 btn-list">

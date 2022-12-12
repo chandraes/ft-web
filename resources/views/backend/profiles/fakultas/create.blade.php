@@ -15,12 +15,18 @@
                         <label class="col-md-2 form-label">Title</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Judul">
+                            @error('title')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Subtitle</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('subtitle') is-invalid @enderror" name="subtitle" placeholder="Sub Judul">
+                            @error('subtitle')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-4">

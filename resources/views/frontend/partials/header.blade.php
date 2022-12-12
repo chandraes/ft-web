@@ -21,17 +21,17 @@
                     <div class="upper-column info-box">
                         <div class="icon-box"><span class="flaticon-phone"></span></div>
                         <ul>
-                            <li>Requesting a Call:</li>
-                            <li><strong><a href="tel:+301-357-1234">(301) 357 1234</a></strong></li>
+                            <li>Phone:</li>
+                            <li><strong><a href="tel:+711-580-739">0711-580739</a></strong></li>
                         </ul>
                     </div>
 
-                    <!--Info Box-->
-                    <div class="upper-column info-box">
-                        <div class="icon-box"><span class="flaticon-clock-1"></span></div>
+                     <!--Info Box-->
+                     <div class="upper-column info-box">
+                        <div class="icon-box"><span class="flaticon-email"></span></div>
                         <ul>
-                            <li>Sunday - Friday:</li>
-                            <li><strong>9am - 8pm</strong></li>
+                            <li>Fax:</li>
+                            <li><strong>0711-580741</strong></li>
                         </ul>
                     </div>
 
