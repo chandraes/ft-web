@@ -9,10 +9,10 @@ class Jurnal extends Model
 {
     use HasFactory;
 
-    protected $fillebal = [
+    protected $fillable = [
         'title',
         'image',
         'content',
     ];
-    
+
 }

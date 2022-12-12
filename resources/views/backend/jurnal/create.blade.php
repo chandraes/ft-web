@@ -7,21 +7,30 @@
                 <h3 class="card-title">Add {{ucfirst(request()->segment(2))}}</h3>
             </div>
             <div class="card-body">
-                <form action="{{route('pegawai.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('jurnal.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Title</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Title">
+                            @error('title')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Image</label>
                         <div class="form-group col-md-10">
                             <input class="form-control" type="file" name="image">
+                            @error('image')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <textarea class="content" name="content"></textarea>
+                    @error('content')
+                    <span class="text-red">{{$message}}</span>
+                    @enderror
                     <div class="row mt-4">
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 btn-list">

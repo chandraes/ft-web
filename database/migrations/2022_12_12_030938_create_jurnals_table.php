@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('jurnals', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('image');
-            $table->text('content');
+            $table->string('image')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }

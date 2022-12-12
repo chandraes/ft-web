@@ -27,6 +27,7 @@ Route::get('employee/{id}', [App\Http\Controllers\frontend\pegawaiController::cl
 Route::get('dosen', [App\Http\Controllers\frontend\dosenController::class, 'index'])->name('dosen');
 Route::get('dosen/{id}', [App\Http\Controllers\frontend\dosenController::class, 'detail'])->name('detail-dosen');
 Route::get('fakultas', [App\Http\Controllers\frontend\fakultasController::class, 'index'])->name('fakultas');
+Route::get('journal', [App\Http\Controllers\frontend\JournalController::class, 'index'])->name('journal');
 
 Auth::routes([
     'register' => false

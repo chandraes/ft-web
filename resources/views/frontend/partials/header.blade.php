@@ -120,6 +120,7 @@
                                         <li><a href="http://www.tracerstudy.ft.unsri.ac.id/">Tracer Study</a></li>
                                     </ul>
                                 </li>
+
                                 <li class="dropdown @if (request()->routeIs('information') || request()->routeIs('detail-information'))
                                     current
                                 @endif"><a href="#">Informasi</a>
@@ -128,6 +129,11 @@
                                         <li><a href="{{route('information', ['id'=> $c->id, 'name'=> $c->name])}}">{{$c->name}}</a></li>
                                         @endforeach
                                     </ul>
+                                </li>
+                                <li class="@if (request()->routeIs('journal'))
+                                    current
+                                @endif"><a href="{{route('journal')}}">Jurnal</a>
+
                                 </li>
                                 @if ($linkTerkait->count() > 0)
                                 <li class="dropdown"><a href="#">Link Terkait</a>

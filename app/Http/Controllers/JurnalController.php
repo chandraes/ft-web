@@ -40,7 +40,7 @@ class JurnalController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required',
+            'title' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             'content' => 'nullable'
         ]);
@@ -58,16 +58,7 @@ class JurnalController extends Controller
         return redirect()->route('jurnal.index')->with('success', 'Jurnal berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -77,7 +68,9 @@ class JurnalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Jurnal::find($id);
+
+        return view('backend.jurnal.edit', compact('data'));
     }
 
     /**
@@ -89,7 +82,29 @@ class JurnalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
+            'content' => 'nullable'
+        ]);
+
+        $jurnal = Jurnal::find($id);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/jurnal');
+            $image->move($destinationPath, $name);
+            $data['image'] = '/images/jurnal/'.$name;
+
+            if (File::exists(public_path($jurnal->image))) {
+                File::delete(public_path($jurnal->image));
+            }
+        }
+
+        $jurnal->update($data);
+
+        return redirect()->route('jurnal.index')->with('success', 'Jurnal berhasil diubah');
     }
 
     /**
@@ -100,6 +115,14 @@ class JurnalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jurnal = Jurnal::find($id);
+
+        if (File::exists(public_path($jurnal->image))) {
+            File::delete(public_path($jurnal->image));
+        }
+
+        $jurnal->delete();
+
+        return redirect()->route('jurnal.index')->with('success', 'Jurnal berhasil dihapus');
     }
 }
