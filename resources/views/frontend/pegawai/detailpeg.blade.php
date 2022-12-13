@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 @section('content')
 <!-- Page Title -->
-<section class="page-title" style="background-image: url(images/background/7.jpg)">
+<section class="page-title" style="background-image: url({{asset('assets_front/images/background/13.jpg')}})">
     <div class="auto-container">
         <ul class="page-breadcrumb">
             <li><a href="{{route('home')}}">home</a></li>

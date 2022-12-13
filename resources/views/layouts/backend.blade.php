@@ -23,6 +23,9 @@
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/css/plugins.css')}}" rel="stylesheet" />
 
+    <link rel="shortcut icon" href="{{asset('images/unsri-logo.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('images/unsri-logo.png')}}" type="image/x-icon">
+
     <!--- FONT-ICONS CSS -->
     <link href="{{asset('assets/css/icons.css')}}" rel="stylesheet" />
     @stack('css')

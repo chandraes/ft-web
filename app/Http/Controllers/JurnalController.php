@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Jurnal;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Facades\File;
+use Mews\Purifier\Facades\Purifier;
 
 class JurnalController extends Controller
 {
@@ -45,6 +46,10 @@ class JurnalController extends Controller
             'content' => 'nullable'
         ]);
 
+        if (!empty($data['content'])) {
+            Purifier::clean($data['content']);
+        }
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
@@ -52,6 +57,8 @@ class JurnalController extends Controller
             $image->move($destinationPath, $name);
             $data['image'] = '/images/jurnal/'.$name;
         }
+
+        // dd($data);
 
         Jurnal::create($data);
 

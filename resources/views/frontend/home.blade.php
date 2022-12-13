@@ -124,7 +124,7 @@
         <!-- Sec Title -->
         <div class="sec-title light centered">
             <div class="title"><span class="separator"></span>Counter<span class="separator-two"></span></div>
-            <h2>What we have achive</h2>
+            <h2>What we have!!</h2>
         </div>
 
         <!-- Fact Counter -->

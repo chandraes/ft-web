@@ -11,7 +11,7 @@
         <!-- CONTAINER OPEN -->
         <div class="col col-login mx-auto mt-7">
             <div class="text-center">
-                <img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img" alt="">
+                <img src="{{asset('images/ft-logo-white.png')}}" class="header-brand-img" alt="" style="height: 100px" >
             </div>
         </div>
         <div class="container-login100">
@@ -58,9 +58,9 @@
                                 {{ __('Login') }}
                             </button>
                         </div>
-                        <div class="text-center pt-3">
+                        {{-- <div class="text-center pt-3">
                             <p class="text-dark mb-0">Not a member?<a href="register.html" class="text-primary ms-1">Create an Account</a></p>
-                        </div>
+                        </div> --}}
                     </form>
                 </div>
                 <div class="card-footer">

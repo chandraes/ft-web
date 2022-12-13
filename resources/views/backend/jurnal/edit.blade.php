@@ -35,7 +35,7 @@
                         </div>
                         @endif
                     </div>
-                    <textarea class="content" name="content">{!!$data->content !!}</textarea>
+                    <textarea class="content" name="content">{{ clean($data->content) }}</textarea>
                     @error('content')
                     <span class="text-red">{{$message}}</span>
                     @enderror

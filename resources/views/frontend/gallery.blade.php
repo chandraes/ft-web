@@ -25,13 +25,13 @@
                 <div class="gallery-block col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
                         <figure class="image-box">
-                            <img src="{{asset($d->image)}}" alt="" style="max-width: 300">
+                            <img src="{{asset($d->image)}}" alt="" style="height: 370px">
                             <!-- Overlay Box -->
                             <div class="overlay-box">
                                 <div class="overlay-inner">
                                     <div class="content">
                                         <a href="{{asset($d->image)}}" data-fancybox="gallery" data-caption="" class="icon flaticon-full-screen"></a>
-                                        <a href="portfolio-detail.html" class="icon flaticon-link"></a>
+                                        {{-- <a href="portfolio-detail.html" class="icon flaticon-link"></a> --}}
                                     </div>
                                 </div>
                             </div>
