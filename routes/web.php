@@ -56,6 +56,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('jurnal', App\Http\Controllers\JurnalController::class)->except(['show']);
     Route::get('tentang', [App\Http\Controllers\AboutController::class, 'index'])->name('tentang');
     Route::post('tentang', [App\Http\Controllers\AboutController::class, 'createOrUpdate'])->name('tentang.createOrUpdate');
+    Route::resource('galeri', App\Http\Controllers\GalleryController::class)->except(['show']);
 
 
 

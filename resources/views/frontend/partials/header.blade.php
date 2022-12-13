@@ -154,20 +154,13 @@ $about = App\Models\About::first();
                                     </ul>
                                 </li>
                                 @endif
-                                <li class="dropdown"><a href="#">Shop</a>
-                                    <ul>
-                                        <li><a href="shop.html">Shop</a></li>
-                                        <li><a href="shop-single.html">Shop Details</a></li>
-                                        <li><a href="shoping-cart.html">Cart Page</a></li>
-                                        <li><a href="checkout.html">Checkout Page</a></li>
-                                        <li><a href="{{route('login')}}">Login</a></li>
-                                        {{-- <li><a href="{{route('register')}}">Register</a></li> --}}
-                                    </ul>
+                                <li class="@if (request()->routeIs('contact'))
+                                    current
+                                @endif"><a href="{{route('contact')}}">Gallery</a>
                                 </li>
                                 <li class="@if (request()->routeIs('contact'))
                                     current
                                 @endif"><a href="{{route('contact')}}">Contact Us</a>
-
                                 </li>
                             </ul>
                         </div>

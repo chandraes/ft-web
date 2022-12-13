@@ -72,6 +72,11 @@
                     </ul>
                 </li>
                 <li>
+                    <a class="side-menu__item {{request()->routeIs('galeri.index') || request()->routeIs('galeri.*')  ? 'active' : '' }}"
+                        href="{{route('galeri.index')}}"><i class="side-menu__icon fa fa-photo"></i><span
+                            class="side-menu__label">Gallery</span></a>
+                </li>
+                <li>
                     <a class="side-menu__item {{request()->routeIs('jurnal.index') || request()->routeIs('jurnal.*')  ? 'active' : '' }}"
                         href="{{route('jurnal.index')}}"><i class="side-menu__icon fa fa-book"></i><span
                             class="side-menu__label">Jurnal</span></a>
