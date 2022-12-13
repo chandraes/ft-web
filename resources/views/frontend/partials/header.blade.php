@@ -154,9 +154,9 @@ $about = App\Models\About::first();
                                     </ul>
                                 </li>
                                 @endif
-                                <li class="@if (request()->routeIs('contact'))
+                                <li class="@if (request()->routeIs('gallery'))
                                     current
-                                @endif"><a href="{{route('contact')}}">Gallery</a>
+                                @endif"><a href="{{route('gallery')}}">Gallery</a>
                                 </li>
                                 <li class="@if (request()->routeIs('contact'))
                                     current

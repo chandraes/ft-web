@@ -29,6 +29,7 @@ Route::get('dosen/{id}', [App\Http\Controllers\frontend\dosenController::class, 
 Route::get('fakultas', [App\Http\Controllers\frontend\fakultasController::class, 'index'])->name('fakultas');
 Route::get('journal', [App\Http\Controllers\frontend\JournalController::class, 'index'])->name('journal');
 Route::get('contact', [App\Http\Controllers\frontend\ContactController::class, 'index'])->name('contact');
+Route::get('gallery', [App\Http\Controllers\frontend\GalleryController::class, 'index'])->name('gallery');
 
 
 Auth::routes([
