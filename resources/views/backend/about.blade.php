@@ -19,7 +19,7 @@
                         <div class="col-md-10">
                             <textarea class="content" name="about">
                                 @if (!empty($data->about))
-                                {!!$data->about!!}
+                                {!!clean($data->about)!!}
                                 @endif
 
                             </textarea>

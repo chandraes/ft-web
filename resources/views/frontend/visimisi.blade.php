@@ -23,7 +23,7 @@
                         <div class="inner-column">
 
                             <div class="text">
-                                {!!$v->visi!!}
+                                {!! clean($v->visi) !!}
                             </div>
                         </div>
                     </div>

@@ -20,7 +20,7 @@
                         <thead class="border-top">
                             <tr>
                                 <th class="bg-transparent border-bottom-0 w-5 text-center">No</th>
-                                <th class="bg-transparent border-bottom-0 text-center">Visi</th>
+                                <th class="bg-transparent border-bottom-0 w-5 text-center">Visi</th>
                                 <th class="bg-transparent border-bottom-0 text-center">Active</th>
                                 <th class="bg-transparent border-bottom-0 text-center">Action</th>
                             </tr>
@@ -29,7 +29,7 @@
                             @foreach ($visi as $v)
                             <tr>
                                 <td class="align-middle text-center">{{$loop->iteration}}</td>
-                                <td>{!! substr($v->visi, 0,100)  !!} ................</td>
+                                <td >{!! clean($v->short_description) !!} td>
                                 <td class="text-center align-middle" align="center">
                                     @if ($v->is_active == 1)
                                     <i class="fa fa-check-square-o" style="font-size: 3em; color: rgb(3, 194, 3)"></i>

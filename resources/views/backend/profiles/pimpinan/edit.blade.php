@@ -50,7 +50,7 @@
                         </div>
                         @endif
                     </div>
-                    <textarea class="content" name="description">{{$data->description}}</textarea>
+                    <textarea class="content" name="description">{{clean($data->description)}}</textarea>
                     <div class="row mt-4">
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 btn-list">

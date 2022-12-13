@@ -41,7 +41,7 @@
                                     {{$d->jurusan_prodi}}
                                 </td>
                                 <td class="align-middle">{{$d->name}}</td>
-                                <td class="align-middle">{!! Str::limit($d->description, 100)!!}</td>
+                                <td class="align-middle">{!! clean($d->short_description) !!}</td>
                                 <td class="text-center align-center">
                                     <span class="avatar avatar-xxl bradius cover-image"
                                         data-bs-image-src="{{asset($d->image)}}"

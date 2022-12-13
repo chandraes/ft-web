@@ -10,7 +10,7 @@
                 <form action="{{route('visi.update', $visi->id)}}" method="POST">
                     @method('PUT')
                     @csrf
-                    <textarea class="content" name="visi">{{$visi->visi}}</textarea>
+                    <textarea class="content" name="visi">{{ clean($visi->visi)}}</textarea>
                     <div class="row mt-4">
                         <div class="col-lg-12 col-md-6 col-12 mt-4 float-right">
                             <div class="form-check">

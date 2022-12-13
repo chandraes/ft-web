@@ -37,10 +37,10 @@
                                     @endif
 
                                 </td>
-                                <td>{{$d->title}}</td>
-                                <td>{{$d->subtitle}}</td>
-                                <td>{!! substr($d->content, 0, 100) !!}</td>
-                                <td class="text-center align-center">
+                                <td class="align-middle">{{$d->title}}</td>
+                                <td class="align-middle">{{$d->subtitle}}</td>
+                                <td class="align-middle">{!! clean($d->short_description) !!}</td>
+                                <td class="text-center align-middle">
                                     <span class="avatar avatar-xxl bradius cover-image" data-bs-image-src="{{asset($d->image)}}" style="background: url(&quot;{{asset($d->image)}}&quot;) center center;"></span>
 
                                 </td>
