@@ -23,7 +23,7 @@
                         <div class="inner-column">
 
                             <div class="text">
-                                {!!$f->content!!}
+                                {!! clean($f->content)!!}
                             </div>
                         </div>
                     </div>

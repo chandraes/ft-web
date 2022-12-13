@@ -29,7 +29,7 @@
 
                     </div>
 
-                    <div class="text">{!! $d->content !!}</div>
+                    <div class="text">{!! clean($d->content) !!}</div>
                 </div>
             </div>
             @endforeach

@@ -36,7 +36,7 @@
                         <li><span class="icon fa fa-whatsapp"></span> <a href="tel:999-999-9999">999 - 999 - 9999</a></li>
                     </ul> --}}
                     <div class="text my-6">
-                        {!! $dosen->description !!}
+                        {!! clean($dosen->description) !!}
                     </div>
 
                     {{-- <!-- Social Box -->

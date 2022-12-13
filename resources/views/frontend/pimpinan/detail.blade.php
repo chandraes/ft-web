@@ -36,7 +36,7 @@
                         <li><span class="icon fa fa-whatsapp"></span> <a href="tel:999-999-9999">999 - 999 - 9999</a></li>
                     </ul> --}}
                     <div class="text my-6">
-                        {!! $pimpinan->description !!}
+                        {!! clean($pimpinan->description) !!}
                     </div>
 
                     {{-- <!-- Social Box -->

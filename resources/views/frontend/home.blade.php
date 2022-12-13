@@ -50,7 +50,7 @@
                             <h2>Tentang Fakultas Teknik UNSRI</h2>
                         </div>
                         <div class="text">
-                            <p>{!!$about->about!!}</p>
+                            <p>{!! clean($about->about)!!}</p>
                         </div>
                         {{-- <div class="clearfix">
                             <div class="pull-left">
@@ -108,7 +108,7 @@
                     </div>
                     <div class="lower-content">
                         <h4><a href="{{route('detail-information', $n->id)}}">{{$n->title}}</a></h4>
-                        <div class="text">{!! Str::limit($n->content, 100) !!}</div>
+                        <div class="text">{!! clean($n->short_description) !!}</div>
                         <a class="read-more" href="{{route('detail-information', $n->id)}}">Read More</a>
                     </div>
                 </div>

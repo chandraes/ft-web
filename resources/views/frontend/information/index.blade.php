@@ -37,8 +37,7 @@
                             <div class="lower-content mt-3">
                                 <h3><a href="{{route('detail-information', $d->id)}}">{{$d->title}}</a></h3>
                                 <div class="text mb-6">
-                                    @php
-                                    @endphp
+                                    {!! clean($d->short_description) !!}
                                 </div>
                                 <a class="read-more mt-6" href="{{route('detail-information', $d->id)}}">Read More</a>
                             </div>
