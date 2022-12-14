@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Facades\File;
 use App\Models\Lab\Lab;
+use Illuminate\Support\Str;
 
 class LabController extends Controller
 {
@@ -16,7 +17,7 @@ class LabController extends Controller
      */
     public function index()
     {
-        $data = Lab::all();
+        $data = Lab::paginate(8);
         return view('backend.lab.index', compact('data'));
     }
 
@@ -27,7 +28,7 @@ class LabController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.lab.create');
     }
 
     /**
@@ -38,18 +39,28 @@ class LabController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'kepala_lab' => 'nullable|string|max:255',
+            'location' => 'nullable|string|max:255',
+            'description' => 'nullable',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $data['slug'] = Str::slug($data['name'], '-');
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/lab');
+            $image->move($destinationPath, $name);
+            $data['image'] = '/images/lab/'.$name;
+        }
+
+        Lab::create($data);
+
+        return redirect()->route('lab.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -60,7 +71,8 @@ class LabController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Lab::findOrFail($id);
+        return view('backend.lab.edit', compact('data'));
     }
 
     /**
@@ -72,7 +84,34 @@ class LabController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
+            'kepala_lab' => 'nullable|string|max:255',
+            'location' => 'nullable|string|max:255',
+            'description' => 'nullable',
+        ]);
+
+        $data['slug'] = Str::slug($data['name'], '-');
+
+        $db = Lab::find($id);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/lab');
+            $image->move($destinationPath, $name);
+            $data['image'] = '/images/lab/'.$name;
+
+            if (File::exists(public_path($db->image))) {
+                File::delete(public_path($db->image));
+            }
+        }
+
+        $db->update($data);
+
+        return redirect()->route('lab.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -83,6 +122,14 @@ class LabController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $db = Lab::find($id);
+
+        if (File::exists(public_path($db->image))) {
+            File::delete(public_path($db->image));
+        }
+
+        $db->delete();
+
+        return redirect()->route('lab.index')->with('success', 'Data berhasil dihapus');
     }
 }

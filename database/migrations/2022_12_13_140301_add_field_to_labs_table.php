@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('labs', function (Blueprint $table) {
-            $table->string('kepala_lab')->nullable();
-            $table->string('location')->nullable();
-            $table->longText('description')->nullable();
+            $table->string('kepala_lab')->after('image')->nullable();
+            $table->string('location')->after('kepala_lab')->nullable();
+            $table->longText('description')->after('location')->nullable();
         });
     }
 
