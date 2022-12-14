@@ -57,8 +57,17 @@
                             @enderror
                         </div>
                     </div>
-
-
+                    <div class="row mb-4">
+                        <label for="gallery_image" class="col-md-2 form-label">Gallery Image <br> <span class="text-muted">(*Multiple Image)</span></label>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <div class="file-upload-wrapper" data-text="Select your file!">
+                                    <input id="gallery" name="gallery_image[]" type="file" class="file-upload-field" value=""
+                                        accept=".jpg, .png, image/jpeg, image/png" multiple>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row mt-4">
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 btn-list">
@@ -79,8 +88,21 @@
 <link href="{{asset('assets/css/animated.css')}}" rel="stylesheet" />
 @endpush
 @push('js')
+
+<script src="{{asset('assets/plugins/fancyuploder/jquery.ui.widget.js')}}"></script>
+<script src="{{asset('assets/plugins/fancyuploder/jquery.fileupload.js')}}"></script>
+<script src="{{asset('assets/plugins/fancyuploder/jquery.iframe-transport.js')}}"></script>
+<script src="{{asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js')}}"></script>
+<script src="{{asset('assets/plugins/fancyuploder/fancy-uploader.js')}}"></script>
+<script src="{{asset('assets/plugins/multi/multi.min.js')}}"></script>
 <!-- WYSIWYG Editor JS -->
 <script src="{{asset('assets/plugins/wysiwyag/jquery.richtext.js')}}"></script>
 <script src="{{asset('assets/plugins/wysiwyag/wysiwyag.js')}}"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#gallery').FancyFileUpload();
+    });
+</script>
 
 @endpush

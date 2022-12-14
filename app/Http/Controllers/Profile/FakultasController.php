@@ -44,7 +44,7 @@ class FakultasController extends Controller
             'title' => 'required|min:3|string|max:255',
             'subtitle' => 'required|min:3|string|max:255',
             'content' => 'required|min:10',
-            'image' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5012',
             'is_active' => 'nullable'
         ]);
 
@@ -99,7 +99,7 @@ class FakultasController extends Controller
             'title' => 'required|min:3|string|max:255',
             'subtitle' => 'required|min:3|string|max:255',
             'content' => 'required|min:10',
-            'image' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5012',
             'is_active' => 'nullable'
         ]);
 

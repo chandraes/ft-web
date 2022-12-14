@@ -31,4 +31,9 @@ class Lab extends Model
             25
         );
     }
+
+    public function gallery()
+    {
+        return $this->hasMany(GalleryLab::class, 'lab_id', 'id');
+    }
 }

@@ -7,6 +7,7 @@ use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Facades\File;
 use App\Models\Lab\Lab;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class LabController extends Controller
 {
@@ -46,6 +47,8 @@ class LabController extends Controller
             'kepala_lab' => 'nullable|string|max:255',
             'location' => 'nullable|string|max:255',
             'description' => 'nullable',
+            'gallery_image' => 'nullable',
+            'gallery_image.*' => 'image|mimes:jpeg,png,jpg|max:5120'
         ]);
 
         $data['slug'] = Str::slug($data['name'], '-');
@@ -58,7 +61,26 @@ class LabController extends Controller
             $data['image'] = '/images/lab/'.$name;
         }
 
-        Lab::create($data);
+        DB::transaction(function () use ($request, $data) {
+
+            $lab = Lab::create($data);
+
+            if ($request->hasFile('gallery_image')) {
+
+                foreach ($request->file('gallery_image') as $image) {
+
+                    $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
+                    $destinationPath = public_path('/images/lab/gallery');
+                    $image->move($destinationPath, $name);
+                    // unset($data['image']);
+                    $data['gallery_image'] = '/images/lab/gallery/'.$name;
+
+                    $lab->gallery()->create($data);
+                }
+            }
+        });
+
+        // Lab::create($data);
 
         return redirect()->route('lab.index')->with('success', 'Data berhasil ditambahkan');
     }
@@ -91,6 +113,8 @@ class LabController extends Controller
             'kepala_lab' => 'nullable|string|max:255',
             'location' => 'nullable|string|max:255',
             'description' => 'nullable',
+            'gallery_image' => 'nullable',
+            'gallery_image.*' => 'image|mimes:jpeg,png,jpg|max:5120'
         ]);
 
         $data['slug'] = Str::slug($data['name'], '-');
@@ -109,7 +133,24 @@ class LabController extends Controller
             }
         }
 
-        $db->update($data);
+        DB::transaction(function () use ($request, $data, $db) {
+
+            $db->update($data);
+
+            if ($request->hasFile('gallery_image')) {
+
+                foreach ($request->file('gallery_image') as $image) {
+
+                    $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
+                    $destinationPath = public_path('/images/lab/gallery');
+                    $image->move($destinationPath, $name);
+                    // unset($data['image']);
+                    $data['gallery_image'] = '/images/lab/gallery/'.$name;
+
+                    $db->gallery()->create($data);
+                }
+            }
+        });
 
         return redirect()->route('lab.index')->with('success', 'Data berhasil diubah');
     }
@@ -128,7 +169,21 @@ class LabController extends Controller
             File::delete(public_path($db->image));
         }
 
-        $db->delete();
+        foreach ($db->gallery as $gallery) {
+            if (File::exists(public_path($gallery->gallery_image))) {
+                File::delete(public_path($gallery->gallery_image));
+            }
+        }
+
+        DB::transaction(function () use ($db) {
+
+            $db->gallery()->delete();
+
+            $db->delete();
+
+        });
+
+
 
         return redirect()->route('lab.index')->with('success', 'Data berhasil dihapus');
     }

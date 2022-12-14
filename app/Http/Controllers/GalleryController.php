@@ -40,7 +40,7 @@ class GalleryController extends Controller
     {
         $data = $request->validate([
             'title' => 'nullable|min:3|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:5012',
         ]);
 
         //store image
@@ -80,7 +80,7 @@ class GalleryController extends Controller
     {
         $data = $request->validate([
             'title' => 'nullable|min:3|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5012',
         ]);
 
         $db = Gallery::find($id);

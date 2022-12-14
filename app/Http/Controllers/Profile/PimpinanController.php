@@ -49,7 +49,7 @@ class PimpinanController extends Controller
             'jabatan' => 'required|min:3|string|max:255',
             'category_pimpinan_id' => 'required',
             'description' => 'nullable',
-            'image' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5012',
         ]);
 
         if ($request->hasFile('image')) {
@@ -93,7 +93,7 @@ class PimpinanController extends Controller
             'jabatan' => 'required|min:3|string|max:255',
             'category_pimpinan_id' => 'required',
             'description' => 'nullable',
-            'image' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5012',
         ]);
 
         $pimpinan = Pimpinan::findOrFail($id);

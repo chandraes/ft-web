@@ -48,7 +48,7 @@ class DosenController extends Controller
             'name' => 'required|min:3|string|max:255',
             'category_dosen_id' => 'required',
             'description' => 'nullable',
-            'image' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5012',
         ]);
 
         if ($request->hasFile('image')) {
@@ -90,7 +90,7 @@ class DosenController extends Controller
             'name' => 'required|min:3|string|max:255',
             'category_dosen_id' => 'required',
             'description' => 'nullable',
-            'image' => 'nullable',
+            'image' => 'nullable|image|mimes:png,jpg,jpeg|max:5012',
         ]);
 
         $dosen = Dosen::find($id);

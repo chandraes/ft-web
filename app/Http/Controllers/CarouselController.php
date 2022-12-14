@@ -41,7 +41,7 @@ class CarouselController extends Controller
         $data = $request->validate([
             'title' => 'required|min:3|string|max:255',
             'subtitle' => 'required|min:3|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:5012',
         ]);
 
         //store image
@@ -82,7 +82,7 @@ class CarouselController extends Controller
         $data = $request->validate([
             'title' => 'required|min:3|string|max:255',
             'subtitle' => 'required|min:3|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5012',
         ]);
 
         $db = Carousel::find($id);

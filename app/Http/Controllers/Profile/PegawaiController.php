@@ -43,7 +43,7 @@ class PegawaiController extends Controller
             'name' => 'required|min:3',
             'jabatan' => 'nullable|string|max:255',
             'description' => 'nullable',
-            'image' => 'nullable|mimes:png,jpg,jpeg',
+            'image' => 'nullable|mimes:png,jpg,jpeg|max:5012',
         ]);
 
         if ($request->hasFile('image')) {
@@ -84,7 +84,7 @@ class PegawaiController extends Controller
             'name' => 'required|min:3|string|max:255',
             'jabatan' => 'nullable|max:255|string',
             'description' => 'nullable',
-            'image' => 'nullable|mimes:jpeg,jpg,png',
+            'image' => 'nullable|mimes:jpeg,jpg,png|max:5012',
         ]);
 
         $pegawai = Pegawai::findOrFail($id);

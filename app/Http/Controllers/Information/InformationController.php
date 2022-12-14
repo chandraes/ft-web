@@ -49,7 +49,7 @@ class InformationController extends Controller
             'title' => 'required|min:3|string|max:255',
             'category_information_id' => 'required',
             'content' => 'nullable',
-            'image' => 'nullable|mimes:png,jpg,jpeg',
+            'image' => 'nullable|mimes:png,jpg,jpeg|max:5012',
         ]);
 
         if ($request->hasFile('image')) {
@@ -90,7 +90,7 @@ class InformationController extends Controller
             'title' => 'required|min:3|string|max:255',
             'category_information_id' => 'required',
             'content' => 'nullable',
-            'image' => 'nullable|mimes:png,jpg,jpeg',
+            'image' => 'nullable|mimes:png,jpg,jpeg|max:5012',
         ]);
 
         $db = Informasi::findOrFail($id);
