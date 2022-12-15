@@ -61,7 +61,9 @@ Route::prefix('admin')->group(function () {
     Route::post('tentang', [App\Http\Controllers\AboutController::class, 'createOrUpdate'])->name('tentang.createOrUpdate');
     Route::resource('galeri', App\Http\Controllers\GalleryController::class)->except(['show']);
     Route::resource('lab', App\Http\Controllers\LabController::class)->except(['show']);
-    Route::delete('galeri-lab/{id}', [App\Http\Controllers\LabController::class, 'deleteGallery'])->name('lab.deleteGallery');
+    Route::get('galeri-lab/{id}', [App\Http\Controllers\LabController::class, 'deleteGallery'])->name('lab.deleteGallery');
+    Route::post('lab/category', [App\Http\Controllers\LabController::class, 'category'])->name('lab.category');
+    Route::delete('lab/category/{id}', [App\Http\Controllers\LabController::class, 'categoryDelete'])->name('lab.category.delete');
 
 
 

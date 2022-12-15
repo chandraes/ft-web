@@ -9,6 +9,7 @@ use App\Models\Lab\Lab;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Models\Lab\GalleryLab;
+use App\Models\Lab\CategoryLab;
 
 class LabController extends Controller
 {
@@ -19,8 +20,9 @@ class LabController extends Controller
      */
     public function index()
     {
+        $category = CategoryLab::all();
         $data = Lab::paginate(8);
-        return view('backend.lab.index', compact('data'));
+        return view('backend.lab.index', compact('data', 'category'));
     }
 
     /**
@@ -30,7 +32,8 @@ class LabController extends Controller
      */
     public function create()
     {
-        return view('backend.lab.create');
+        $category = CategoryLab::select('id', 'name')->get();
+        return view('backend.lab.create', compact('category'));
     }
 
     /**
@@ -44,6 +47,7 @@ class LabController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255',
+            'category_lab_id' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'kepala_lab' => 'nullable|string|max:255',
             'location' => 'nullable|string|max:255',
@@ -94,9 +98,10 @@ class LabController extends Controller
      */
     public function edit($id)
     {
+        $category = CategoryLab::select('id', 'name')->get();
         $gallery = GalleryLab::where('lab_id', $id)->get();
         $data = Lab::findOrFail($id);
-        return view('backend.lab.edit', compact('data', 'gallery'));
+        return view('backend.lab.edit', compact('data', 'gallery', 'category'));
     }
 
     /**
@@ -111,6 +116,7 @@ class LabController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255',
+            'category_lab_id' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             'kepala_lab' => 'nullable|string|max:255',
             'location' => 'nullable|string|max:255',
@@ -199,5 +205,25 @@ class LabController extends Controller
         $db->delete();
 
         return redirect()->back()->with('success', 'Data berhasil dihapus');
+    }
+
+    public function category(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        CategoryLab::create($data);
+
+        return redirect()->route('lab.index')->with('success', 'Data berhasil ditambahkan');
+    }
+
+    public function categoryDelete($id)
+    {
+        $db = CategoryLab::find($id);
+
+        $db->delete();
+
+        return redirect()->route('lab.index')->with('success', 'Data berhasil dihapus');
     }
 }

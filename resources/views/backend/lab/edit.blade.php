@@ -13,13 +13,32 @@
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Name</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$data->name}}"
-                                placeholder="Nama">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                                value="{{$data->name}}" placeholder="Nama">
                             @error('name')
                             <span class="text-red">{{$message}}</span>
                             @enderror
                         </div>
                     </div>
+                    <div class="row mb-4">
+                        <label class="col-md-2 form-label">Category</label>
+                        <div class="col-md-10">
+                            <select name="category_lab_id" class="form-control form-select @error('category_lab_id')
+                            is-invalid
+                            @enderror ">
+                                <option value="">Pilih Kategori Jabatan</option>
+                                @foreach ($category as $c)
+                                <option @if ($data->category_lab_id == $c->id)
+                                    selected
+                                    @endif value="{{$c->id}}">{{$c->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('category_lab_id')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Cover Image</label>
                         <div class="form-group col-md-10">
@@ -38,8 +57,8 @@
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Kepala Laboratorium</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control @error('kepala_lab') is-invalid @enderror" value="{{$data->kepala_lab}}"
-                                name="kepala_lab" placeholder="Kepala Laboratorium">
+                            <input type="text" class="form-control @error('kepala_lab') is-invalid @enderror"
+                                value="{{$data->kepala_lab}}" name="kepala_lab" placeholder="Kepala Laboratorium">
                             @error('kepala_lab')
                             <span class="text-red">{{$message}}</span>
                             @enderror
@@ -48,8 +67,8 @@
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Location</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control @error('location') is-invalid @enderror" value="{{$data->location}}"
-                                name="location" placeholder="Location">
+                            <input type="text" class="form-control @error('location') is-invalid @enderror"
+                                value="{{$data->location}}" name="location" placeholder="Location">
                             @error('location')
                             <span class="text-red">{{$message}}</span>
                             @enderror
@@ -65,7 +84,8 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label for="gallery_image" class="col-md-2 form-label">Gallery Image <br> <span class="text-muted">(*Multiple Image)</span></label>
+                        <label for="gallery_image" class="col-md-2 form-label">Gallery Image <br> <span
+                                class="text-muted">(*Multiple Image)</span></label>
                         <div class="col-md-10">
                             <div class="form-group">
                                 <div class="file-upload-wrapper" data-text="Select your file!">
@@ -79,11 +99,8 @@
                             @foreach ($gallery as $item)
                             <div class="col-md-2 mt-2 text-center">
                                 <img src="{{asset($item->gallery_image)}}" alt="image" class="thumbimg mb-2">
-                                <form id="delete-item" action="{{route('lab.deleteGallery', $item->id)}}" method="post">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="btn btn-lg btn-danger btn-block">Delete Image</button>
-                                </form>
+                                <a href="{{route('lab.deleteGallery', $item->id)}}"
+                                    onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete Image</a>
                             </div>
                             @endforeach
                         </div>
@@ -120,12 +137,5 @@
 <!-- WYSIWYG Editor JS -->
 <script src="{{asset('assets/plugins/wysiwyag/jquery.richtext.js')}}"></script>
 <script src="{{asset('assets/plugins/wysiwyag/wysiwyag.js')}}"></script>
-<script>
-     $(document).on('submit', '#delete-item', function(){
-            var result = confirm('Do you want to perform this action?');
-            if(!result){
-                return false;
-            }
-        });
-</script>
+
 @endpush

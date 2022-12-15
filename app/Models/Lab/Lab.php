@@ -18,6 +18,7 @@ class Lab extends Model
     protected $fillable = [
         'name',
         'slug',
+        'category_lab_id',
         'kepala_lab',
         'location',
         'description',

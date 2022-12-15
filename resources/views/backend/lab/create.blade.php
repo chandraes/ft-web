@@ -20,6 +20,22 @@
                         </div>
                     </div>
                     <div class="row mb-4">
+                        <label class="col-md-2 form-label">Category</label>
+                        <div class="col-md-10">
+                            <select name="category_lab_id" class="form-control form-select @error('category_lab_id')
+                            is-invalid
+                            @enderror ">
+                                <option value="">Pilih Category</option>
+                                @foreach ($category as $c)
+                                <option value="{{$c->id}}">{{$c->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('category_lab_id')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-4">
                         <label class="col-md-2 form-label">Cover Image</label>
                         <div class="form-group col-md-10">
                             <input class="form-control" type="file" name="image">
