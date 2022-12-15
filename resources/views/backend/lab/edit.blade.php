@@ -64,7 +64,30 @@
                             @enderror
                         </div>
                     </div>
-
+                    <div class="row mb-4">
+                        <label for="gallery_image" class="col-md-2 form-label">Gallery Image <br> <span class="text-muted">(*Multiple Image)</span></label>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <div class="file-upload-wrapper" data-text="Select your file!">
+                                    <input id="gallery" name="gallery_image[]" type="file" class="form-control" value=""
+                                        accept=".jpg, .png, image/jpeg, image/png" multiple>
+                                </div>
+                            </div>
+                            @error('gallery_image')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
+                            @foreach ($gallery as $item)
+                            <div class="col-md-2 mt-2 text-center">
+                                <img src="{{asset($item->gallery_image)}}" alt="image" class="thumbimg mb-2">
+                                <form id="delete-item" action="{{route('lab.deleteGallery', $item->id)}}" method="post">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-lg btn-danger btn-block">Delete Image</button>
+                                </form>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
 
                     <div class="row mt-4">
 
@@ -86,8 +109,23 @@
 <link href="{{asset('assets/css/animated.css')}}" rel="stylesheet" />
 @endpush
 @push('js')
+<script src="{{asset('assets/plugins/fileuploads/js/fileupload.js')}}"></script>
+<script src="{{asset('assets/plugins/fileuploads/js/file-upload.js')}}"></script>
+<script src="{{asset('assets/plugins/fancyuploder/jquery.ui.widget.js')}}"></script>
+<script src="{{asset('assets/plugins/fancyuploder/jquery.fileupload.js')}}"></script>
+<script src="{{asset('assets/plugins/fancyuploder/jquery.iframe-transport.js')}}"></script>
+<script src="{{asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js')}}"></script>
+<script src="{{asset('assets/plugins/fancyuploder/fancy-uploader.js')}}"></script>
+{{-- <script src="{{asset('assets/plugins/multi/multi.min.js')}}"></script> --}}
 <!-- WYSIWYG Editor JS -->
 <script src="{{asset('assets/plugins/wysiwyag/jquery.richtext.js')}}"></script>
 <script src="{{asset('assets/plugins/wysiwyag/wysiwyag.js')}}"></script>
-
+<script>
+     $(document).on('submit', '#delete-item', function(){
+            var result = confirm('Do you want to perform this action?');
+            if(!result){
+                return false;
+            }
+        });
+</script>
 @endpush

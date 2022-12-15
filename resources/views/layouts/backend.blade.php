@@ -32,9 +32,9 @@
 </head>
 
 <body class="app sidebar-mini ltr light-mode">
-    <div id="global-loader">
+    {{-- <div id="global-loader">
         <img src="{{asset('assets/images/loader.svg')}}" class="loader-img" alt="Loader">
-    </div>
+    </div> --}}
     <div class="page">
         <div class="page-main">
             <div class="main-content app-content mt-0">

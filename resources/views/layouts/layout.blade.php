@@ -43,7 +43,7 @@
     <script src="{{asset('assets/js/jquery.sparkline.min.js')}}"></script>
 
     <!-- CHART-CIRCLE JS -->
-    <script src="{{asset('assets/js/circle-progress.min.js')}}"></script>
+    {{-- <script src="{{asset('assets/js/circle-progress.min.js')}}"></script> --}}
 
     <!-- Perfect SCROLLBAR JS-->
     <script src="{{asset('assets/plugins/p-scroll/perfect-scrollbar.js')}}"></script>

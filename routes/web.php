@@ -30,6 +30,8 @@ Route::get('fakultas', [App\Http\Controllers\frontend\fakultasController::class,
 Route::get('journal', [App\Http\Controllers\frontend\JournalController::class, 'index'])->name('journal');
 Route::get('contact', [App\Http\Controllers\frontend\ContactController::class, 'index'])->name('contact');
 Route::get('gallery', [App\Http\Controllers\frontend\GalleryController::class, 'index'])->name('gallery');
+Route::get('laboratory', [App\Http\Controllers\frontend\LabController::class, 'index'])->name('laboratory');
+Route::get('laboratory/{id}/{slug}', [App\Http\Controllers\frontend\LabController::class, 'detail'])->name('detail-laboratory');
 
 
 Auth::routes([
@@ -59,6 +61,7 @@ Route::prefix('admin')->group(function () {
     Route::post('tentang', [App\Http\Controllers\AboutController::class, 'createOrUpdate'])->name('tentang.createOrUpdate');
     Route::resource('galeri', App\Http\Controllers\GalleryController::class)->except(['show']);
     Route::resource('lab', App\Http\Controllers\LabController::class)->except(['show']);
+    Route::delete('galeri-lab/{id}', [App\Http\Controllers\LabController::class, 'deleteGallery'])->name('lab.deleteGallery');
 
 
 

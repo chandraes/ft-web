@@ -4,7 +4,7 @@
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0);"></a>
             <div class="responsive-logo">
                 <a href="{{route('dashboard')}}" class="header-logo">
-                    <img src="{{asset('images/ft-logo.png')}}" class="mobile-logo logo-1" alt="logo">
+                    <img src="{{asset('images/ft-logo.png')}}" class="mobile-logo logo-1" width="120" alt="logo">
                     <img src="{{asset('images/ft-logo.png')}}" class="mobile-logo dark-logo-1" alt="logo">
                 </a>
             </div>

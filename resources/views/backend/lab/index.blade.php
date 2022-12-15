@@ -23,7 +23,7 @@
     <div class="col-sm-6 col-xl-3">
         <div class="panel price panel-color plan-card text-center p-2" style="height: 590px">
             <div class="pt-4 px-4">
-                <div class="mb-4"><img class="cover-image" src="{{asset($d->image)}}" alt="" style="max-height: 200px"></div>
+                <div class="mb-4"><img class="cover-image" src="{{asset($d->image)}}" alt="" style="max-height: 160px"></div>
                 <h4 class="text-uppercase fw-semibold text-primary card-category bg-primary-transparent">{{$d->name}}
                 </h4>
             </div>

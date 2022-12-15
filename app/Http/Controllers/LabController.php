@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use App\Models\Lab\Lab;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use App\Models\Lab\GalleryLab;
 
 class LabController extends Controller
 {
@@ -93,8 +94,9 @@ class LabController extends Controller
      */
     public function edit($id)
     {
+        $gallery = GalleryLab::where('lab_id', $id)->get();
         $data = Lab::findOrFail($id);
-        return view('backend.lab.edit', compact('data'));
+        return view('backend.lab.edit', compact('data', 'gallery'));
     }
 
     /**
@@ -183,8 +185,19 @@ class LabController extends Controller
 
         });
 
-
-
         return redirect()->route('lab.index')->with('success', 'Data berhasil dihapus');
+    }
+
+    public function deleteGallery($id)
+    {
+        $db = GalleryLab::find($id);
+
+        if (File::exists(public_path($db->gallery_image))) {
+            File::delete(public_path($db->gallery_image));
+        }
+
+        $db->delete();
+
+        return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
 }

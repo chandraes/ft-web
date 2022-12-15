@@ -38,7 +38,7 @@
                         </figure>
                         @if (!empty($d->title))
                         <div class="lower-content">
-                            <div class="title"><h5>{{$d->title}}</h5></div>
+                            <div class="title"><h6 style="font-size: 14px">{{$d->title}}</h6></div>
                         </div>
                         @endif
 

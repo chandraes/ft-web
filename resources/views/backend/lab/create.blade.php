@@ -62,8 +62,13 @@
                         <div class="col-md-10">
                             <div class="form-group">
                                 <div class="file-upload-wrapper" data-text="Select your file!">
-                                    <input id="gallery" name="gallery_image[]" type="file" class="file-upload-field" value=""
+                                    <input id="gallery" name="gallery_image[]" type="file" class="form-control @error('gallery_image')
+                                        is-invalid
+                                    @enderror" value=""
                                         accept=".jpg, .png, image/jpeg, image/png" multiple>
+                                        @error('gallery_image')
+                                        <span class="text-red">{{$message}}</span>
+                                        @enderror
                                 </div>
                             </div>
                         </div>
@@ -88,21 +93,18 @@
 <link href="{{asset('assets/css/animated.css')}}" rel="stylesheet" />
 @endpush
 @push('js')
+<script src="{{asset('assets/plugins/fileuploads/js/fileupload.js')}}"></script>
+<script src="{{asset('assets/plugins/fileuploads/js/file-upload.js')}}"></script>
 
 <script src="{{asset('assets/plugins/fancyuploder/jquery.ui.widget.js')}}"></script>
 <script src="{{asset('assets/plugins/fancyuploder/jquery.fileupload.js')}}"></script>
 <script src="{{asset('assets/plugins/fancyuploder/jquery.iframe-transport.js')}}"></script>
 <script src="{{asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js')}}"></script>
 <script src="{{asset('assets/plugins/fancyuploder/fancy-uploader.js')}}"></script>
-<script src="{{asset('assets/plugins/multi/multi.min.js')}}"></script>
+{{-- <script src="{{asset('assets/plugins/multi/multi.min.js')}}"></script> --}}
 <!-- WYSIWYG Editor JS -->
 <script src="{{asset('assets/plugins/wysiwyag/jquery.richtext.js')}}"></script>
 <script src="{{asset('assets/plugins/wysiwyag/wysiwyag.js')}}"></script>
 
-<script>
-    $(document).ready(function () {
-        $('#gallery').FancyFileUpload();
-    });
-</script>
 
 @endpush

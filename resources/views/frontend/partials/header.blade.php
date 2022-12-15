@@ -123,7 +123,7 @@ $about = App\Models\About::first();
                                             <ul>
                                                 <li><a href="https://pps.unsri.ac.id/ilmu-teknik/">Ilmu Teknik</a></li>
                                             </ul>
-                                        <li><a href="Laboratorium">Laboratorium</a></li>
+                                        <li><a href="{{route('laboratory')}}">Laboratorium</a></li>
                                         <li><a href="Informasi-beasiswa.html">Informasi Beasiswa</a></li>
                                         <li><a href="http://www.tracerstudy.ft.unsri.ac.id/">Tracer Study</a></li>
                                     </ul>
