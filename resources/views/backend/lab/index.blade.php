@@ -19,10 +19,10 @@
         </div>
     </div>
 </div>
-<div class="row mt-4">
+<div class="row mt-4 mb-4">
     {{ $data->links() }}
     @foreach ($data as $d)
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-sm-6 col-xl-3 mt-4">
         <div class="panel price panel-color plan-card text-center p-2" style="height: 590px">
             <div class="pt-4 px-4">
                 <div class="mb-4"><img class="cover-image" src="{{asset($d->image)}}" alt="" style="max-height: 160px">

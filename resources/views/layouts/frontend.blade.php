@@ -28,7 +28,7 @@
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
-
+@stack('css')
 </head>
 
 <body>
@@ -38,7 +38,7 @@
     <!-- Main Header -->
     @include('frontend.partials.header')
 
-	
+
 	<!-- END sidebar widget item -->
 
     @yield('content')
@@ -66,7 +66,7 @@
 
 <!--Scroll to top-->
 <div class="back-to-top scroll-to-target show-back-to-top" data-target="html">TOP</div>
-
+@stack('js')
 <script src="{{asset('assets_front/js/jquery.js')}}"></script>
 
 <script src="{{asset('assets_front/js/popper.min.js')}}"></script>
@@ -81,7 +81,6 @@
 <script src="{{asset('assets_front/js/color-settings.js')}}"></script>
 <script src="{{asset('assets_front/js/jquery-ui.js')}}"></script>
 <script src="{{asset('assets_front/js/tilt.jquery.min.js')}}"></script>
-<script src="{{asset('assets_front/js/mixitup.js')}}"></script>
 <script src="{{asset('assets_front/js/map-script.js')}}"></script>
 
 </body>

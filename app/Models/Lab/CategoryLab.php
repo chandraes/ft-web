@@ -12,4 +12,9 @@ class CategoryLab extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function lab()
+    {
+        return $this->hasMany(Lab::class, 'category_lab_id', 'id');
+    }
 }

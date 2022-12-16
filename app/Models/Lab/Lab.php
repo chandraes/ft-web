@@ -37,4 +37,9 @@ class Lab extends Model
     {
         return $this->hasMany(GalleryLab::class, 'lab_id', 'id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(CategoryLab::class, 'category_lab_id', 'id');
+    }
 }

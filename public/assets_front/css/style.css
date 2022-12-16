@@ -48,7 +48,7 @@
 
 **********************************************/
 
-/* 
+/*
 
 	font-family: 'Montserrat', sans-serif;
 	font-family: 'Roboto', sans-serif;
@@ -65,14 +65,14 @@
 @import url('jquery.bootstrap-touchspin.css');
 @import url('jquery.mCustomScrollbar.min.css');
 
-/*** 
+/***
 
 ====================================================================
 	Reset
 ====================================================================
 
  ***/
- 
+
 * {
 	margin:0px;
 	padding:0px;
@@ -80,7 +80,7 @@
 	outline:none;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Global Settings
@@ -130,7 +130,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 input,button,select,textarea{
-	
+
 }
 
 textarea{
@@ -139,7 +139,7 @@ textarea{
 
 p{
 	position:relative;
-	line-height:1.8em;	
+	line-height:1.8em;
 }
 
 .auto-container{
@@ -163,7 +163,7 @@ p{
 ul,li{
 	list-style:none;
 	padding:0px;
-	margin:0px;	
+	margin:0px;
 }
 
 img{
@@ -181,7 +181,7 @@ img{
 }
 
 .centered{
-	text-align:center;	
+	text-align:center;
 }
 
 /* Typography */
@@ -691,10 +691,10 @@ h6{
 img{
 	display:inline-block;
 	max-width:100%;
-	height:auto;	
+	height:auto;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Scroll To Top style
@@ -757,7 +757,7 @@ img{
   visibility: visible;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Section Title
@@ -879,7 +879,7 @@ img{
 	padding-right:45px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Main Header style
@@ -1053,7 +1053,7 @@ img{
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
 	-moz-transition:all 300ms ease;
-	transition:all 300ms ease;	
+	transition:all 300ms ease;
 }
 
 .main-header .nav-toggler{
@@ -1325,7 +1325,7 @@ img{
 	-moz-animation-iteration-count: 1;
 	-op-animation-iteration-count: 1;
 	-webkit-animation-iteration-count: 1;
-	animation-iteration-count: 1;	
+	animation-iteration-count: 1;
 }
 
 .main-header .sticky-header .options-box{
@@ -1387,7 +1387,7 @@ img{
 
 .main-menu .navigation > li > ul.from-right{
 	left:auto;
-	right:0px;	
+	right:0px;
 }
 
 .main-menu .navigation > li > ul > li{
@@ -1467,11 +1467,11 @@ img{
 	font-size:16px;
 	font-weight:normal;
 	text-align:center;
-	z-index:5;	
+	z-index:5;
 }
 
 .main-menu .navigation > li > ul > li.dropdown:hover > a:after{
-	color:#222222;	
+	color:#222222;
 }
 
 .main-menu .navigation > li > ul > li > ul{
@@ -1494,7 +1494,7 @@ img{
 
 .main-menu .navigation > li > ul > li > ul.from-right{
 	left:auto;
-	right:0px;	
+	right:0px;
 }
 
 .main-menu .navigation > li > ul > li > ul > li{
@@ -1503,7 +1503,7 @@ img{
 }
 
 .main-menu .navigation > li > ul > li > ul > li:last-child{
-	
+
 }
 
 .main-menu .navigation > li > ul > li > ul > li > a{
@@ -1564,11 +1564,11 @@ img{
 	font-size:16px;
 	font-weight:normal;
 	text-align:center;
-	z-index:5;	
+	z-index:5;
 }
 
 .main-menu .navigation > li > ul > li > ul > li.dropdown:hover > a:after{
-	color:#ffffff;	
+	color:#ffffff;
 }
 
 .main-menu .navigation > li.dropdown:hover > ul{
@@ -1587,7 +1587,7 @@ img{
 	-moz-transition:all 300ms ease;
 	-webkit-transition:all 500ms ease;
 	-ms-transition:all 300ms ease;
-	-o-transition:all 300ms ease;	
+	-o-transition:all 300ms ease;
 }
 
 .main-menu .navbar-collapse > ul li.dropdown .dropdown-btn{
@@ -1696,7 +1696,7 @@ img{
 }
 
 .main-header.fixed-header{
-	
+
 }
 
 .main-header .options-box .cart-box{
@@ -1778,7 +1778,7 @@ img{
 
 .main-header .options-box .cart-product .inner .image{
 	position:absolute;
-	
+
 	left:0px;
 	top:0px;
 	overflow:hidden;
@@ -2133,7 +2133,7 @@ img{
 
 .header-style-three .search-box .form-group{
 	position:relative;
-	margin:0px;	
+	margin:0px;
 }
 
 .header-style-three .search-box .form-group input[type="text"],
@@ -2192,7 +2192,7 @@ img{
 
 .sidebar-info-contents .content-inner .logo img{
 	display:inline-block;
-	max-width:100%;	
+	max-width:100%;
 }
 
 .sidebar-info-contents .content-inner .content-box{
@@ -2285,7 +2285,7 @@ img{
 	position:relative;
 	top:2px;
 	text-indent:0px;
-	color:#333333;	
+	color:#333333;
 }
 
 .form-group .ui-button .ui-icon:before{
@@ -2308,7 +2308,7 @@ img{
 }
 
 .ui-widget.ui-widget-content{
-	
+
 }
 
 .ui-menu .ui-menu-item{
@@ -2316,7 +2316,7 @@ img{
 }
 
 .ui-menu .ui-menu-item:last-child{
-	border:none;	
+	border:none;
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active{
@@ -2336,7 +2336,7 @@ img{
 	background-color:#f05523;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Search Popup
@@ -2463,7 +2463,7 @@ img{
 
 .search-popup .form-group{
 	position:relative;
-	margin:0px;	
+	margin:0px;
 	overflow: hidden;
 }
 
@@ -2517,7 +2517,7 @@ img{
 	color:#000000;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Mobile Menu
@@ -2551,7 +2551,7 @@ img{
 .mobile-menu .nav-logo{
 	position:relative;
 	padding:20px 20px;
-	text-align:left;	
+	text-align:left;
 }
 
 .mobile-menu .nav-logo img{
@@ -2725,7 +2725,7 @@ img{
 	display:none;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Main Slider Section
@@ -3048,7 +3048,7 @@ img{
 	display:none;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Main Slider Section Two
@@ -3274,7 +3274,7 @@ img{
   animation-duration: 20s;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Main Slider Section Three
@@ -3620,7 +3620,7 @@ img{
 	background-color:#f05523;
 }
 
-/*** 
+/***
 
 ====================================================================
 	About Section
@@ -3734,7 +3734,7 @@ img{
 	text-transform:uppercase;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Services Section
@@ -3890,7 +3890,7 @@ img{
 	border-color:#222222;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Counter Section
@@ -3986,7 +3986,7 @@ img{
 	margin-bottom:7px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Skill Section
@@ -4061,8 +4061,8 @@ img{
 	content:'';
 	left:0px;
 	bottom:-30px;
-	border-top: 30px solid #a2a2a2; 
-	border-left: 30px solid transparent; 
+	border-top: 30px solid #a2a2a2;
+	border-left: 30px solid transparent;
 }
 
 .skill-section .skill-column{
@@ -4154,7 +4154,7 @@ img{
 	text-transform:uppercase;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Project Section
@@ -4208,7 +4208,7 @@ img{
 }
 
 .gallery-block.mix{
-	display:none;
+
 }
 
 /* Gallery Block */
@@ -4346,7 +4346,7 @@ img{
 	box-shadow:inherit;
 }
 
-/*** 
+/***
 
 ====================================================================
 	CTA Section
@@ -4422,7 +4422,7 @@ img{
 	margin:0px 10px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Testimnial Section
@@ -4587,7 +4587,7 @@ img{
 	margin-top:10px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Team Section
@@ -4762,7 +4762,7 @@ img{
 	margin-top:5px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Team Section Two
@@ -4903,7 +4903,7 @@ img{
 	margin-top:5px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	News Section
@@ -5063,7 +5063,7 @@ img{
 	border-color:#222222;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Clients Section
@@ -5108,7 +5108,7 @@ img{
 	filter: grayscale(0%);
 }
 
-/*** 
+/***
 
 ====================================================================
 	Newsletter Section
@@ -5211,7 +5211,7 @@ img{
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
 	-moz-transition:all 300ms ease;
-	transition:all 300ms ease;	
+	transition:all 300ms ease;
 }
 
 .newsletter-form .form-group .submit-btn{
@@ -5232,7 +5232,7 @@ img{
 	background-color:#f05523;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Main Footer
@@ -5522,7 +5522,7 @@ img{
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
 	-moz-transition:all 300ms ease;
-	transition:all 300ms ease;	
+	transition:all 300ms ease;
 }
 
 .newsletter-form-two .form-group .submit-btn{
@@ -5539,7 +5539,7 @@ img{
 	border-radius:0px 6px 6px 0px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Services Section Two
@@ -5748,7 +5748,7 @@ img{
 }
 
 .service-block-two .inner-box .lower-box h6{
-	
+
 }
 
 .service-block-two .inner-box .lower-box h6 a{
@@ -5765,7 +5765,7 @@ img{
 	color:#f05523;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Goal Section
@@ -5949,7 +5949,7 @@ img{
 	line-height:1.8em;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Goal Section
@@ -6050,7 +6050,7 @@ img{
 	color:#212121;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Project Section Two
@@ -6109,7 +6109,7 @@ img{
 	top:0px;
 	width:100%;
 	height:auto;
-	visibility:hidden;	
+	visibility:hidden;
 }
 
 .project-section-two .project-tab .p-tab.active-tab{
@@ -6136,7 +6136,7 @@ img{
 	-ms-transform:scaleY(0);
 	-o-transform:scaleY(0);
 	-moz-transform:scaleY(0);
-	transform:scaleY(0);	
+	transform:scaleY(0);
 }
 
 .project-section-two .lower-text{
@@ -6156,7 +6156,7 @@ img{
 	border:1px dashed #dddddd;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Request Quote Section Two
@@ -6385,7 +6385,7 @@ img{
 	cursor:pointer;
 }
 
-/*** 
+/***
 
 ====================================================================
 	FAQ Section
@@ -6489,7 +6489,7 @@ img{
 	padding: 25px 30px 25px;
 }
 
-.accordion-box .block .acc-content.current{ 
+.accordion-box .block .acc-content.current{
 	display: block;
 }
 
@@ -6500,7 +6500,7 @@ img{
 	color: #777777;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Pricing Section
@@ -6534,7 +6534,7 @@ img{
 }
 
 .pricing-tabs .tabs-content .tab.active-tab{
-	display:block;	
+	display:block;
 }
 
 .pricing-tabs .buttons-outer{
@@ -6739,7 +6739,7 @@ img{
 	color:#ffffff;
 }
 
-/*** 
+/***
 
 ====================================================================
 	News Section Two
@@ -6905,7 +6905,7 @@ img{
 	border-color:#222222;
 }
 
-/*** 
+/***
 
 ====================================================================
 	CTA Section Two
@@ -6943,7 +6943,7 @@ img{
 	top:80px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	About Section
@@ -7143,7 +7143,7 @@ img{
 	text-align:left;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Counter Section Two
@@ -7229,7 +7229,7 @@ img{
 	margin-bottom:12px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Services Section Two
@@ -7390,7 +7390,7 @@ img{
 	font-size:16px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Choose Section
@@ -7515,7 +7515,7 @@ img{
 	line-height:1.7em;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Testimnial Section Two
@@ -7639,7 +7639,7 @@ img{
 	display:inline-block;
 }
 
-/*** 
+/***
 
 ====================================================================
 	CTA Section Two
@@ -7696,7 +7696,7 @@ img{
 	color:#ffffff;
 }
 
-/*** 
+/***
 
 ====================================================================
 	News Section Three
@@ -7832,7 +7832,7 @@ img{
 	color:#f05523;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Footer Style Two
@@ -8066,7 +8066,7 @@ img{
 	color:#111111;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Page Title
@@ -8152,7 +8152,7 @@ img{
 	color:#ffffff;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Faq Page Section
@@ -8174,7 +8174,7 @@ img{
 	position:relative;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Faq Form Section
@@ -8192,7 +8192,7 @@ img{
 	padding:100px 0px 0px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Team Single Section
@@ -8319,7 +8319,7 @@ img{
 	margin-bottom:70px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Styled Pagination
@@ -8375,7 +8375,7 @@ img{
 	background-color:#222222;
 }
 
-/*** 
+/***
 
 ====================================================================
 			Coming Soon
@@ -8534,7 +8534,7 @@ img{
 	-moz-transition:all 300ms ease;
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
-	transition:all 300ms ease;	
+	transition:all 300ms ease;
 }
 
 .coming-soon .emailed-form .form-group input:focus,
@@ -8558,7 +8558,7 @@ img{
 	-moz-transition:all 300ms ease;
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
-	transition:all 300ms ease;	
+	transition:all 300ms ease;
 }
 
 .coming-soon .emailed-form .form-group input[type="submit"]:hover,
@@ -8765,7 +8765,7 @@ img{
     border-radius: 50%;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Privacy Section
@@ -8861,7 +8861,7 @@ img{
 	background-color:#f05523;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Sidebar Page Container
@@ -9133,7 +9133,7 @@ img{
 	margin-bottom:30px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Service Tabs Style
@@ -9215,7 +9215,7 @@ img{
 }
 
 .service-detail .service-tabs .tabs-content .tab.active-tab{
-	display:block;	
+	display:block;
 }
 
 .service-detail .service-tabs .tabs-content .content{
@@ -9236,7 +9236,7 @@ img{
 	margin-bottom:0px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Project Detail Section
@@ -9371,7 +9371,7 @@ img{
 	background-color:#f05523;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Project Summery Section
@@ -9401,7 +9401,7 @@ img{
 	line-height:1.7em;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Project Challenge Section
@@ -9461,7 +9461,7 @@ img{
 	line-height:1.7em;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Project Challenge Section
@@ -10099,7 +10099,7 @@ img{
 }
 
 
-/*** 
+/***
 
 ====================================================================
 	Comments Area
@@ -10149,7 +10149,7 @@ img{
 }
 
 .sidebar-page-container .comments-area .reply-comment{
-	margin-left:100px;	
+	margin-left:100px;
 }
 
 .sidebar-page-container .comments-area .comment-box .author-thumb{
@@ -10222,7 +10222,7 @@ img{
 
 
 
-/*** 
+/***
 
 ====================================================================
 	Comment Form
@@ -10387,7 +10387,7 @@ img{
 .contact-form input.error,
 .contact-form select.error,
 .contact-form textarea.error{
-	border-color:#ff0000 !important;	
+	border-color:#ff0000 !important;
 }
 
 .contact-form label.error{
@@ -10398,12 +10398,12 @@ img{
 	text-transform:uppercase;
 	font-size:12px;
 	color:#ff0000;
-	font-weight:500;	
+	font-weight:500;
 }
 
 
 
-/*** 
+/***
 
 ====================================================================
 	Contact Page Section
@@ -10468,7 +10468,7 @@ img{
     transition: all 300ms ease;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Shop Page Section
@@ -10510,10 +10510,10 @@ img{
 .single-product-item .img-holder img{
     transform: scale(1);
     transition: all 0.7s ease 0s;
-    width: 100%;   
+    width: 100%;
 }
 .single-product-item:hover .img-holder img{
-    transform: scale(1.1);   
+    transform: scale(1.1);
 }
 
 .single-product-item .title-holder{
@@ -10554,7 +10554,7 @@ img{
 
 .single-product-item .title-holder .static-content{
     position: relative;
-    display: block;    
+    display: block;
 }
 .single-product-item .title-holder .title {
     position: relative;
@@ -10610,7 +10610,7 @@ img{
 }
 .single-product-item:hover .title-holder .overlay-content ul{
     transform: scale(1);
-    transition: all 700ms ease 600ms;    
+    transition: all 700ms ease 600ms;
 }
 .single-product-item .title-holder .overlay-content ul li{
     position: relative;
@@ -10681,7 +10681,7 @@ img{
     margin: 0;
 }
 .single-product-item .title-holder .overlay-content ul li a:hover .toltip-content{
-    top: -40px; 
+    top: -40px;
     visibility: visible;
     opacity: 1;
 }
@@ -10689,7 +10689,7 @@ img{
 
 
 
-/*** 
+/***
 
 ====================================================================
 	Shop Single Section
@@ -10745,7 +10745,7 @@ img{
 }
 
 .shop-single-section .info-column .details-header h2 a{
-	color:#333333;	
+	color:#333333;
 }
 
 .shop-single-section .info-column .details-header .rating{
@@ -10761,7 +10761,7 @@ img{
 
 .shop-single-section .info-column .details-header .rating .fa{
 	display:inline-block;
-	margin-right:1px;	
+	margin-right:1px;
 }
 
 .shop-single-section .info-column .details-header .rating .fa.light{
@@ -10794,7 +10794,7 @@ img{
 
 .product-details .bootstrap-touchspin .input-group-btn-vertical i,
 .cart-section .bootstrap-touchspin .input-group-btn-vertical i{
-	top:1px;	
+	top:1px;
 }
 
 
@@ -10865,7 +10865,7 @@ img{
 	line-height:24px;
 	padding:10px 15px !important;
 	height:54px !important;
-	box-shadow:none !important;	
+	box-shadow:none !important;
 	border-radius:50px 0px 0px 50px;
 	border:0px;
 }
@@ -10912,7 +10912,7 @@ img{
 
 
 
-/*** 
+/***
 
 ====================================================================
 	Product Tabs Style
@@ -10956,7 +10956,7 @@ img{
 }
 
 .shop-page .prod-tabs .tabs-content{
-	position:relative;	
+	position:relative;
 }
 
 .shop-page .prod-tabs .tabs-content .tab{
@@ -10965,7 +10965,7 @@ img{
 }
 
 .shop-page .prod-tabs .tabs-content .tab.active-tab{
-	display:block;	
+	display:block;
 }
 
 .shop-page .prod-tabs .tabs-content .tab p{
@@ -10982,7 +10982,7 @@ img{
 .shop-page .prod-tabs .tabs-content .tab h4,
 .shop-page .prod-tabs .tabs-content .tab h5,
 .shop-page .prod-tabs .tabs-content .tab h6{
-	margin-bottom:15px;	
+	margin-bottom:15px;
 }
 
 .shop-page .prod-tabs .tabs-content .tab h4{
@@ -10992,7 +10992,7 @@ img{
 
 .shop-page .prod-tabs .reviews-container{
 	position:relative;
-	padding-bottom:1px;	
+	padding-bottom:1px;
 }
 
 .shop-page .prod-tabs .reviews-container .review-box{
@@ -11058,7 +11058,7 @@ img{
 .shop-page .prod-tabs .reviews-container .rev-header h4{
 	float:left;
 	line-height:30px;
-	margin-bottom:10px;	
+	margin-bottom:10px;
 }
 
 .shop-page .prod-tabs .reviews-container .rev-header .rating{
@@ -11091,7 +11091,7 @@ img{
 .shop-page .prod-tabs .reviews-container .rev-option a{
 	font-size:14px;
 	text-transform:uppercase;
-	font-weight:700;	
+	font-weight:700;
 }
 
 .shop-page .prod-tabs .reviews-container .rev-text{
@@ -11116,7 +11116,7 @@ img{
 
 .shop-page .prod-tabs .add-review .rating{
 	position:relative;
-	padding-top:8px;	
+	padding-top:8px;
 }
 
 .shop-page .prod-tabs .add-review .rating .rate-box{
@@ -11124,7 +11124,7 @@ img{
 	display:inline-block;
 	margin-right:10px;
 	font-size:14px;
-	color:#555555;	
+	color:#555555;
 }
 
 .shop-page .prod-tabs .add-review .rating .rate-box:hover,
@@ -11139,16 +11139,16 @@ img{
 	font-size:14px;
 	margin-bottom:5px;
 	font-weight:400;
-	color:#303030;	
+	color:#303030;
 }
 
 .shop-page .prod-tabs .add-review h3{
-	margin-bottom:20px;	
+	margin-bottom:20px;
 }
 
 .shop-page .prod-tabs .add-review .form-group{
 	position:relative;
-	margin-bottom:20px;	
+	margin-bottom:20px;
 }
 
 .shop-page .prod-tabs .add-review .form-group input[type="text"],
@@ -11196,7 +11196,7 @@ img{
 	padding-top:40px;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Cart Section style
@@ -11210,11 +11210,11 @@ img{
 }
 
 .cart-outer{
-	position:relative;	
+	position:relative;
 }
 
 .checkout-page .cart-outer{
-	margin-bottom:40px;	
+	margin-bottom:40px;
 }
 
 .cart-outer .table-outer{
@@ -11252,7 +11252,7 @@ img{
 }
 
 .cart-table thead tr th .fa{
-	font-size:18px;	
+	font-size:18px;
 }
 
 .cart-table tbody tr td{
@@ -11270,7 +11270,7 @@ img{
 }
 
 .cart-table tbody tr .qty .quantity-spinner{
-	background:#ffffff;	
+	background:#ffffff;
 }
 
 .cart-table tbody tr .prod-column .column-box{
@@ -11372,7 +11372,7 @@ img{
 
 .cart-table tbody .available-info{
 	position:relative;
-	padding-left:50px;	
+	padding-left:50px;
 }
 
 .cart-table tbody .available-info .icon{
@@ -11405,7 +11405,7 @@ img{
 .cart-section .apply-coupon .form-group{
 	position:relative;
 	float:left;
-	margin-right:10px;	
+	margin-right:10px;
 }
 
 .cart-section .apply-coupon .form-group input[type="text"]{
@@ -11501,7 +11501,7 @@ img{
 
 .checkout-page .default-links{
 	position:relative;
-	margin-bottom:40px;	
+	margin-bottom:40px;
 }
 
 .checkout-page .default-links li{
@@ -11531,11 +11531,11 @@ img{
 
 .shop-form .form-group{
 	position:relative;
-	margin-bottom:20px;	
+	margin-bottom:20px;
 }
 
 .billing-details .shop-form .sec-title{
-	margin-bottom:20px;	
+	margin-bottom:20px;
 }
 
 .billing-details .shop-form .form-group.sec-title{
@@ -11548,7 +11548,7 @@ img{
 	display:block;
 	line-height:24px;
 	margin-bottom:8px;
-	color:#797979;	
+	color:#797979;
 	font-size:15px;
 	font-weight:500;
 	text-transform:capitalize;
@@ -11557,7 +11557,7 @@ img{
 .shop-form .form-group .field-label sup{
 	position:relative;
 	top:0px;
-	color:#797979;	
+	color:#797979;
 	font-size:16px;
 }
 
@@ -11604,19 +11604,19 @@ img{
 }
 
 .shop-form select option{
-	text-indent:15px;	
+	text-indent:15px;
 }
 
 .shop-form textarea{
 	resize:none;
 	height:100px !important;
-	overflow:hidden;	
+	overflow:hidden;
 }
 
 .shop-form input:focus,
 .shop-form select:focus,
 .shop-form textarea:focus{
-	border-color:#f05523;	
+	border-color:#f05523;
 }
 
 /* Shop Order Box */
@@ -11662,16 +11662,16 @@ img{
 .payment-options{
 	position:relative;
 	margin-top:20px;
-	margin-bottom:20px;	
+	margin-bottom:20px;
 }
 
 .checkout-page .payment-options li{
 	position:relative;
-	margin-bottom:15px;	
+	margin-bottom:15px;
 }
 
 .checkout-page .payment-options li .radio-option{
-	position:relative;		
+	position:relative;
 }
 
 .checkout-page .payment-options li .radio-option label{
@@ -11696,7 +11696,7 @@ img{
 .checkout-page .payment-options li .radio-option input[type="radio"]{
 	position:absolute;
 	left:0px;
-	top:3px;	
+	top:3px;
 }
 
 .checkout-page .payment-options li .radio-option #payment-3{
@@ -11748,19 +11748,19 @@ img{
 	top:-3px;
 	display:inline-block;
 	max-width:100%;
-	padding-left:30px;	
+	padding-left:30px;
 }
 
 .checkout-page .payment-options li .radio-option label img{
 	position:relative;
 	display:inline-block;
 	max-width:100%;
-	padding-left:30px;	
+	padding-left:30px;
 }
 
 
 
-/*** 
+/***
 
 ====================================================================
 	Login Page Section
@@ -11877,7 +11877,7 @@ img{
 
 .styled-form .form-group .check-box input[type="checkbox"]:checked + label:after {
 	max-width: 20px;
-	opacity: 1;	
+	opacity: 1;
 }
 
 .styled-form .form-group .check-box .terms{
@@ -11941,7 +11941,7 @@ img{
 
 .styled-form .form-group .radio-box input[type="radio"]:checked + label:after {
 	max-width: 20px;
-	opacity: 1;	
+	opacity: 1;
 }
 
 .styled-form .theme-btn{
