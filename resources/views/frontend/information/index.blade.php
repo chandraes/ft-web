@@ -29,17 +29,17 @@
                     <div class="news-block-four">
                         <div class="inner-box">
                             <div class="image">
-                                <a href="{{route('detail-information', $d->id)}}"><img src="{{asset($d->image)}}" /></a>
+                                <a href="{{route('detail-information', ['id'=>$d->id, 'slug'=>$d->slug])}}"><img src="{{asset($d->image)}}" /></a>
                                 <div class="post-date">{{date_format($d->created_at, "d")}}
                                     <br><span>{{date_format($d->created_at, "M/y")}}</span>
                                 </div>
                             </div>
                             <div class="lower-content mt-3">
-                                <h3><a href="{{route('detail-information', $d->id)}}">{{$d->title}}</a></h3>
+                                <h3><a href="{{route('detail-information', ['id'=>$d->id, 'slug'=>$d->slug])}}">{{$d->title}}</a></h3>
                                 <div class="text mb-6">
                                     {!! clean($d->short_description) !!}
                                 </div>
-                                <a class="read-more mt-6" href="{{route('detail-information', $d->id)}}">Read More</a>
+                                <a class="read-more mt-6" href="{{route('detail-information', ['id'=>$d->id, 'slug'=>$d->slug])}}">Read More</a>
                             </div>
                         </div>
                     </div>

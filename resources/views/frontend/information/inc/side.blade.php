@@ -31,7 +31,7 @@
                 </div>
                 <ul class="blog-cat">
                     @foreach ($category as $c)
-                    <li><a href="{{route('information', ['id'=> $c->id, 'name'=> $c->name])}}">{{$c->name}}
+                    <li><a href="{{route('information', ['id'=> $c->id, 'slug'=> $c->slug])}}">{{$c->name}}
                             <span>( {{$c->information_count}} )</span></a></li>
                     @endforeach
                 </ul>
@@ -47,9 +47,9 @@
                 @foreach ($last as $l)
                 <article class="post">
                     <figure class="post-thumb"><img src="{{asset($l->image)}}" alt=""><a
-                            href="{{route('detail-information', $l->id)}}" class="overlay-box"><span
+                            href="{{route('detail-information', ['id'=>$l->id, 'slug'=>$l->slug])}}" class="overlay-box"><span
                                 class="icon fa fa-link"></span></a></figure>
-                    <div class="text"><a href="{{route('detail-information', $l->id)}}">{{$l->title}}</a></div>
+                    <div class="text"><a href="{{route('detail-information', ['id'=>$l->id, 'slug'=>$l->slug])}}">{{$l->title}}</a></div>
                     <div class="post-info">{{date_format($l->created_at, "F d, Y")}}</div>
                 </article>
                 @endforeach

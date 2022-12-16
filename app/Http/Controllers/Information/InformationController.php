@@ -8,6 +8,7 @@ use App\Models\Informasi\CategoryInformation;
 use App\Models\Informasi\Informasi;
 use Illuminate\Support\Facades\File;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Str;
 
 class InformationController extends Controller
 {
@@ -52,6 +53,8 @@ class InformationController extends Controller
             'image' => 'nullable|mimes:png,jpg,jpeg|max:5012',
         ]);
 
+        $data['slug'] = Str::slug($data['title'], '-');
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = Uuid::uuid4()->toString() . '.' . $image->getClientOriginalExtension();
@@ -92,6 +95,8 @@ class InformationController extends Controller
             'content' => 'nullable',
             'image' => 'nullable|mimes:png,jpg,jpeg|max:5012',
         ]);
+
+        $data['slug'] = Str::slug($data['title'], '-');
 
         $db = Informasi::findOrFail($id);
 
@@ -140,7 +145,10 @@ class InformationController extends Controller
             'name' => 'required|min:3',
         ]);
 
+        $data['slug'] = str_slug($data['name'], '-');
+
         CategoryInformation::create($data);
+
         return redirect()->route('informasi.index')->with('success', 'Data berhasil ditambahkan');
     }
 

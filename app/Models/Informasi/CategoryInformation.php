@@ -11,7 +11,8 @@ class CategoryInformation extends Model
     protected $table = 'category_information';
 
     protected $fillable = [
-        'name'
+        'name',
+        'slug',
     ];
 
     /**

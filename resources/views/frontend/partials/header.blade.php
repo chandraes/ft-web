@@ -124,7 +124,6 @@ $about = App\Models\About::first();
                                                 <li><a href="https://pps.unsri.ac.id/ilmu-teknik/">Ilmu Teknik</a></li>
                                             </ul>
                                         <li><a href="{{route('laboratory')}}">Laboratorium</a></li>
-                                        <li><a href="Informasi-beasiswa.html">Informasi Beasiswa</a></li>
                                         <li><a href="http://www.tracerstudy.ft.unsri.ac.id/">Tracer Study</a></li>
                                     </ul>
                                 </li>
@@ -135,7 +134,7 @@ $about = App\Models\About::first();
                                     <ul>
                                         @foreach ($categoryInformations as $c)
                                         <li><a
-                                                href="{{route('information', ['id'=> $c->id, 'name'=> $c->name])}}">{{$c->name}}</a>
+                                                href="{{route('information', ['id'=> $c->id, 'slug'=> $c->slug])}}">{{$c->name}}</a>
                                         </li>
                                         @endforeach
                                     </ul>

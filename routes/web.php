@@ -19,8 +19,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('leader', [App\Http\Controllers\frontend\PimpinanController::class, 'index'])->name('leader');
 Route::get('leader/{id}', [App\Http\Controllers\frontend\PimpinanController::class, 'detail'])->name('detail-leader');
 Route::get('vision', [App\Http\Controllers\frontend\visimisiController::class, 'index'])->name('vision');
-Route::get('information/{id}/{name}', [App\Http\Controllers\frontend\InformationController::class, 'index'])->name('information');
-Route::get('detail-information/{id}', [App\Http\Controllers\frontend\InformationController::class, 'detail'])->name('detail-information');
+Route::get('information/{id}/{slug}', [App\Http\Controllers\frontend\InformationController::class, 'index'])->name('information');
+Route::get('detail-information/{id}/{slug}', [App\Http\Controllers\frontend\InformationController::class, 'detail'])->name('detail-information');
 Route::post('search', [App\Http\Controllers\frontend\InformationController::class, 'search'])->name('search');
 Route::get('employee', [App\Http\Controllers\frontend\pegawaiController::class, 'index'])->name('employee');
 Route::get('employee/{id}', [App\Http\Controllers\frontend\pegawaiController::class, 'detail'])->name('detail-employee');

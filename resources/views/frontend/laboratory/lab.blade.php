@@ -27,7 +27,7 @@
                 <div class="gallery-block mix all {{strtolower($d->category_name)}} col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
                         <figure class="image-box">
-                            <img src="{{asset($d->image)}}" alt="">
+                            <img src="{{asset($d->image)}}" alt="" style="height: 300px">
                             <div class="overlay-box">
                                 <div class="overlay-inner">
                                     <div class="content">
@@ -84,9 +84,5 @@
         }
 
     });
-
-
-
-
 </script>
 @endpush

@@ -7,6 +7,8 @@ use App\Models\Carousel;
 use App\Models\Informasi\Informasi;
 use App\Models\Partner;
 use App\Models\About;
+use App\Models\Lab\CategoryLab;
+use App\Models\Lab\Lab;
 
 
 class HomeController extends Controller
@@ -19,10 +21,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $lab = Lab::take(6)->get();
+
+        $category = CategoryLab::select('id', 'name')->get();
         $carousels = Carousel::all();
-        $news = Informasi::select('id','title', 'image', 'content', 'created_at')->latest()->take(3)->get();
+        $news = Informasi::select('id','title', 'image', 'slug' ,'content', 'created_at')->latest()->take(3)->get();
         $about = About::find(1);
 
-        return view('frontend.home', compact('carousels', 'news', 'about'));
+        return view('frontend.home', compact('carousels', 'news', 'about', 'category', 'lab'));
     }
 }
