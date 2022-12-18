@@ -118,7 +118,7 @@
                             <div class="icon flaticon-user-1"></div>
                             <div class="counter-title">Tenaga Pengajar</div>
                             <div class="count-outer count-box">
-                                <span class="count-text" data-speed="3500" data-stop="210">0</span>
+                                <span class="count-text" data-speed="3500" data-stop="{{$count_dosen}}">0</span>
                             </div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                             <div class="icon flaticon-project-management"></div>
                             <div class="counter-title">Laboratorium</div>
                             <div class="count-outer count-box">
-                                <span class="count-text" data-speed="2500" data-stop="35">0</span>
+                                <span class="count-text" data-speed="2500" data-stop="{{$count_lab}}">0</span>
                             </div>
                         </div>
                     </div>

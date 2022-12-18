@@ -10,8 +10,10 @@ class MataKuliah extends Model
     use HasFactory;
 
     protected $fillable = [
+        'kode',
         'name',
         'slug',
     ];
+
 
 }

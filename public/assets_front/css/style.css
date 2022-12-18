@@ -6037,6 +6037,26 @@ img{
 	background-color:#ed5423;
 }
 
+.process-block .inner-box .color-layer-two-custom{
+	position:absolute;
+	left:60px;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	z-index:-1;
+	background-color:#212121;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+	clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.process-block .inner-box:hover .color-layer-two-custom{
+	background-color:#ed5423;
+}
+
 .process-block .inner-box .icon{
 	position:relative;
 	color:#f05523;

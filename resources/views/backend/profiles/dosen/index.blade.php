@@ -17,6 +17,7 @@
             <div class="card-header">
                 <h3 class="card-title mb-0">{{'List '. ucfirst(request()->segment(2))}}</h3>
                 <div class="card-options">
+                    <a class="btn btn-info" href="{{route('mata-kuliah.index')}}">Mata Kuliah</a>
                     <a class="modal-effect btn btn-success d-grid mx-3" data-bs-effect="effect-slide-in-right"
                         data-bs-toggle="modal" href="#jurusan">Tambah Jurusan/Prodi</a>
                     <a href="{{route('dosen.create')}}" class="ml-4 btn btn-primary">{{__('Add New')}}</a>

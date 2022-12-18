@@ -64,7 +64,7 @@
     <script src="{{asset('assets/js/jquery.sparkline.min.js')}}"></script>
 
     <!-- CHART-CIRCLE JS-->
-    <script src="{{asset('assets/js/circle-progress.min.js')}}"></script>
+    {{-- <script src="{{asset('assets/js/circle-progress.min.js')}}"></script> --}}
 
     <!-- CHARTJS CHART JS-->
     <script src="{{asset('assets/plugins/chart/Chart.bundle.js')}}"></script>
@@ -73,7 +73,6 @@
     <!-- PIETY CHART JS-->
     <script src="{{asset('assets/plugins/peitychart/jquery.peity.min.js')}}"></script>
     <script src="{{asset('assets/plugins/peitychart/peitychart.init.js')}}"></script>
-
 
     <!-- SIDE-MENU JS-->
     <script src="{{asset('assets/plugins/sidemenu/sidemenu.js')}}"></script>

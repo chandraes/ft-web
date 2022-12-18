@@ -65,6 +65,7 @@ Route::prefix('admin')->group(function () {
     Route::post('lab/category', [App\Http\Controllers\LabController::class, 'category'])->name('lab.category');
     Route::delete('lab/category/{id}', [App\Http\Controllers\LabController::class, 'categoryDelete'])->name('lab.category.delete');
 
+    Route::resource('mata-kuliah', App\Http\Controllers\MataKuliahController::class)->except(['show']);
 
 
     Route::post('dosen/category', [App\Http\Controllers\Profile\DosenController::class, 'category'])->name('dosen.category');

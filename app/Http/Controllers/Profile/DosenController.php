@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Profiles\Dosen;
 use App\Models\Profiles\CategoryDosen;
+use App\Models\Dosen\MataKuliah;
 use Illuminate\Support\Facades\File;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\DB;
 
 class DosenController extends Controller
 {
@@ -32,8 +34,9 @@ class DosenController extends Controller
      */
     public function create()
     {
+        $mk = MataKuliah::select('id', 'kode' ,'name')->get();
         $category = CategoryDosen::all();
-        return view('backend.profiles.dosen.create', compact('category'));
+        return view('backend.profiles.dosen.create', compact('category', 'mk'));
     }
 
     /**
@@ -46,7 +49,14 @@ class DosenController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|min:3|string|max:255',
+            'email' => 'nullable|email',
             'category_dosen_id' => 'required',
+            'mata_kuliah_id' => 'nullable',
+            'mata_kuliah_id.*' => 'integer|exists:mata_kuliahs,id',
+            'gs_link' => 'nullable|active_url',
+            'scopus_link' => 'nullable|active_url',
+            'sinta_link' => 'nullable|active_url',
+            'wos_link' => 'nullable|active_url',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5012',
         ]);
@@ -59,7 +69,24 @@ class DosenController extends Controller
             $data['image'] = '/images/dosen/'.$name;
         }
 
-        Dosen::create($data);
+        DB::transaction(function () use ($data, $request) {
+            if ($request->has('mata_kuliah_id')) {
+                $mk_dosen = $data['mata_kuliah_id'];
+                unset($data['mata_kuliah_id']);
+            }
+            $dosen = Dosen::create($data);
+
+            if ($request->has('mata_kuliah_id')) {
+                foreach ($mk_dosen as $key => $value) {
+                    $dosen->mk_dosen()->create([
+                        'mata_kuliah_id' => $value
+                    ]);
+                }
+            }
+
+        });
+
+
 
         return redirect()->route('dosen.index')->with('success', 'Data berhasil ditambahkan');
     }
@@ -74,7 +101,8 @@ class DosenController extends Controller
     {
         $category = CategoryDosen::all();
         $data = Dosen::find($id);
-        return view('backend.profiles.dosen.edit', compact('data', 'category'));
+        $mk = MataKuliah::select('id', 'kode' ,'name')->get();
+        return view('backend.profiles.dosen.edit', compact('data', 'category', 'mk'));
     }
 
     /**
@@ -88,12 +116,20 @@ class DosenController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|min:3|string|max:255',
+            'email' => 'nullable|email',
             'category_dosen_id' => 'required',
+            'mata_kuliah_id' => 'nullable',
+            'mata_kuliah_id.*' => 'integer|exists:mata_kuliahs,id',
+            'gs_link' => 'nullable|active_url',
+            'scopus_link' => 'nullable|active_url',
+            'sinta_link' => 'nullable|active_url',
+            'wos_link' => 'nullable|active_url',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:png,jpg,jpeg|max:5012',
         ]);
 
         $dosen = Dosen::find($id);
+        // dd($data);
 
         if ($request->hasFile('image')) {
             $image_path = public_path($dosen->image);
@@ -107,7 +143,26 @@ class DosenController extends Controller
             $data['image'] = '/images/dosen/'.$name;
         }
 
-        $dosen->update($data);
+
+        DB::transaction(function () use ($data, $dosen, $request) {
+            
+            if ($request->has('mata_kuliah_id')) {
+                $mk_dosen = $data['mata_kuliah_id'];
+                unset($data['mata_kuliah_id']);
+                $dosen->mk_dosen()->delete();
+            }
+
+            $dosen->update($data);
+
+            if ($request->has('mata_kuliah_id')) {
+                foreach ($mk_dosen as $key => $value) {
+                    $dosen->mk_dosen()->create([
+                        'mata_kuliah_id' => $value
+                    ]);
+                }
+            }
+        });
+
 
         return redirect()->route('dosen.index')->with('success', 'Data berhasil diubah');
     }

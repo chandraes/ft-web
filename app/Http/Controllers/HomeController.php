@@ -9,6 +9,7 @@ use App\Models\Partner;
 use App\Models\About;
 use App\Models\Lab\CategoryLab;
 use App\Models\Lab\Lab;
+use App\Models\Profiles\Dosen;
 
 
 class HomeController extends Controller
@@ -27,7 +28,9 @@ class HomeController extends Controller
         $carousels = Carousel::all();
         $news = Informasi::select('id','title', 'image', 'slug' ,'content', 'created_at')->latest()->take(3)->get();
         $about = About::find(1);
+        $count_dosen = Dosen::count();
+        $count_lab = Lab::count();
 
-        return view('frontend.home', compact('carousels', 'news', 'about', 'category', 'lab'));
+        return view('frontend.home', compact('carousels', 'news', 'about', 'category', 'lab', 'count_dosen', 'count_lab'));
     }
 }

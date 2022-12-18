@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Mews\Purifier\Casts\CleanHtml;
 use Illuminate\Support\Str;
+use App\Models\Dosen\MkDosen;
+use App\Models\Dosen\MataKuliah;
 
 class Dosen extends Model
 {
@@ -20,6 +22,11 @@ class Dosen extends Model
     protected $fillable = [
         'category_dosen_id',
         'name',
+        'email',
+        'gs_link',
+        'scopus_link',
+        'sinta_link',
+        'wos_link',
         'image',
         'description'
     ];

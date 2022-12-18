@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             CategoryPimpinanSeeder::class,
             CategoryDosenSeeder::class,
             CategoryLabSeeder::class,
+            MataKuliahSeeder::class,
         ]);
     }
 }
