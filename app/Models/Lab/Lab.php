@@ -50,7 +50,7 @@ class Lab extends Model
         return $this->hasMany(LabTeam::class, 'lab_id', 'id');
     }
 
-    public function dosenThroughLabTeam()
+    public function dosen()
     {
         return $this->hasManyThrough(
             Dosen::class,

@@ -16,14 +16,14 @@ class LabController extends Controller
         $data = Lab::leftJoin('category_labs', 'category_labs.id', 'labs.category_lab_id')
                 ->select('labs.*', 'category_labs.name as category_name')
                 ->get();
-                // dd($data);
+
         return view('frontend.laboratory.lab', compact('data', 'category'));
     }
 
     public function detail($id)
     {
         $data = Lab::find($id);
-
+        // dd($data->dosen);
         return view('frontend.laboratory.detail', compact('data'));
     }
 }

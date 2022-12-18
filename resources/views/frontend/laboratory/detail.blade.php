@@ -30,7 +30,6 @@
                 <div class="inner-column">
                     <h3>Tentang Laboratorium</h3>
                     <div class="text"><hr></div>
-                    <hr>
                     <ul class="service-list mt-8">
                         <li>
                             <span class="icon flaticon-briefcase-2"></span>
@@ -41,6 +40,14 @@
                             <span class="icon flaticon-avatar"></span>
                             <strong>Kepala Laboratorium</strong>
                             {{$data->kepala_lab}}
+                        </li>
+                        <li>
+                            <span class="icon flaticon-engineer"></span>
+                            <strong>Koordinator Asisten</strong>
+                            @if (empty($data->koordinator_asisten))
+                            -
+                            @endif
+                            {{$data->koordinator_asisten}}
                         </li>
                         <li>
                             <span class="icon flaticon-price-tag"></span>
@@ -73,6 +80,36 @@
             </div>
         </div>
     </div>
+</section>
+<section class="team-page-section">
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title centered">
+            <div class="title"><span class="separator"></span>Team Dosen<span class="separator-two"></span></div>
+            <h2>Dosen</h2>
+        </div>
+        <div class="row clearfix aligns-items-center justify-content-center">
+            <!-- Team Block -->
+            @if ($data->dosen->count() > 0)
+                    @foreach ($data->dosen as $d)
+                    <div class="team-block col-lg-4 col-md-6 col-sm-12 ">
+                        <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <div class="pattern-layer" style="background-image:url({{asset($d->image)}})"></div>
+                            <div class="image">
+                                <a href="{{route('detail-dosen', ['id'=> $d->id])}}"><img style="height: 380px" src="{{asset($d->image)}}"/></a>
+                            </div>
+                            <div class="lower-content">
+                                <h4><a href="{{route('detail-dosen', ['id'=> $d->id])}}">{{$d->name}}</a></h4>
+                                <div class="designation">{{$d->jurusan_prodi}}</div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+            <div class="col-12 text-center"><h2>-- No Data -- <br><hr></h2></div>
+            @endif
+
+        </div>
 </section>
 <section class="project-mission-section">
     <div class="auto-container">

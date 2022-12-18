@@ -42,7 +42,7 @@ class Dosen extends Model
         return $this->hasMany(LabTeam::class, 'dosen_id', 'id');
     }
 
-    public function labBelongToThrough()
+    public function lab()
     {
         return $this->hasManyThrough(
             Lab::class,
@@ -53,4 +53,22 @@ class Dosen extends Model
             'lab_id'
         );
     }
+
+    public function mk_dosen()
+    {
+        return $this->hasMany(MkDosen::class, 'dosen_id', 'id');
+    }
+
+    public function mata_kuliah()
+    {
+        return $this->hasManyThrough(
+            MataKuliah::class,
+            MkDosen::class,
+            'dosen_id',
+            'id',
+            'id',
+            'mata_kuliah_id'
+        );
+    }
+
 }
