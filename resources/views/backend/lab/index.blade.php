@@ -22,12 +22,12 @@
 <div class="row mt-4 mb-4">
     {{ $data->links() }}
     @foreach ($data as $d)
-    <div class="col-sm-6 col-xl-3 mt-4">
-        <div class="panel price panel-color plan-card text-center p-2" style="height: 590px">
+    <div class="col-sm-6 col-xl-4 mt-4">
+        <div class="panel price panel-color plan-card text-center p-2">
             <div class="pt-4 px-4">
-                <div class="mb-4"><img class="cover-image" src="{{asset($d->image)}}" alt="" style="max-height: 160px">
+                <div class="mb-4"><img class="cover-image" src="{{asset($d->image)}}" alt="" style="height: 160px">
                 </div>
-                <h4 class="text-uppercase fw-semibold text-primary card-category bg-primary-transparent">{{$d->name}}
+                    <h4 class="text-uppercase fw-semibold text-primary card-category bg-primary-transparent">{{$d->name}}
                 </h4>
             </div>
             {{-- <div class="panel-body text-center">
@@ -38,6 +38,11 @@
                     <td><strong>Kepala</strong></td>
                     <td>:</td>
                     <td>{{$d->kepala_lab}}</td>
+                </tr>
+                <tr style="text-align: left">
+                    <td><strong>Koordinator</strong></td>
+                    <td>:</td>
+                    <td>{{$d->koordinator_asisten}}</td>
                 </tr>
                 <tr style="text-align: left">
                     <td><strong>Location</strong></td>

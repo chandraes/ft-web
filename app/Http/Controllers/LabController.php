@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Models\Lab\GalleryLab;
 use App\Models\Lab\CategoryLab;
+use App\Models\Lab\LabTeam;
+use App\Models\Profiles\Dosen;
 
 class LabController extends Controller
 {
@@ -21,7 +23,7 @@ class LabController extends Controller
     public function index()
     {
         $category = CategoryLab::all();
-        $data = Lab::paginate(8);
+        $data = Lab::paginate(6);
         return view('backend.lab.index', compact('data', 'category'));
     }
 
@@ -32,8 +34,9 @@ class LabController extends Controller
      */
     public function create()
     {
+        $dosen = Dosen::select('id', 'name')->get();
         $category = CategoryLab::select('id', 'name')->get();
-        return view('backend.lab.create', compact('category'));
+        return view('backend.lab.create', compact('category', 'dosen'));
     }
 
     /**
@@ -50,10 +53,13 @@ class LabController extends Controller
             'category_lab_id' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'kepala_lab' => 'nullable|string|max:255',
+            'koordinator_asisten' => 'nullable|string|max:255',
             'location' => 'nullable|string|max:255',
             'description' => 'nullable',
             'gallery_image' => 'nullable',
-            'gallery_image.*' => 'image|mimes:jpeg,png,jpg|max:5120'
+            'gallery_image.*' => 'image|mimes:jpeg,png,jpg|max:5120',
+            'team_dosen' => 'nullable',
+            'team_dosen.*' => 'integer|exists:dosens,id',
         ]);
 
         $data['slug'] = Str::slug($data['name'], '-');
@@ -68,6 +74,10 @@ class LabController extends Controller
 
         DB::transaction(function () use ($request, $data) {
 
+            $team = $data['team_dosen'];
+
+            unset($data['team_dosen']);
+
             $lab = Lab::create($data);
 
             if ($request->hasFile('gallery_image')) {
@@ -81,6 +91,14 @@ class LabController extends Controller
                     $data['gallery_image'] = '/images/lab/gallery/'.$name;
 
                     $lab->gallery()->create($data);
+                }
+            }
+
+            if ($team) {
+                foreach ($team as $key => $value) {
+                    $lab->team()->create([
+                        'dosen_id' => $value
+                    ]);
                 }
             }
         });
@@ -101,7 +119,10 @@ class LabController extends Controller
         $category = CategoryLab::select('id', 'name')->get();
         $gallery = GalleryLab::where('lab_id', $id)->get();
         $data = Lab::findOrFail($id);
-        return view('backend.lab.edit', compact('data', 'gallery', 'category'));
+        $dosen = Dosen::select('id', 'name')->get();
+        $team = LabTeam::where('lab_id', $id)->get()->pluck('dosen_id')->toArray();
+        // dd($team);
+        return view('backend.lab.edit', compact('data', 'gallery', 'category', 'dosen'));
     }
 
     /**
@@ -119,10 +140,14 @@ class LabController extends Controller
             'category_lab_id' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             'kepala_lab' => 'nullable|string|max:255',
+            'koordinator_asisten' => 'nullable|string|max:255',
+            'team_dosen' => 'nullable',
+            'team_dosen.*' => 'exists:dosens,id',
             'location' => 'nullable|string|max:255',
             'description' => 'nullable',
             'gallery_image' => 'nullable',
-            'gallery_image.*' => 'image|mimes:jpeg,png,jpg|max:5120'
+            'gallery_image.*' => 'image|mimes:jpeg,png,jpg|max:5120',
+
         ]);
 
         $data['slug'] = Str::slug($data['name'], '-');
@@ -143,6 +168,9 @@ class LabController extends Controller
 
         DB::transaction(function () use ($request, $data, $db) {
 
+            $team = $data['team_dosen'];
+            unset($data['team_dosen']);
+
             $db->update($data);
 
             if ($request->hasFile('gallery_image')) {
@@ -156,6 +184,17 @@ class LabController extends Controller
                     $data['gallery_image'] = '/images/lab/gallery/'.$name;
 
                     $db->gallery()->create($data);
+                }
+            }
+
+            if ($team) {
+
+                $db->team()->delete();
+
+                foreach ($team as $key => $value) {
+                    $db->team()->create([
+                        'dosen_id' => $value
+                    ]);
                 }
             }
         });
@@ -186,6 +225,8 @@ class LabController extends Controller
         DB::transaction(function () use ($db) {
 
             $db->gallery()->delete();
+
+            $db->team()->delete();
 
             $db->delete();
 

@@ -55,11 +55,36 @@
                         </div>
                     </div>
                     <div class="row mb-4">
+                        <label class="col-md-2 form-label">Koordinator Asisten</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control @error('koordinator_asisten') is-invalid @enderror"
+                                name="koordinator_asisten" placeholder="Koordinator Asisten Laboratorium">
+                            @error('koordinator_asisten')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-4">
                         <label class="col-md-2 form-label">Location</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('location') is-invalid @enderror"
                                 name="location" placeholder="Location">
                             @error('location')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label class="col-md-2 form-label">Team Dosen</label>
+                        <div class="col-md-10">
+                            <select class="form-control select2 @error('team_dosen') is-invalid @enderror" data-placeholder="Choose team" multiple name="team_dosen[]">
+                                @foreach ($dosen as $d)
+                                <option value="{{$d->id}}">
+                                    {{$d->name}}
+                                </option>
+                                @endforeach
+                            </select>
+                            @error('team_dosen')
                             <span class="text-red">{{$message}}</span>
                             @enderror
                         </div>
@@ -121,6 +146,11 @@
 <!-- WYSIWYG Editor JS -->
 <script src="{{asset('assets/plugins/wysiwyag/jquery.richtext.js')}}"></script>
 <script src="{{asset('assets/plugins/wysiwyag/wysiwyag.js')}}"></script>
+<script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
 
-
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+    });
+</script>
 @endpush

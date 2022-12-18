@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Mews\Purifier\Casts\CleanHtml;
 use Illuminate\Support\Str;
+use App\Models\Profiles\Dosen;
 
 class Lab extends Model
 {
@@ -20,6 +21,7 @@ class Lab extends Model
         'slug',
         'category_lab_id',
         'kepala_lab',
+        'koordinator_asisten',
         'location',
         'description',
         'image',
@@ -41,5 +43,22 @@ class Lab extends Model
     public function category()
     {
         return $this->belongsTo(CategoryLab::class, 'category_lab_id', 'id');
+    }
+
+    public function team()
+    {
+        return $this->hasMany(LabTeam::class, 'lab_id', 'id');
+    }
+
+    public function dosenThroughLabTeam()
+    {
+        return $this->hasManyThrough(
+            Dosen::class,
+            LabTeam::class,
+            'lab_id',
+            'id',
+            'id',
+            'dosen_id'
+        );
     }
 }

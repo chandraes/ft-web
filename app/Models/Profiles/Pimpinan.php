@@ -32,7 +32,7 @@ class Pimpinan extends Model
     {
         return Str::limit(
             nl2br(strip_tags($this->description)),
-            50
+            20
         );
     }
 

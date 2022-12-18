@@ -11,6 +11,8 @@ class Dosen extends Model
 {
     use HasFactory;
 
+    protected $table = 'dosens';
+
     protected $casts = [
         'description' => CleanHtml::class,
     ];
@@ -26,7 +28,29 @@ class Dosen extends Model
     {
         return Str::limit(
             nl2br(strip_tags($this->description)),
-            50
+            20
+        );
+    }
+
+    public function category()
+    {
+        return $this->hasOne(CategoryDosen::class, 'id');
+    }
+
+    public function labteam()
+    {
+        return $this->hasMany(LabTeam::class, 'dosen_id', 'id');
+    }
+
+    public function labBelongToThrough()
+    {
+        return $this->hasManyThrough(
+            Lab::class,
+            LabTeam::class,
+            'dosen_id',
+            'id',
+            'id',
+            'lab_id'
         );
     }
 }
