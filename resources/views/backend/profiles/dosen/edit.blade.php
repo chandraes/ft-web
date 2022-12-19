@@ -20,9 +20,13 @@
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Research Interest</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control @error('tags') is-invalid @enderror" data-role="tagsinput" value="{{$data->tags}}" style="border: 1px solid #ced4da;"
-                            name="tags" placeholder="Pisahkan dengan (,)">
-                            @error('tags')
+                            <input type="text" class="form-control @error('research_interest') is-invalid @enderror" data-role="tagsinput" value="
+                            @if ($data->research_interest->count() > 0)
+                                {{implode(',', $data->research_interest->pluck('name')->toArray())}}
+                            @endif "
+                            style="border: 1px solid #ced4da;"
+                            name="research_interest" placeholder="Pisahkan dengan (,)">
+                            @error('research_interest')
                             <span class="text-red">{{$message}}</span>
                             @enderror
                         </div>
@@ -56,16 +60,8 @@
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Mata Kuliah</label>
                         <div class="col-md-10">
-                            <select class="form-control select2 @error('mata_kuliah_id') is-invalid @enderror" data-placeholder="Dosen Mata kuliah" multiple name="mata_kuliah_id[]">
-                                @foreach ($mk as $d)
-                                <option value="{{$d->id}}"
-                                    @if (in_array($d->id, $data->mk_dosen->pluck('mata_kuliah_id')->toArray()))
-                                    selected
-                                    @endif
-                                    >
-                                    {{$d->kode}} - {{$d->name}}
-                                </option>
-                                @endforeach
+
+                            <select class="form-control select2 mb-4 @error('mata_kuliah_id') is-invalid @enderror" data-placeholder="Dosen Mata kuliah" multiple name="mata_kuliah_id[]">
                             </select>
                             @error('mata_kuliah_id')
                             <span class="text-red">{{$message}}</span>
@@ -157,7 +153,41 @@
 
 <script>
     $(document).ready(function () {
-        $('.select2').select2();
+        $('.select2').select2({
+            minimumInputLength: 3,
+            ajax: {
+                url: '{{route('dosen.search')}}',
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        q: params.term, // search term
+                        page: params.page
+                    };
+                },
+                // append to select2 option with selected
+
+                processResults: function (data) {
+                    return {
+                        results: $.map(data.mk, function (item) {
+                            //with selected
+                            return {
+                                text: item.kode+' - '+item.name,
+                                id: item.id,
+                            }
+                        })
+                    };
+                },
+                cache: true
+            },
+        });
+
+        var data = {!! json_encode($data->mata_kuliah) !!};
+        $.each(data, function (i, item) {
+            var option = new Option(item.kode+' - '+item.name, item.id, true);
+            $('.select2').append(option).trigger('change');
+        });
+
     });
 </script>
 @endpush

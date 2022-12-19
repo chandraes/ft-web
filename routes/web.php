@@ -70,6 +70,7 @@ Route::prefix('admin')->group(function () {
 
     Route::post('dosen/category', [App\Http\Controllers\Profile\DosenController::class, 'category'])->name('dosen.category');
     Route::delete('dosen/category/{id}', [App\Http\Controllers\Profile\DosenController::class, 'categoryDelete'])->name('dosen.category.delete');
+    Route::get('dosen/search', [App\Http\Controllers\Profile\DosenController::class, 'mk_search'])->name('dosen.search');
 
 });
 

@@ -29,8 +29,20 @@
             <!-- Content Column -->
             <div class="content-column col-lg-8 col-md-12 col-sm-12">
                 <div class="inner-column">
-                    <h2>{{$dosen->name}}</h2><h2><span class="category">{{$dosen->jurusan_prodi}}</span></h2>
+                    <h2>{{$dosen->name}}</h2>
+                    {{-- <h2><span class="category">{{$dosen->jurusan_prodi}}</span></h2> --}}
+                    <div class="my-4">
+                        <h5>
+                            Research Interest : @if ($dosen->research_interest && $dosen->research_interest->count() >
+                            0)
+                            @foreach ($dosen->research_interest as $item)
+                            <span class="badge badge-success"> {{$item->name}} </span>
+                            @endforeach
+                            @endif
+                        </h5>
+                    </div>
                     <ul class="post-meta">
+
                         <li><span class="icon flaticon-email-1"></span> <a
                                 href="mailto:{{$dosen->email}}">{{$dosen->email}}</a></li>
                         {{-- <li><span class="icon flaticon-call"></span> <a href="tel:000-000-0000">000 - 000 -
@@ -43,13 +55,7 @@
                     </div>
 
                     <!-- Social Box -->
-                    {{-- <ul class="social-icon-one">
-                        <li><a href="https://www.facebook.com/" class="fa fa-facebook-f"></a></li>
-                        <li><a href="https://www.twitter.com/" class="fa fa-twitter"></a></li>
-                        <li><a href="https://www.linkedin.com/" class="fa fa-linkedin"></a></li>
-                        <li><a href="https://www.instagram.com/" class="fa fa-instagram"></a></li>
-                        <li><a href="https://www.youtube.com/" class="fa fa-youtube-play"></a></li>
-                    </ul> --}}
+
                 </div>
             </div>
 

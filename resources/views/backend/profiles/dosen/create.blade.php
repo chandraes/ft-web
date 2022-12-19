@@ -19,6 +19,16 @@
                         </div>
                     </div>
                     <div class="row mb-4">
+                        <label class="col-md-2 form-label">Research Interest</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control @error('research_interest') is-invalid @enderror" data-role="tagsinput"
+                            name="research_interest" placeholder="Pisahkan dengan (,)">
+                            @error('research_interest')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-4">
                         <label class="col-md-2 form-label">E-Mail</label>
                         <div class="col-md-10">
                             <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Ex: abcd@xx.com / defgh@abc.ac.id">
@@ -47,11 +57,6 @@
                         <label class="col-md-2 form-label">Mata Kuliah</label>
                         <div class="col-md-10">
                             <select class="form-control select2 @error('mata_kuliah_id') is-invalid @enderror" data-placeholder="Dosen Mata kuliah" multiple name="mata_kuliah_id[]">
-                                @foreach ($mk as $d)
-                                <option value="{{$d->id}}">
-                                    {{$d->kode}} - {{$d->name}}
-                                </option>
-                                @endforeach
                             </select>
                             @error('mata_kuliah_id')
                             <span class="text-red">{{$message}}</span>
@@ -119,16 +124,49 @@
 @endsection
 @push('css')
 <link href="{{asset('assets/css/animated.css')}}" rel="stylesheet" />
+<link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css"
+      rel="stylesheet"
+    />
 @endpush
 @push('js')
 <!-- WYSIWYG Editor JS -->
 <script src="{{asset('assets/plugins/wysiwyag/jquery.richtext.js')}}"></script>
 <script src="{{asset('assets/plugins/wysiwyag/wysiwyag.js')}}"></script>
 <script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 
 <script>
     $(document).ready(function () {
-        $('.select2').select2();
+        $('.select2').select2({
+            minimumInputLength: 3,
+            ajax: {
+                url: '{{route('dosen.search')}}',
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        q: params.term, // search term
+                        page: params.page
+                    };
+                },
+                // append to select2 option with selected
+
+                processResults: function (data) {
+                    return {
+                        results: $.map(data.mk, function (item) {
+                            //with selected
+                            return {
+                                text: item.kode+' - '+item.name,
+                                id: item.id,
+                            }
+                        })
+                    };
+                },
+                cache: true
+            },
+        });
+
     });
 </script>
 @endpush

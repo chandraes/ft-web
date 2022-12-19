@@ -8,6 +8,10 @@ use Mews\Purifier\Casts\CleanHtml;
 use Illuminate\Support\Str;
 use App\Models\Dosen\MkDosen;
 use App\Models\Dosen\MataKuliah;
+use App\Models\Dosen\LabTeam;
+use App\Models\Dosen\Lab;
+use App\Models\Dosen\CategoryDosen;
+use App\Models\Dosen\ResearchInterest;
 
 class Dosen extends Model
 {
@@ -76,6 +80,11 @@ class Dosen extends Model
             'id',
             'mata_kuliah_id'
         );
+    }
+
+    public function research_interest()
+    {
+        return $this->hasMany(ResearchInterest::class, 'dosen_id', 'id');
     }
 
 }

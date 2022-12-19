@@ -34,9 +34,8 @@ class DosenController extends Controller
      */
     public function create()
     {
-        $mk = MataKuliah::select('id', 'kode' ,'name')->get();
         $category = CategoryDosen::all();
-        return view('backend.profiles.dosen.create', compact('category', 'mk'));
+        return view('backend.profiles.dosen.create', compact('category'));
     }
 
     /**
@@ -50,6 +49,7 @@ class DosenController extends Controller
         $data = $request->validate([
             'name' => 'required|min:3|string|max:255',
             'email' => 'nullable|email',
+            'research_interest' => 'nullable'|'string'|'max:255',
             'category_dosen_id' => 'required|exists:category_dosens,id',
             'mata_kuliah_id' => 'nullable',
             'mata_kuliah_id.*' => 'integer|exists:mata_kuliahs,id',
@@ -74,12 +74,27 @@ class DosenController extends Controller
                 $mk_dosen = $data['mata_kuliah_id'];
                 unset($data['mata_kuliah_id']);
             }
+
+            if($request->has('research_interest')) {
+                $tags = $data['research_interest'];
+                $tags = explode(',', $data['research_interest']);
+                unset($data['research_interest']);
+            }
+
             $dosen = Dosen::create($data);
 
             if ($request->has('mata_kuliah_id')) {
                 foreach ($mk_dosen as $key => $value) {
                     $dosen->mk_dosen()->create([
                         'mata_kuliah_id' => $value
+                    ]);
+                }
+            }
+
+            if ($request->has('research_interest')) {
+                foreach ($tags as $key => $value) {
+                    $dosen->research_interest()->create([
+                        'name' => $value
                     ]);
                 }
             }
@@ -101,8 +116,9 @@ class DosenController extends Controller
     {
         $category = CategoryDosen::all();
         $data = Dosen::find($id);
-        $mk = MataKuliah::select('id', 'kode' ,'name')->get();
-        return view('backend.profiles.dosen.edit', compact('data', 'category', 'mk'));
+        // dd($data->mata_kuliah);
+        // $mk = MataKuliah::select('id', 'kode' ,'name')->get();
+        return view('backend.profiles.dosen.edit', compact('data', 'category'));
     }
 
     /**
@@ -117,6 +133,7 @@ class DosenController extends Controller
         $data = $request->validate([
             'name' => 'required|min:3|string|max:255',
             'email' => 'nullable|email',
+            'research_interest' => 'nullable|string|max:255',
             'category_dosen_id' => 'required|exists:category_dosens,id',
             'mata_kuliah_id' => 'nullable',
             'mata_kuliah_id.*' => 'integer|exists:mata_kuliahs,id',
@@ -129,7 +146,6 @@ class DosenController extends Controller
         ]);
 
         $dosen = Dosen::find($id);
-        // dd($data);
 
         if ($request->hasFile('image')) {
             $image_path = public_path($dosen->image);
@@ -150,6 +166,18 @@ class DosenController extends Controller
                 $mk_dosen = $data['mata_kuliah_id'];
                 unset($data['mata_kuliah_id']);
                 $dosen->mk_dosen()->delete();
+            }
+
+            if ($request->has('research_interest')) {
+                $tags = $data['research_interest'];
+                $tags = explode(',', $data['research_interest']);
+                $dosen->research_interest()->delete();
+                foreach ($tags as $key => $value) {
+                    $dosen->research_interest()->create([
+                        'name' => $value
+                    ]);
+                }
+                unset($data['research_interest']);
             }
 
             $dosen->update($data);
@@ -201,6 +229,18 @@ class DosenController extends Controller
         CategoryDosen::find($id)->delete();
 
         return redirect()->back()->with('success', 'Jurusan berhasil dihapus');
+    }
+
+    public function mk_search(Request $request)
+    {
+
+        if ($request->ajax()) {
+
+            $mk = MataKuliah::where('name', 'LIKE', '%' . $request->q . "%")->orWhere('kode', 'LIKE', '%'.$request->q.'%')->get();
+            if ($mk) {
+                return response()->json(['mk' => $mk]);
+            }
+        }
     }
 
 }
