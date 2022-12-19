@@ -74,9 +74,12 @@ class LabController extends Controller
 
         DB::transaction(function () use ($request, $data) {
 
-            $team = $data['team_dosen'];
+            if ($request->has('team_dosen')) {
 
-            unset($data['team_dosen']);
+                $team = $data['team_dosen'];
+
+                unset($data['team_dosen']);
+            }
 
             $lab = Lab::create($data);
 
@@ -94,7 +97,7 @@ class LabController extends Controller
                 }
             }
 
-            if ($team) {
+            if ($request->has('team_dosen')) {
                 foreach ($team as $key => $value) {
                     $lab->team()->create([
                         'dosen_id' => $value
@@ -168,8 +171,12 @@ class LabController extends Controller
 
         DB::transaction(function () use ($request, $data, $db) {
 
-            $team = $data['team_dosen'];
-            unset($data['team_dosen']);
+            if ($request->has('team_dosen')) {
+
+                $team = $data['team_dosen'];
+
+                unset($data['team_dosen']);
+            }
 
             $db->update($data);
 
@@ -187,7 +194,7 @@ class LabController extends Controller
                 }
             }
 
-            if ($team) {
+            if ($request->has('team_dosen')) {
 
                 $db->team()->delete();
 

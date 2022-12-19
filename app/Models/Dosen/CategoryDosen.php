@@ -17,4 +17,10 @@ class CategoryDosen extends Model
     {
         return $this->hasMany(Dosen::class,'category_dosen_id', 'id');
     }
+
+    public function dosen()
+    {
+        //belong to many dosen
+        return $this->belongsToMany(Dosen::class, 'category_dosen_id', 'id');
+    }
 }

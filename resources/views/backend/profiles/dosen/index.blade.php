@@ -49,8 +49,18 @@
                                         style="background: url(&quot;{{asset($d->image)}}&quot;) center center;"></span>
 
                                 </td>
-                                <td align="center">
-                                    <div class="row">
+                                <td class="text-center align-middle">
+                                    <div class="btn-group align-top">
+                                        <a class="btn btn-primary badge" href="{{route('dosen.edit', $d->id)}}" type="button">Edit</a>
+                                        <form id="delete-item" action="{{route('dosen.destroy', $d->id)}}"
+                                            method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button class="btn btn-danger badge" type="submit"><i class="fa fa-trash"></i></button>
+                                        </form>
+
+                                    </div>
+                                    {{-- <div class="row">
                                         <div class="col-6">
                                             <a class="btn btn-primary btn-sm rounded-11 mx-2 btn-block"
                                                 data-bs-toggle="tooltip" href="{{route('dosen.edit', $d->id)}}"
@@ -80,7 +90,7 @@
                                         </div>
 
                                         </form>
-                                    </div>
+                                    </div> --}}
                                 </td>
                                 @endforeach
                         </tbody>

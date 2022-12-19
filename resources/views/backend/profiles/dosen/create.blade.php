@@ -86,9 +86,9 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-md-2 form-label">WoS (World of Science)</label>
+                        <label class="col-md-2 form-label">WoS (Web of Science)</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control @error('wos_link') is-invalid @enderror" name="wos_link" placeholder="Url to WoS (World of Science)">
+                            <input type="text" class="form-control @error('wos_link') is-invalid @enderror" name="wos_link" placeholder="Url to WoS (Web of Science)">
                             @error('wos_link')
                             <span class="text-red">{{$message}}</span>
                             @enderror

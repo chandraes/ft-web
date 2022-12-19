@@ -18,7 +18,8 @@ class dosenController extends Controller
 
     public function detail($id)
     {
-        $dosen = Dosen::findOrFail($id);
+        $dosen = Dosen::join('category_dosens', 'category_dosens.id', '=', 'dosens.category_dosen_id')
+                                        ->select('dosens.*', 'category_dosens.jurusan_prodi as jurusan_prodi')->findOrFail($id);
         return view('frontend.dosen.detaildos', compact('dosen'));
     }
 }

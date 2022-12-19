@@ -26,7 +26,7 @@
                         </div>
                         <div class="lower-content">
                             <h3>{{$information->title}}</h3>
-                            {{ clean($information->content) }}
+                            {!! clean($information->content) !!}
                         </div>
                     </div>
                 </div>

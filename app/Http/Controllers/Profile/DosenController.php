@@ -50,7 +50,7 @@ class DosenController extends Controller
         $data = $request->validate([
             'name' => 'required|min:3|string|max:255',
             'email' => 'nullable|email',
-            'category_dosen_id' => 'required',
+            'category_dosen_id' => 'required|exists:category_dosens,id',
             'mata_kuliah_id' => 'nullable',
             'mata_kuliah_id.*' => 'integer|exists:mata_kuliahs,id',
             'gs_link' => 'nullable|active_url',
@@ -117,7 +117,7 @@ class DosenController extends Controller
         $data = $request->validate([
             'name' => 'required|min:3|string|max:255',
             'email' => 'nullable|email',
-            'category_dosen_id' => 'required',
+            'category_dosen_id' => 'required|exists:category_dosens,id',
             'mata_kuliah_id' => 'nullable',
             'mata_kuliah_id.*' => 'integer|exists:mata_kuliahs,id',
             'gs_link' => 'nullable|active_url',
@@ -145,7 +145,7 @@ class DosenController extends Controller
 
 
         DB::transaction(function () use ($data, $dosen, $request) {
-            
+
             if ($request->has('mata_kuliah_id')) {
                 $mk_dosen = $data['mata_kuliah_id'];
                 unset($data['mata_kuliah_id']);

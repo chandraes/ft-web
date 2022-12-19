@@ -1,5 +1,6 @@
 @extends('layouts.backend')
 @section('content')
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -14,6 +15,16 @@
                         <label class="col-md-2 form-label">Nama</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nama" value="{{$data->name}}">
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label class="col-md-2 form-label">Research Interest</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control @error('tags') is-invalid @enderror" data-role="tagsinput" value="{{$data->tags}}" style="border: 1px solid #ced4da;"
+                            name="tags" placeholder="Pisahkan dengan (,)">
+                            @error('tags')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -92,10 +103,10 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-md-2 form-label">WoS (World of Science)</label>
+                        <label class="col-md-2 form-label">WoS (Web of Science)</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('wos_link') is-invalid @enderror" name="wos_link" value="{{$data->wos_link}}"
-                            placeholder="Url to WoS (World of Science)">
+                            placeholder="Url to WoS (Web of Science)">
                             @error('wos_link')
                             <span class="text-red">{{$message}}</span>
                             @enderror
@@ -132,12 +143,17 @@
 @endsection
 @push('css')
 <link href="{{asset('assets/css/animated.css')}}" rel="stylesheet" />
+<link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css"
+      rel="stylesheet"
+    />
 @endpush
 @push('js')
 <!-- WYSIWYG Editor JS -->
 <script src="{{asset('assets/plugins/wysiwyag/jquery.richtext.js')}}"></script>
 <script src="{{asset('assets/plugins/wysiwyag/wysiwyag.js')}}"></script>
 <script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 
 <script>
     $(document).ready(function () {

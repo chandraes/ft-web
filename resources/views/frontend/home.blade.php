@@ -12,7 +12,7 @@
                     <div class="content-column col-lg-7 cl-md-12 col-sm-12 ">
                         <div class="inner-column">
                             <h1 class="title">{{$c->title}}</h1>
-                            <div class="text">{{$c->subtitle}}</div>
+                            <div class="text"><h2>{{$c->subtitle}}</h2></div>
                         </div>
                     </div>
                 </div>

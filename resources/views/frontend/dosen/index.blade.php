@@ -16,7 +16,7 @@
     <div class="auto-container">
         <!-- Sec Title -->
         <div class="sec-title centered">
-            <div class="title"><span class="separator"></span>Our Leader<span class="separator-two"></span></div>
+            <div class="title"><span class="separator"></span>Our Lecturer<span class="separator-two"></span></div>
             <h2>Dosen</h2>
         </div>
         <div class="row clearfix aligns-items-center justify-content-center">
@@ -26,7 +26,7 @@
                     <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <div class="pattern-layer" style="background-image:url({{asset($d->image)}})"></div>
                         <div class="image">
-                            <a href="{{route('detail-dosen', ['id'=> $d->id])}}"><img src="{{asset($d->image)}}"/></a>
+                            <a href="{{route('detail-dosen', ['id'=> $d->id])}}"><img style="height: 450px" src="{{asset($d->image)}}"/></a>
                         </div>
                         <div class="lower-content">
                             <h4><a href="{{route('detail-dosen', ['id'=> $d->id])}}">{{$d->name}}</a></h4>

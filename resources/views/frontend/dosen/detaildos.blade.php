@@ -29,7 +29,7 @@
             <!-- Content Column -->
             <div class="content-column col-lg-8 col-md-12 col-sm-12">
                 <div class="inner-column">
-                    <h2>{{$dosen->name}}<span class="category">{{$dosen->jabatan}}</span></h2>
+                    <h2>{{$dosen->name}}</h2><h2><span class="category">{{$dosen->jurusan_prodi}}</span></h2>
                     <ul class="post-meta">
                         <li><span class="icon flaticon-email-1"></span> <a
                                 href="mailto:{{$dosen->email}}">{{$dosen->email}}</a></li>
@@ -201,7 +201,7 @@
             <h2>-- Pengampu Mata Kuliah --</h2>
         </div>
         <div class="row clearfix">
-            @if ($dosen->mata_kuliah)
+            @if ($dosen->mata_kuliah && $dosen->mata_kuliah->count() > 0)
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>

@@ -88,12 +88,12 @@ a,
 .shop-page .prod-tabs .add-review .rating .rate-box:active,
 .cart-table tbody tr .remove-btn,
 .checkout-page .default-links li a{
-	color:#bb54e1;
+	color:#a1045a;
 }
 
 .main-menu .navigation > li > ul > li > ul > li:hover > a::before,
 .main-menu .navigation > li > ul > li:hover > a::before{
-	text-shadow:8px 0 #bb54e1, -8px 0 #bb54e1;
+	text-shadow:8px 0 #a1045a, -8px 0 #a1045a;
 }
 
 /*Background Color*/
@@ -182,25 +182,25 @@ a,
 .project-challenge-section .inner-container:before,
 .news-block-four .inner-box:hover .read-more,
 .project-mission-section .new-posts a:hover{
-	background-color:#bb54e1;
+	background-color:#a1045a;
 }
 
 .gallery-block .inner-box .image-box .overlay-box,
 .about-section .image-column .experiance-box .box-inner{
-	background-color:rgba(187,84,255,0.90);
+	background-color:rgb(166, 0, 89);
 }
 
 .price-block .inner-box:before{
-	background: -webkit-linear-gradient(to top, #060504 0%, #bb54e1 100%);
-	background: -moz-linear-gradient(to top, #060504 0%, #bb54e1 100%);
-	background: linear-gradient(to top, #060504 0%, #bb54e1 100%);
+	background: -webkit-linear-gradient(to top, #060504 0%, #a1045a 100%);
+	background: -moz-linear-gradient(to top, #060504 0%, #a1045a 100%);
+	background: linear-gradient(to top, #060504 0%, #a1045a 100%);
 }
 
 .cta-section-three .inner-container{
-	background: #bb54e1;
-	background: -webkit-linear-gradient(to top, #bb54e1 0%, #232222 100%);
-	background: -moz-linear-gradient(to top, #bb54e1 0%, #232222 100%);
-	background: linear-gradient(to top, #bb54e1 0%, #232222 100%);
+	background: #a1045a;
+	background: -webkit-linear-gradient(to top, #a1045a 0%, #232222 100%);
+	background: -moz-linear-gradient(to top, #a1045a 0%, #232222 100%);
+	background: linear-gradient(to top, #a1045a 0%, #232222 100%);
 }
 
 .request-quote-section .content-box .play-box .ripple,
@@ -209,20 +209,20 @@ a,
 .goal-section .image-column .image .icon-button .ripple,
 .goal-section .image-column .image .icon-button .ripple:before,
 .goal-section .image-column .image .icon-button .ripple:after{
-	-webkit-box-shadow: 0 0 0 0 rgba(187,84,255,0.90);
-    -moz-box-shadow: 0 0 0 0 rgba(187,84,255,0.90);
-    -ms-box-shadow: 0 0 0 0 rgba(187,84,255,0.90);
-    -o-box-shadow: 0 0 0 0 rgba(187,84,255,0.90);
-    box-shadow: 0 0 0 0 rgba(187,84,255,0.90);
+	-webkit-box-shadow: 0 0 0 0 rgb(166, 0, 89);
+    -moz-box-shadow: 0 0 0 0 rgb(166, 0, 89);
+    -ms-box-shadow: 0 0 0 0 rgb(166, 0, 89);
+    -o-box-shadow: 0 0 0 0 rgb(166, 0, 89);
+    box-shadow: 0 0 0 0 rgb(166, 0, 89);
 }
 
 .skills .skill-item .skill-bar .bar-inner .bar,
 .back-to-top::after{
-	border-bottom-color:#bb54e1;
+	border-bottom-color:#a1045a;
 }
 
 .service-detail .service-tabs .tab-btns .tab-btn:before{
-	border-top-color:#bb54e1;
+	border-top-color:#a1045a;
 }
 
 /*Border Color*/
@@ -275,5 +275,5 @@ a,
 .comment-form .form-group input[type="email"]:focus,
 .comment-form .form-group select:focus,
 .comment-form .form-group textarea:focus{
-	border-color:#bb54e1;
+	border-color:#a1045a;
 }
