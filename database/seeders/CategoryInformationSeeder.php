@@ -18,18 +18,27 @@ class CategoryInformationSeeder extends Seeder
         DB::table('category_information')->insert([
             [
                 'name' => 'Pengumuman',
+                'slug' => 'pengumuman',
             ],
             [
                 'name' => 'Berita',
+                'slug' => 'berita',
             ],
             [
                 'name' => 'Akreditasi',
+                'slug' => 'akreditasi',
             ],
             [
                 'name' => 'Layanan Informasi Publik',
+                'slug' => 'layanan-informasi-publik',
             ],
             [
                 'name' => 'Mahasiswa',
+                'slug' => 'mahasiswa',
+            ],
+            [
+                'name' => 'Informasi Beasiswa',
+                'slug' => 'informasi-beasiswa',
             ],
         ]);
     }

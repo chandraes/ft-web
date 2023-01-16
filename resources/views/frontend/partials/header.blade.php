@@ -24,7 +24,7 @@ $about = App\Models\About::first();
                         <div class="icon-box"><span class="flaticon-phone"></span></div>
                         <ul>
                             <li>Phone:</li>
-                            <li><strong><a href="tel:{{$about->phone}}">{{$about->phone}}</a></strong></li>
+                            <li><strong><a href="tel:{{!empty($about->phone) ? $about->phone : "-"}}">{{!empty($about->phone) ? $about->phone : "-"}}</a></strong></li>
                         </ul>
                     </div>
 
@@ -33,7 +33,7 @@ $about = App\Models\About::first();
                         <div class="icon-box"><span class="flaticon-email"></span></div>
                         <ul>
                             <li>Fax:</li>
-                            <li><strong>{{$about->fax}}</strong></li>
+                            <li><strong>{{!empty($about->fax) ? $about->fax : "-"}}</strong></li>
                         </ul>
                     </div>
                     <!--Info Box-->
@@ -41,7 +41,7 @@ $about = App\Models\About::first();
                         <div class="icon-box"><span class="flaticon-email"></span></div>
                         <ul>
                             <li>E-Mail:</li>
-                            <li><strong><a href="mailto:{{$about->email}}">{{$about->email}}</a></strong></li>
+                            <li><strong><a href="mailto:{{!empty($about->email) ? $about->email : "-"}}">{{!empty($about->email) ? $about->email : "-"}}</a></strong></li>
                         </ul>
                     </div>
 

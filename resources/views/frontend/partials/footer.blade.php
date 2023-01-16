@@ -40,10 +40,10 @@
                             <div class="footer-widget links-widget">
                                 <h4>Get In Touch</h4>
                                 <ul class="list-style-two">
-                                    <li><span class="icon fa fa-send"></span>{{$about->address}}</li>
-                                    <li><span class="icon fa fa-envelope"></span>Email : <a href="mailto:{{$about->email}}">{{$about->email}}</a></li>
-                                    <li><span class="icon fa fa-phone"></span>Phone : <a href="tel:{{$about->phone}}">{{$about->phone}}</a></li>
-                                    <li><span class="icon fa fa-globe"></span>Fax : {{$about->fax}}</li>
+                                    <li><span class="icon fa fa-send"></span>{{!empty($about->address) ? $about->address : "-"}}</li>
+                                    <li><span class="icon fa fa-envelope"></span>Email : <a href="mailto:{{!empty($about->email) ? $about->email : "-"}}">{{!empty($about->email) ? $about->email : "-"}}</a></li>
+                                    <li><span class="icon fa fa-phone"></span>Phone : <a href="tel:{{!empty($about->phone) ? $about->phone : "-"}}">{{!empty($about->phone) ? $about->phone : "-"}}</a></li>
+                                    <li><span class="icon fa fa-globe"></span>Fax : {{!empty($about->fax) ? $about->fax : "-"}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -113,10 +113,10 @@
                 <div class="column col-lg-6 col-md-12 col-sm-12">
                     <!-- Social Box -->
                     <ul class="social-box">
-                        <li><a href="{{$about->facebook}}" class="fa fa-facebook-f"></a></li>
-                        <li><a href="{{$about->twitter}}" class="fa fa-twitter"></a></li>
-                        <li><a href="{{$about->instagram}}" class="fa fa-instagram"></a></li>
-                        <li><a href="{{$about->youtube}}" class="fa fa-youtube-play"></a></li>
+                        <li><a href="{{!empty($about->facebook) ? $about->facebook : "-"}}" class="fa fa-facebook-f"></a></li>
+                        <li><a href="{{!empty($about->twitter) ? $about->twitter : "-"}}" class="fa fa-twitter"></a></li>
+                        <li><a href="{{!empty($about->instagram) ? $about->instagram : "-"}}" class="fa fa-instagram"></a></li>
+                        <li><a href="{{!empty($about->youtube) ? $about->youtube : "-"}}" class="fa fa-youtube-play"></a></li>
                     </ul>
                 </div>
             </div>

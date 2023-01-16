@@ -38,7 +38,9 @@
                             <h2>Tentang Fakultas Teknik UNSRI</h2>
                         </div>
                         <div class="text">
+                            @if (!empty($about->about))
                             <p>{!! clean($about->about)!!}</p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -46,7 +48,7 @@
                 <div class="image-column col-lg-6 col-md-12 col-sm-12">
                     <div class="inner-column">
                         <div class="image">
-                            <img src="{{$about->image}}" alt="" />
+                            <img src="{{!empty($about->image) ? $about->image : asset('images/default-image.jpg') }}" alt="" />
                             <!-- Experiance Box -->
                             <div class="experiance-box">
                                 <div class="box-inner">
