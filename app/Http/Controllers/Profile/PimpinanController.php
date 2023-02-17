@@ -105,7 +105,7 @@ class PimpinanController extends Controller
             $image->move($destinationPath, $name);
             $data['image'] = '/images/pimpinan/'.$name;
 
-            $image_old = public_path($db->image);
+            $image_old = public_path($pimpinan->image);
             if (file_exists($image_old)) {
             //delete image from folder
              File::delete($image_old);

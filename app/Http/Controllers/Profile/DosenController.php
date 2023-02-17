@@ -49,7 +49,7 @@ class DosenController extends Controller
         $data = $request->validate([
             'name' => 'required|min:3|string|max:255',
             'email' => 'nullable|email',
-            'research_interest' => 'nullable'|'string'|'max:255',
+            'research_interest' => 'nullable|string|max:255',
             'category_dosen_id' => 'required|exists:category_dosens,id',
             'mata_kuliah_id' => 'nullable',
             'mata_kuliah_id.*' => 'integer|exists:mata_kuliahs,id',

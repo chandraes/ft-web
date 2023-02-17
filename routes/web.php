@@ -35,7 +35,7 @@ Route::get('laboratory/{id}/{slug}', [App\Http\Controllers\frontend\LabControlle
 
 
 Auth::routes([
-    'register' => true
+    'register' => false
 ]);
 
 Route::prefix('admin')->group(function () {
