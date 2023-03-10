@@ -145,7 +145,7 @@ class InformationController extends Controller
             'name' => 'required|min:3',
         ]);
 
-        $data['slug'] = str_slug($data['name'], '-');
+        $data['slug'] = Str::slug($data['name'], '-');
 
         CategoryInformation::create($data);
 

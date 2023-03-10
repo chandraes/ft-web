@@ -111,7 +111,7 @@ $about = App\Models\About::first();
                                                 <li><a href="http://geologi.ft.unsri.ac.id/">Teknik Geologi</a></li>
                                             </ul>
                                         <li class="dropdown"><a href="Program-Pascasarjana.html">Program
-                                                Pascasarjana</a>
+                                                Magister</a>
                                             <ul>
                                                 <li><a href="https://mesin.ft.unsri.ac.id/s2/">Teknik Mesin</a></li>
                                                 <li><a href="http://sipil.ft.unsri.ac.id/s2">Teknik Sipil</a></li>
