@@ -18,6 +18,16 @@
                         </div>
                     </div>
                     <div class="row mb-4">
+                        <label class="col-md-2 form-label">NIP/NIDN</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control @error('nip_nidn') is-invalid @enderror" name="nip_nidn"
+                                placeholder="NIP / NIDN" value="{{$data->nip_nidn}}">
+                            @error('nip_nidn')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-4">
                         <label class="col-md-2 form-label">Research Interest</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('research_interest') is-invalid @enderror" data-role="tagsinput" value="
@@ -41,6 +51,52 @@
                             @enderror
                         </div>
                     </div>
+
+                       
+                        <div class="row mb-4">
+                            <label class="col-md-2 form-label">Riwayat Pendidikan</label>
+                            <div class="col-md-10">
+                                @foreach ($data->riwayat_pendidikan as $r)
+                                <div class="row"  @if ($data->riwayat_pendidikan->count() > 1) id="riwayat-pendidikan-{{$loop->iteration}}" @endif>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" name="jenjang_pendidikan[]" placeholder="Jenjang Pendidikan" required value="{{$r->jenjang_pendidikan}}">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" name="program_studi[]" placeholder="Program Studi"  value="{{$r->program_studi}}" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" name="tempat_pendidikan[]" placeholder="Tempat Pendidikan" value="{{$r->tempat_pendidikan}}" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" name="tahun_lulus[]" placeholder="Tahun Lulus"  value="{{$r->tahun_lulus}}" required>
+                                    </div>
+                                </div>
+                                @endforeach
+                                {{-- add button hapus if $data->riwayat_pendidikan more than 1 to delete row with id riwayat-pendidikan-num --}}
+                                @if ($data->riwayat_pendidikan->count() > 1)
+                                <div class="row mt-2">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-danger" id="delete_riwayat_pendidikan" onclick="delete_more()">Hapus Riwayat Pendidikan</button>
+                                    </div>
+                                </div>
+                                @endif
+                                <script>
+                                    var i = {{$data->riwayat_pendidikan->count()}};
+                                    function delete_more() {
+                                        $(`#riwayat-pendidikan-${i+1}`).remove();
+                                        i--;
+                                    }
+                                </script>
+                                
+                                <div id="riwayat_pendidikan"></div>
+                       
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-primary" id="add_riwayat_pendidikan" onclick="add_more()">Tambah Riwayat Pendidikan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Jurusan / Prodi</label>
                         <div class="col-md-10">
@@ -152,6 +208,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 
 <script>
+    var i = 1;
+    function add_more() {
+        i++;
+        $('#riwayat_pendidikan').append('<div class="row mt-2" id="row'+i+'"><div class="col-md-3"><input type="text" class="form-control" name="jenjang_pendidikan[]" placeholder="Jenjang Pendidikan" required></div><div class="col-md-3"><input type="text" class="form-control" name="program_studi[]" placeholder="Program Studi"></div><div class="col-md-3"><input type="text" class="form-control" name="tempat_pendidikan[]" placeholder="Tempat Pendidikan"></div><div class="col-md-3"><input type="text" class="form-control" name="tahun_lulus[]" placeholder="Tahun Lulus"><button type="button" class="btn btn-danger mt-2" onclick="remove('+i+')">Hapus</button></div></div>');
+    }
+    function remove(row_id) {
+        $('#row'+row_id).remove();
+    }
     $(document).ready(function () {
         $('.select2').select2({
             minimumInputLength: 3,

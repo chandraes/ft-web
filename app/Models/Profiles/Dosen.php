@@ -12,6 +12,8 @@ use App\Models\Dosen\LabTeam;
 use App\Models\Dosen\Lab;
 use App\Models\Dosen\CategoryDosen;
 use App\Models\Dosen\ResearchInterest;
+use App\Models\Dosen\RiwayatPendidikan;
+use App\Models\Dosen\TugasLab;
 
 class Dosen extends Model
 {
@@ -26,6 +28,7 @@ class Dosen extends Model
     protected $fillable = [
         'category_dosen_id',
         'name',
+        'nip_nidn',
         'email',
         'gs_link',
         'scopus_link',
@@ -85,6 +88,16 @@ class Dosen extends Model
     public function research_interest()
     {
         return $this->hasMany(ResearchInterest::class, 'dosen_id', 'id');
+    }
+
+    public function riwayat_pendidikan()
+    {
+        return $this->hasMany(RiwayatPendidikan::class, 'dosen_id', 'id');
+    }
+
+    public function tugas_lab()
+    {
+        return $this->hasMany(TugasLab::class, 'dosen_id', 'id');
     }
 
 }

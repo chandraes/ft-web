@@ -43,7 +43,7 @@
                         </li>
                         <li>
                             <span class="icon flaticon-engineer"></span>
-                            <strong>Koordinator Asisten</strong>
+                            <strong>Teknisi</strong>
                             @if (empty($data->koordinator_asisten))
                             -
                             @endif

@@ -55,10 +55,10 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-md-2 form-label">Koordinator Asisten</label>
+                        <label class="col-md-2 form-label">Teknisi</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('koordinator_asisten') is-invalid @enderror"
-                                name="koordinator_asisten" placeholder="Koordinator Asisten Laboratorium">
+                                name="koordinator_asisten" placeholder="nama teknisi">
                             @error('koordinator_asisten')
                             <span class="text-red">{{$message}}</span>
                             @enderror

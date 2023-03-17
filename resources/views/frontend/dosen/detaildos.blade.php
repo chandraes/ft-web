@@ -20,110 +20,140 @@
             <!-- Image Column -->
             <div class="image-column col-lg-4 col-md-12 col-sm-12">
                 <div class="inner-column wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="image">
+                    <div class="image img-thumbnail">
                         <img src="{{asset($dosen->image)}}" alt="" />
                     </div>
                 </div>
             </div>
 
-            <!-- Content Column -->
+            <!-- Content Column  -->
             <div class="content-column col-lg-8 col-md-12 col-sm-12">
                 <div class="inner-column">
                     <h2>{{$dosen->name}}</h2>
-                    {{-- <h2><span class="category">{{$dosen->jurusan_prodi}}</span></h2> --}}
-                    <div class="my-4">
-                        <h5>
-                            Research Interest : @if ($dosen->research_interest && $dosen->research_interest->count() >
-                            0)
-                            @foreach ($dosen->research_interest as $item)
-                            <span class="badge badge-success"> {{$item->name}} </span>
-                            @endforeach
-                            @endif
-                        </h5>
-                    </div>
+                    <h2><span class="category">{{$dosen->jurusan_prodi}}</span></h2>
+                    {{-- <table class="table post-meta">
+                        <thead>
+                            <tr>
+                                <th>NIP / NIDN</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                    </table> --}}
                     <ul class="post-meta">
+                        @if (!empty($dosen->nip_nidn))
+                        <li>NIP / NIDN: {{$dosen->nip_nidn}}</li>
+                        @endif
 
                         <li><span class="icon flaticon-email-1"></span> <a
                                 href="mailto:{{$dosen->email}}">{{$dosen->email}}</a></li>
+
                         {{-- <li><span class="icon flaticon-call"></span> <a href="tel:000-000-0000">000 - 000 -
                                 0000</a></li>
                         <li><span class="icon fa fa-whatsapp"></span> <a href="tel:999-999-9999">999 - 999 - 9999</a>
                         </li> --}}
                     </ul>
-                    <div class="text my-6">
-                        {!! clean($dosen->description) !!}
+                    <div class="my-4">
+                        @if ($dosen->research_interest && $dosen->research_interest->count() >
+                        0)
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Research Interest</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($dosen->research_interest as $item)
+                                <!-- <span class="badge badge-success"> {{$item->name}} </span> -->
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$item->name}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        @endif
                     </div>
-
-                    <!-- Social Box -->
-
                 </div>
             </div>
-
         </div>
     </div>
 </section>
-<!-- End Team Detail Section -->
-{{-- <section class="process-section"
+@if ($dosen->riwayat_pendidikan && $dosen->riwayat_pendidikan->count() > 0)
+<section class="process-section"
     style="background-image:url({{asset('assets_front/images/background/pattern-8.png')}})">
     <div class="auto-container">
         <!-- Sec Title -->
         <div class="sec-title centered">
-
-            <h2>PUBLIKASI</h2>
+            <h2>-- Riwayat Pendidikan--</h2>
         </div>
         <div class="row clearfix">
 
-            <!-- Process Block -->
-            <a href="{{$dosen->gs_link}}" target="_blank" class="process-block col-lg-3 col-md-6 col-sm-12">
-                <div class="inner-box wow flipInY" data-wow-delay="0ms" data-wow-duration="1500ms">
+            <table class="table table-bordered table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th>No</th>
+                        <th>Jenjang</th>
+                        <th>Program Studi</th>
+                        <th>Institusi Pendidikan</th>
+                        <th>Tahun Lulus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($dosen->riwayat_pendidikan as $m)
+                    <tr>
+                        <td class="text-center">{{$loop->iteration}}</td>
+                        <td>{{$m->jenjang_pendidikan}}</td>
+                        <td>{{$m->program_studi}}</td>
+                        <td>{{$m->tempat_pendidikan}}</td>
+                        <td class="text-center">{{$m->tahun_lulus}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+@endif
+@if ($dosen->tugas_lab && $dosen->tugas_lab->count() > 0)
+<section class="process-section"
+    style="background-image:url({{asset('assets_front/images/background/pattern-8.png')}})">
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title centered">
+            <h2>-- Tugas Laboratorium --</h2>
+        </div>
+        <div class="row clearfix">
 
-                    <div class="color-layer"></div>
-                    <div class="color-layer-two-custom"></div>
-                    <div class="icon"><img style="width: 100px" src="{{asset('images/google.png')}}" alt="scopus"></div>
-                    <h5>Google <br>Scholar</h5>
-                </div>
-            </a>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center">No</th>
+                        <th>Tahun</th>
+                        <th>Judul</th>
+                        <th>Spesialisasi</th>
+                        <th>Capaian</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($dosen->tugas_lab as $m)
+                    <tr>
+                        <td class="text-center">{{$loop->iteration}}</td>
+                        <td>{{$m->tahun}}</td>
+                        <td>{{$m->judul}}</td>
+                        <td>{{$m->spesialisasi}}</td>
+                        <td>{{$m->capaian}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            @else
 
-            <!-- Process Block -->
-            <a class="process-block col-lg-3 col-md-6 col-sm-12" target="_blank" href="{{$dosen->scopus_link}}">
-                <div class="inner-box wow flipInY" data-wow-delay="150ms" data-wow-duration="1500ms">
-                    <div class="color-layer"></div>
-                    <div class="color-layer-two-custom"></div>
-                    <div class="icon"><img style="width: 100px" src="{{asset('images/elsevier.png')}}" alt="scopus">
-                    </div>
-                    <h5>Scopus</h5>
-                </div>
-            </a>
-
-            <!-- Process Block -->
-            <a class="process-block col-lg-3 col-md-6 col-sm-12" target="_blank" href="{{$dosen->sinta_link}}"
-                style="height: 200px">
-                <div class="inner-box wow flipInY" data-wow-delay="300ms" data-wow-duration="1500ms">
-
-                    <div class="color-layer"></div>
-                    <div class="color-layer-two-custom"></div>
-                    <div class="icon"><img style="width: 100px" src="{{asset('images/sinta-logo.png')}}" alt="scopus">
-                    </div>
-                    <h5>Sinta</h5>
-                </div>
-            </a>
-
-            <!-- Process Block -->
-            <a class="process-block col-lg-3 col-md-6 col-sm-12">
-                <div class="inner-box wow flipInY" data-wow-delay="450ms" data-wow-duration="1500ms">
-
-                    <div class="color-layer"></div>
-                    <div class="color-layer-two-custom"></div>
-                    <div class="icon"><img style="width: 100px" src="{{asset('images/wos-logo.png')}}" alt="scopus">
-                    </div>
-                    <h5>WoS (Web <br>of Science)</h5>
-                </div>
-            </a>
 
         </div>
     </div>
-</section> --}}
-
+</section>
+@endif
 <section class="counter-section-two">
     <div class="auto-container">
 

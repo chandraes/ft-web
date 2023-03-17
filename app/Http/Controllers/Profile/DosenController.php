@@ -48,6 +48,7 @@ class DosenController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|min:3|string|max:255',
+            'nip_nidn' => 'nullable|string|max:255',
             'email' => 'nullable|email',
             'research_interest' => 'nullable|string|max:255',
             'category_dosen_id' => 'required|exists:category_dosens,id',
@@ -59,7 +60,9 @@ class DosenController extends Controller
             'wos_link' => 'nullable|active_url',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5012',
+        
         ]);
+
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -83,6 +86,28 @@ class DosenController extends Controller
 
             $dosen = Dosen::create($data);
 
+            if ($request->has('jenjang_pendidikan')) {
+                for($i = 0; $i < count($request->jenjang_pendidikan); $i++) {
+                    $dosen->riwayat_pendidikan()->create([
+                        'jenjang_pendidikan' => $request->jenjang_pendidikan[$i],
+                        'program_studi' => $request->program_studi[$i],
+                        'tempat_pendidikan' => $request->tempat_pendidikan[$i],
+                        'tahun_lulus' => $request->tahun_lulus[$i],
+                    ]);
+                }
+            }
+
+            if($request->has('judul')){
+                for($i = 0; $i < count($request->judul); $i++) {
+                    $dosen->tugas_lab()->create([
+                        'tahun' => $request->tahun[$i],
+                        'judul' => $request->judul[$i],
+                        'spesialisasi' => $request->spesialisasi[$i],
+                        'capaian' => $request->capaian[$i],
+                    ]);
+                }
+            }
+
             if ($request->has('mata_kuliah_id')) {
                 foreach ($mk_dosen as $key => $value) {
                     $dosen->mk_dosen()->create([
@@ -101,8 +126,6 @@ class DosenController extends Controller
 
         });
 
-
-
         return redirect()->route('dosen.index')->with('success', 'Data berhasil ditambahkan');
     }
 
@@ -116,8 +139,6 @@ class DosenController extends Controller
     {
         $category = CategoryDosen::all();
         $data = Dosen::find($id);
-        // dd($data->mata_kuliah);
-        // $mk = MataKuliah::select('id', 'kode' ,'name')->get();
         return view('backend.profiles.dosen.edit', compact('data', 'category'));
     }
 
@@ -132,6 +153,7 @@ class DosenController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|min:3|string|max:255',
+            'nip_nidn' => 'nullable|string|max:255',
             'email' => 'nullable|email',
             'research_interest' => 'nullable|string|max:255',
             'category_dosen_id' => 'required|exists:category_dosens,id',
@@ -182,6 +204,31 @@ class DosenController extends Controller
 
             $dosen->update($data);
 
+            if ($request->has('jenjang_pendidikan')) {
+                $dosen->riwayat_pendidikan()->delete();
+                for($i = 0; $i < count($request->jenjang_pendidikan); $i++) {
+                    $dosen->riwayat_pendidikan()->create([
+                        'jenjang_pendidikan' => $request->jenjang_pendidikan[$i],
+                        'program_studi' => $request->program_studi[$i],
+                        'tempat_pendidikan' => $request->tempat_pendidikan[$i],
+                        'tahun_lulus' => $request->tahun_lulus[$i],
+                    ]);
+                }
+            }
+
+            if($request->has('judul')){
+
+                $dosen->tugas_lab()->delete();
+                for($i = 0; $i < count($request->judul); $i++) {
+                    $dosen->tugas_lab()->create([
+                        'tahun' => $request->tahun[$i],
+                        'judul' => $request->judul[$i],
+                        'spesialisasi' => $request->spesialisasi[$i],
+                        'capaian' => $request->capaian[$i],
+                    ]);
+                }
+            }
+
             if ($request->has('mata_kuliah_id')) {
                 foreach ($mk_dosen as $key => $value) {
                     $dosen->mk_dosen()->create([
@@ -190,7 +237,6 @@ class DosenController extends Controller
                 }
             }
         });
-
 
         return redirect()->route('dosen.index')->with('success', 'Data berhasil diubah');
     }
@@ -204,11 +250,21 @@ class DosenController extends Controller
     public function destroy($id)
     {
         $dosen = Dosen::find($id);
+        
         $image_path = public_path($dosen->image);
         if (File::exists($image_path)) {
             File::delete($image_path);
         }
-        $dosen->delete();
+
+        DB::transaction(function () use ($dosen) {
+            $dosen->riwayat_pendidikan()->delete();
+            $dosen->mk_dosen()->delete();
+            $dosen->research_interest()->delete();
+            $dosen->tugas_lab()->delete();
+            $dosen->delete();
+        });
+        
+
 
         return redirect()->route('dosen.index')->with('success', 'Data berhasil dihapus');
     }

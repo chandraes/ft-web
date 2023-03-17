@@ -19,6 +19,16 @@
                         </div>
                     </div>
                     <div class="row mb-4">
+                        <label class="col-md-2 form-label">NIP/NIDN</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control @error('nip_nidn') is-invalid @enderror" name="nip_nidn"
+                                placeholder="NIP / NIDN">
+                            @error('nip_nidn')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-4">
                         <label class="col-md-2 form-label">Research Interest</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('research_interest') is-invalid @enderror" data-role="tagsinput"
@@ -26,6 +36,17 @@
                             @error('research_interest')
                             <span class="text-red">{{$message}}</span>
                             @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label class="col-md-2 form-label">Riwayat Pendidikan</label>
+                        <div class="col-md-10">
+                            <div id="riwayat_pendidikan"></div>
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary" id="add_riwayat_pendidikan" onclick="add_more()">Tambah Riwayat Pendidikan</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -105,7 +126,17 @@
                             <input class="form-control" type="file" name="image">
                         </div>
                     </div>
-                    <textarea class="content" name="description"></textarea>
+                    <div class="row mb-4">
+                        <label class="col-md-2 form-label">Tugas Laboratorium</label>
+                        <div class="col-md-10">
+                            <div class="row" id="tugas_lab"></div>
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary" id="add_pengalaman_kerja" onclick="add_more_tugas()">Tambah Tugas Lab</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row mt-4">
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 btn-list">
@@ -137,6 +168,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 
 <script>
+
+    var i = 1;
+    function add_more() {
+        i++;
+        $('#riwayat_pendidikan').append('<div class="row mt-2" id="row'+i+'"><div class="col-md-3"><input type="text" class="form-control" name="jenjang_pendidikan[]" placeholder="Jenjang Pendidikan" required></div><div class="col-md-3"><input type="text" class="form-control" name="program_studi[]" placeholder="Program Studi"></div><div class="col-md-3"><input type="text" class="form-control" name="tempat_pendidikan[]" placeholder="Tempat Pendidikan"></div><div class="col-md-3"><input type="text" class="form-control" name="tahun_lulus[]" placeholder="Tahun Lulus"><button type="button" class="btn btn-danger mt-2" onclick="remove('+i+')">Hapus</button></div></div>');
+    }
+    function remove(row_id) {
+        $('#row'+row_id).remove();
+    }
+
+    var j = 1;
+    function add_more_tugas() {
+        j++;
+        $('#tugas_lab').append('<div class="row mt-2" id="row_tugas'+j+'"><div class="col-md-2"><input type="text" class="form-control" name="tahun[]" placeholder="Tahun" required></div><div class="col-md-10"><input type="text" class="form-control" name="judul[]" placeholder="Judul"></div><div class="row mt-2"></div><div class="col-md-6"><input type="text" class="form-control" name="spesialisasi[]" placeholder="Spesialisasi"></div><div class="col-md-6"><input type="text" class="form-control" name="capaian[]" placeholder="Capaian"><button type="button" class="btn btn-danger mt-2" onclick="remove_tugas('+j+')">Hapus</button></div></div></div>');
+    }
+
+    function remove_tugas(row_id) {
+        $('#row_tugas'+row_id).remove();
+    }
+
     $(document).ready(function () {
         $('.select2').select2({
             minimumInputLength: 3,
@@ -166,6 +217,9 @@
                 cache: true
             },
         });
+        
+    
+        
 
     });
 </script>

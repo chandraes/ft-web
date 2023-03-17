@@ -40,7 +40,7 @@
                     <td>{{$d->kepala_lab}}</td>
                 </tr>
                 <tr style="text-align: left">
-                    <td><strong>Koordinator</strong></td>
+                    <td><strong>Teknisi</strong></td>
                     <td>:</td>
                     <td>{{$d->koordinator_asisten}}</td>
                 </tr>

@@ -90,7 +90,7 @@ $about = App\Models\About::first();
                                 @endif"><a href="#">Profile</a>
                                     <ul>
                                         <li><a href="{{route('vision')}}">Visi dan Misi</a></li>
-                                        <li><a href="{{route('fakultas')}}">Fakultas</a></li>
+                                        <li><a href="{{route('fakultas')}}">Sejarah</a></li>
                                         <li><a href="{{route('leader')}}">Pimpinan</a></li>
                                         <li><a href="{{route('dosen')}}">Dosen</a></li>
                                         <li><a href="{{route('employee')}}">Tendik</a></li>
