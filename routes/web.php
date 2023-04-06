@@ -61,6 +61,17 @@ Route::prefix('admin')->group(function () {
     Route::post('tentang', [App\Http\Controllers\AboutController::class, 'createOrUpdate'])->name('tentang.createOrUpdate');
     Route::resource('galeri', App\Http\Controllers\GalleryController::class)->except(['show']);
     Route::resource('lab', App\Http\Controllers\LabController::class)->except(['show']);
+
+    Route::get('lab-equipment', [App\Http\Controllers\LabEqController::class, 'index'])->name('lab-equipment');
+    Route::get('lab-equipment/create/{id}', [App\Http\Controllers\LabEqController::class, 'create'])->name('lab-equipment.create');
+    Route::post('lab-equipment/store', [App\Http\Controllers\LabEqController::class, 'store'])->name('lab-equipment.store');
+    Route::get('lab-equipment/show/{id}', [App\Http\Controllers\LabEqController::class, 'show'])->name('lab-equipment.show');
+    Route::get('lab-equipment/edit/{id}', [App\Http\Controllers\LabEqController::class, 'edit'])->name('lab-equipment.edit');
+    Route::put('lab-equipment/update/{id}', [App\Http\Controllers\LabEqController::class, 'update'])->name('lab-equipment.update');
+    Route::delete('lab-equipment/delete/{id}', [App\Http\Controllers\LabEqController::class, 'destroy'])->name('lab-equipment.delete');
+    Route::get('lab-equipment-image/delete/{id}', [App\Http\Controllers\LabEqController::class, 'deleteImage'])->name('lab-equipment-image.delete');
+
+    
     Route::get('galeri-lab/{id}', [App\Http\Controllers\LabController::class, 'deleteGallery'])->name('lab.deleteGallery');
     Route::post('lab/category', [App\Http\Controllers\LabController::class, 'category'])->name('lab.category');
     Route::delete('lab/category/{id}', [App\Http\Controllers\LabController::class, 'categoryDelete'])->name('lab.category.delete');

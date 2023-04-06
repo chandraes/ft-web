@@ -7,7 +7,7 @@
                 <img src="{{asset('images/ft-logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
                 <img src="{{asset('images/unsri-logo.png')}}" class="header-brand-img toggle-logo" alt="logo">
                 <img src="{{asset('images/unsri-logo.png')}}" class="header-brand-img light-logo" alt="logo">
-                <img src="{{asset('images/ft-logo.png')}}" class="header-brand-img light-logo1"  alt="logo">
+                <img src="{{asset('images/ft-logo.png')}}" class="header-brand-img light-logo1" alt="logo">
             </a>
             <!-- LOGO -->
         </div>
@@ -73,15 +73,25 @@
                         <li><a href="{{route('dosen.index')}}" class="slide-item {{
                             request()->routeIs('dosen') || request()->routeIs('dosen.*') ? 'active' : '' }}"> Dosen</a>
                         </li>
-                        <li><a href="{{route('pegawai.index')}}" class="slide-item {{
-                            request()->routeIs('pegawai') || request()->routeIs('pegawai.*') ? 'active' : '' }}">
-                                Pegawai</a></li>
+
                     </ul>
                 </li>
-                <li>
-                    <a class="side-menu__item {{request()->routeIs('lab.index') || request()->routeIs('lab.*')  ? 'active' : '' }}"
-                        href="{{route('lab.index')}}"><i class="side-menu__icon fa fa-cogs"></i><span
-                            class="side-menu__label">Laboratorium</span></a>
+                <li
+                    class="slide {{request()->routeIs('lab.*') || request()->routeIs('lab-equipment') ? 'is-expanded' : ''}}">
+                    <a class="side-menu__item
+                    {{ request()->routeIs('lab.*') || request()->routeIs('lab-equipment') ? 'active' : '' }}"
+                        data-bs-toggle="slide" href="javascript:void(0);"><i
+                            class="side-menu__icon fa fa-cogs pl-4"></i><span
+                            class="side-menu__label">Laboratorium</span><i class="angle fa fa-angle-right"></i></a>
+                    <ul class="slide-menu">
+                        <li><a href="{{route('lab.index')}}" class="slide-item {{
+                            request()->routeIs('lab') || request()->routeIs('lab.*') ? 'active' : '' }}">
+                                Laboratorium</a></li>
+                        <li><a href="{{route('lab-equipment')}}" class="slide-item {{
+                                    request()->routeIs('lab-equipment') || request()->routeIs('lab-equipment.*') ? 'active' : '' }}">
+                                Equipment</a></li>
+                    </ul>
+
                 </li>
                 <li>
                     <a class="side-menu__item {{request()->routeIs('galeri.index') || request()->routeIs('galeri.*')  ? 'active' : '' }}"

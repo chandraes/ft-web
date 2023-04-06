@@ -23,6 +23,9 @@ class LabController extends Controller
     public function detail($id)
     {
         $data = Lab::find($id);
+        $eq = $data->equipment;
+        
+        
         // dd($data->dosen);
         return view('frontend.laboratory.detail', compact('data'));
     }

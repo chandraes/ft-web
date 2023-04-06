@@ -29,7 +29,9 @@
             <div class="content-column col-lg-4 col-md-12 col-sm-12">
                 <div class="inner-column">
                     <h3>Tentang Laboratorium</h3>
-                    <div class="text"><hr></div>
+                    <div class="text">
+                        <hr>
+                    </div>
                     <ul class="service-list mt-8">
                         <li>
                             <span class="icon flaticon-briefcase-2"></span>
@@ -81,6 +83,70 @@
         </div>
     </div>
 </section>
+{{-- Peralatan --}}
+@if ($data->equipment->count() > 0)
+
+<section class="team-page-section">
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title centered">
+            <div class="title"><span class="separator"></span>Alat & Capaian Laboratorium<span
+                    class="separator-two"></span></div>
+        </div>
+        <div class="row clearfix aligns-items-center justify-content-center">
+            <!-- Team Block -->
+            <table class="table table-bordered table-hovered">
+                <thead>
+                    <tr class="text-center">
+                        <th>No</th>
+                        <th>Alat</th>
+                        <th>Dosen</th>
+                        <th>Standar Pengujian</th>
+                        <th>Capaian</th>
+                        <th>Foto Alat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($data->equipment as $e)
+                    <tr>
+                        <td class="text-center">{{$loop->iteration}}</td>
+                        <td>{{$e->name}}</td>
+                        <td>@if (json_decode($e->dosen_uji))
+                            <ul style="list-style-type: circle;">
+                                @foreach (json_decode($e->dosen_uji) as $i)
+                                <li>{{$loop->iteration}}. {{\App\Models\Profiles\Dosen::where('id', $i)->value('name')}}
+                                </li>
+                                @endforeach
+                            </ul>
+                            @endif
+                        </td>
+                        <td>
+                            @if (json_decode($e->std_pengujian))
+                            <ul style="list-style-type: circle;">
+                                @foreach (json_decode($e->std_pengujian) as $i)
+                                <li>{{$loop->iteration}}. {{$i}}</li>
+                                @endforeach
+                            </ul>
+                            @endif
+                        <td>@if (json_decode($e->capaian))
+                            <ul style="list-style-type: circle;">
+                                @foreach (json_decode($e->capaian) as $i)
+                                <li>{{$loop->iteration}}. {{$i}}</li>
+                                @endforeach
+                            </ul>
+                            @endif
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+</section>
+@endif
+{{-- Team dosen --}}
 <section class="team-page-section">
     <div class="auto-container">
         <!-- Sec Title -->
@@ -91,26 +157,34 @@
         <div class="row clearfix aligns-items-center justify-content-center">
             <!-- Team Block -->
             @if ($data->dosen->count() > 0)
-                    @foreach ($data->dosen as $d)
-                    <div class="team-block col-lg-4 col-md-6 col-sm-12 ">
-                        <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <div class="pattern-layer" style="background-image:url({{asset($d->image)}})"></div>
-                            <div class="image">
-                                <a href="{{route('detail-dosen', ['id'=> $d->id])}}"><img style="height: 380px" src="{{asset($d->image)}}"/></a>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="{{route('detail-dosen', ['id'=> $d->id])}}">{{$d->name}}</a></h4>
-                                <div class="designation">{{$d->jurusan_prodi}}</div>
-                            </div>
-                        </div>
+            @foreach ($data->dosen as $d)
+            <div class="team-block col-lg-4 col-md-6 col-sm-12 ">
+                <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="pattern-layer" style="background-image:url({{asset($d->image)}})"></div>
+                    <div class="image">
+                        <a href="{{route('detail-dosen', ['id'=> $d->id])}}"><img style="height: 380px"
+                                src="{{asset($d->image)}}" /></a>
                     </div>
-                @endforeach
+                    <div class="lower-content">
+                        <h4><a href="{{route('detail-dosen', ['id'=> $d->id])}}">{{$d->name}}</a></h4>
+                        <div class="designation">{{$d->jurusan_prodi}}</div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
             @else
-            <div class="col-12 text-center"><h2>-- No Data -- <br><hr></h2></div>
+            <div class="col-12 text-center">
+                <h2>-- No Data -- <br>
+                    <hr>
+                </h2>
+            </div>
             @endif
 
         </div>
 </section>
+
+
+
 <section class="project-mission-section">
     <div class="auto-container">
         <h3>Deskripsi</h3>

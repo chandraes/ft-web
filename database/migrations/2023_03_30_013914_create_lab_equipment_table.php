@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('lab_id')->constrained('labs');
             $table->string('name');
-            $table->string('image');
+            $table->json('dosen_uji')->nullable();
+            $table->json('pengujian')->nullable();
+            $table->json('std_pengujian')->nullable();
+            $table->json('capaian')->nullable();
             $table->timestamps();
         });
     }

@@ -77,7 +77,8 @@
                     <div class="row mb-4">
                         <label class="col-md-2 form-label">Team Dosen</label>
                         <div class="col-md-10">
-                            <select class="form-control select2 @error('team_dosen') is-invalid @enderror" data-placeholder="Choose team" multiple name="team_dosen[]">
+                            <select class="form-control select2 @error('team_dosen') is-invalid @enderror"
+                                data-placeholder="Choose team" multiple name="team_dosen[]">
                                 @foreach ($dosen as $d)
                                 <option value="{{$d->id}}">
                                     {{$d->name}}
@@ -99,21 +100,22 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label for="gallery_image" class="col-md-2 form-label">Gallery Image <br> <span class="text-muted">(*Multiple Image)</span></label>
+                        <label for="gallery_image" class="col-md-2 form-label">Gallery Image <br> <span
+                                class="text-muted">(*Multiple Image)</span></label>
                         <div class="col-md-10">
                             <div class="form-group">
                                 <div class="file-upload-wrapper" data-text="Select your file!">
                                     <input id="gallery" name="gallery_image[]" type="file" class="form-control @error('gallery_image')
                                         is-invalid
-                                    @enderror" value=""
-                                        accept=".jpg, .png, image/jpeg, image/png" multiple>
-                                        @error('gallery_image')
-                                        <span class="text-red">{{$message}}</span>
-                                        @enderror
+                                    @enderror" value="" accept=".jpg, .png, image/jpeg, image/png" multiple>
+                                    @error('gallery_image')
+                                    <span class="text-red">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
                     </div>
+                  
                     <div class="row mt-4">
 
                         <div class="col-lg-6 col-md-6 col-12 mt-4 btn-list">
@@ -132,8 +134,19 @@
 @endsection
 @push('css')
 <link href="{{asset('assets/css/animated.css')}}" rel="stylesheet" />
+{{-- <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css"
+      rel="stylesheet"
+    /> --}}
+    <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 @endpush
 @push('js')
+{{-- <script src="{{asset('assets/js/taginput.js')}}"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+
+   
+
 <script src="{{asset('assets/plugins/fileuploads/js/fileupload.js')}}"></script>
 <script src="{{asset('assets/plugins/fileuploads/js/file-upload.js')}}"></script>
 

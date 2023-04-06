@@ -23,8 +23,9 @@ class LabController extends Controller
     public function index()
     {
         $category = CategoryLab::all();
+        $dosen = Dosen::all();
         $data = Lab::paginate(6);
-        return view('backend.lab.index', compact('data', 'category'));
+        return view('backend.lab.index', compact('data', 'category', 'dosen'));
     }
 
     /**
@@ -274,4 +275,6 @@ class LabController extends Controller
 
         return redirect()->route('lab.index')->with('success', 'Data berhasil dihapus');
     }
+
+    
 }

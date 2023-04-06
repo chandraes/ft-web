@@ -61,4 +61,9 @@ class Lab extends Model
             'dosen_id'
         );
     }
+
+    public function equipment()
+    {
+        return $this->hasMany(LabEquipment::class, 'lab_id', 'id');
+    }
 }
