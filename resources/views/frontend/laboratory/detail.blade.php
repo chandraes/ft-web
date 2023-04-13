@@ -137,7 +137,31 @@
                             @endif
                         </td>
                         <td>
-
+                            @if ($e->labEquipmentImage->count() > 0)
+                            <ul style="list-style-type: circle;">
+                                @foreach ($e->labEquipmentImage as $i)
+                                <li style="margin-bottom:1rem">{{$loop->iteration}}.
+                                    <div class="gallery-block">
+                                        <div class="inner-box">
+                                            <figure class="image-box">
+                                                <img src="{{asset($i->eq_image)}}" alt="" style="height: 100px">
+                                                <!-- Overlay Box -->
+                                                <div class="overlay-box">
+                                                    <div class="overlay-inner">
+                                                        <div class="content">
+                                                            <a href="{{asset($i->eq_image)}}" data-fancybox="gallery"
+                                                                data-caption="" class="icon flaticon-full-screen"></a>
+                                                            {{-- <a href="portfolio-detail.html"
+                                                                class="icon flaticon-link"></a> --}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endforeach
+                                @endif
                         </td>
                     </tr>
                     @endforeach
