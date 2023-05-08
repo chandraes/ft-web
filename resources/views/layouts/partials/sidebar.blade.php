@@ -73,6 +73,9 @@
                         <li><a href="{{route('dosen.index')}}" class="slide-item {{
                             request()->routeIs('dosen') || request()->routeIs('dosen.*') ? 'active' : '' }}"> Dosen</a>
                         </li>
+                        <li><a href="{{route('pegawai.index')}}" class="slide-item {{
+                            request()->routeIs('pegawai') || request()->routeIs('pegawai.*') ? 'active' : '' }}"> Tendik</a>
+                        </li>
 
                     </ul>
                 </li>
