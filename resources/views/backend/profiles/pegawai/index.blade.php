@@ -13,6 +13,8 @@
                 <h3 class="card-title mb-0">{{'List '. ucfirst(request()->segment(2))}}</h3>
                 <div class="card-options">
                     <a href="{{route('pegawai.create')}}" class="btn btn-primary">{{__('Add New')}}</a>
+                    <a class="modal-effect btn btn-success d-grid mx-3" data-bs-effect="effect-slide-in-right"
+                        data-bs-toggle="modal" href="#jurusan">Tambah Jurusan/Prodi</a>
                 </div>
             </div>
             <div class="card-body">
@@ -76,6 +78,72 @@
         </div>
     </div>
     <!-- COL END -->
+</div>
+<div class="modal fade" id="jurusan">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content modal-content-demo">
+            <div class="modal-header">
+                <h6 class="modal-title">List Jurusan / Prodi</h6><button aria-label="Close" class="btn-close"
+                    data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <table id="data-table" class="table table-bordered text-nowrap mb-0">
+                    <thead>
+                        <tr class="text-center align-middle">
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>ACT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($category as $c)
+                        <tr>
+                            <td class="text-center align-middle">{{$loop->iteration}}</td>
+                            <td class="align-middle">{{$c->jurusan_prodi}}</td>
+                            <td align="center">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <form id="delete-item" action="{{route('dosen.category.delete', $c->id)}}"
+                                            method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit"
+                                                class="btn btn-danger btn-sm rounded-11 mx-2 btn-block"
+                                                data-bs-toggle="tooltip" data-bs-original-title="Delete"><i><svg
+                                                        class="table-delete" xmlns="http://www.w3.org/2000/svg"
+                                                        height="20" viewBox="0 0 24 24" width="16">
+                                                        <path d="M0 0h24v24H0V0z" fill="none" />
+                                                        <path
+                                                            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5z" />
+                                                    </svg></i>
+                                            </button>
+                                    </div>
+
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <form action="{{route('dosen.category')}}" method="post">
+                    @csrf
+                    <div class="mt-3">
+                        <label for="name">Nama Jurusan / Prodi</label>
+                        <input type="text" name="jurusan_prodi" id="name" class="form-control @error('jurusan_prodi')
+                    is-invalid
+                    @enderror" placeholder="Tambah Jurusan / prodi">
+                    </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+                <button class="btn btn-light" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
 </div>
 <!-- ROW-5 END -->
 @endsection

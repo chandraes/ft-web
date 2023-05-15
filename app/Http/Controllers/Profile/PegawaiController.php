@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Profiles\Pegawai;
 use Illuminate\Support\Facades\File;
+use App\Models\Profiles\CategoryDosen;
 use Ramsey\Uuid\Uuid;
 
 class PegawaiController extends Controller
@@ -18,7 +19,8 @@ class PegawaiController extends Controller
     public function index()
     {
         $data = Pegawai::all();
-        return view('backend.profiles.pegawai.index', compact('data'));
+        $category = CategoryDosen::all();
+        return view('backend.profiles.pegawai.index', compact('data', 'category'));
     }
 
     /**
@@ -28,7 +30,8 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        return view('backend.profiles.pegawai.create');
+        $category = CategoryDosen::all();
+        return view('backend.profiles.pegawai.create', compact('category'));
     }
 
     /**
@@ -41,6 +44,7 @@ class PegawaiController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|min:3',
+            'category_dosens_id' => 'required|exists:category_dosens,id',
             'jabatan' => 'nullable|string|max:255',
             'description' => 'nullable',
             'image' => 'nullable|mimes:png,jpg,jpeg|max:5012',
@@ -67,8 +71,9 @@ class PegawaiController extends Controller
      */
     public function edit($id)
     {
+        $category = CategoryDosen::all();
         $data = Pegawai::findOrFail($id);
-        return view('backend.profiles.pegawai.edit', compact('data'));
+        return view('backend.profiles.pegawai.edit', compact('data', 'category'));
     }
 
     /**
@@ -82,6 +87,7 @@ class PegawaiController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|min:3|string|max:255',
+            'category_dosens_id' => 'required|exists:category_dosens,id',
             'jabatan' => 'nullable|max:255|string',
             'description' => 'nullable',
             'image' => 'nullable|mimes:jpeg,jpg,png|max:5012',

@@ -17,6 +17,7 @@ class Informasi extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'category_information_id',
         'image',
         'content'

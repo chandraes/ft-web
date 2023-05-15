@@ -17,6 +17,21 @@
                         </div>
                     </div>
                     <div class="row mb-4">
+                        <label class="col-md-2 form-label">Jurusan / Prodi</label>
+                        <div class="col-md-10">
+                            <select name="category_dosens_id" class="form-control form-select @error('category_dosens_id')
+                            is-invalid
+                            @enderror ">
+                                <option value="">Pilih Jurusan / Prodi</option>
+                                @foreach ($category as $c)
+                                <option @if ($data->category_dosens_id == $c->id)
+                                    selected
+                                    @endif value="{{$c->id}}">{{$c->jurusan_prodi}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
                         <label class="col-md-2 form-label">Jabatan</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('jabatan') is-invalid @enderror" name="jabatan" placeholder="Jabatan" value="{{$data->jabatan}}">
