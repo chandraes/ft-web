@@ -35,7 +35,9 @@ class Dosen extends Model
         'sinta_link',
         'wos_link',
         'image',
-        'description'
+        'description',
+        'pangkat',
+        'jabfung',
     ];
 
     public function getShortDescriptionAttribute()

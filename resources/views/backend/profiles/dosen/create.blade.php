@@ -29,6 +29,47 @@
                         </div>
                     </div>
                     <div class="row mb-4">
+                        <label class="col-md-2 form-label">Golongan/Pangkat</label>
+                        <div class="col-md-10">
+                            <select name="pangkat" id="pangkat" class="form-control form-select @error('pangkat')
+                            is-invalid
+                            @enderror ">
+                                <option value="">Pilih Pangkat</option>
+                                <option value="III/a">III/a</option>
+                                <option value="III/b Penata Muda Tk.I">III/b Penata Muda Tk.I</option>
+                                <option value="III/c Penata">III/c Penata</option>
+                                <option value="III/d Penata Tk.I">III/d Penata Tk.I</option>
+                                <option value="IV/a Pembina">IV/a Pembina</option>
+                                <option value="IV/b Pembina Tk.I">IV/b Pembina Tk.I</option>
+                                <option value="IV/c Pembina Utama Muda">IV/c Pembina Utama Muda</option>
+                                <option value="IV/d Pembina Utama Madya">IV/d Pembina Utama Madya</option>
+                                <option value="IV/e Pembina Utama">IV/e Pembina Utama</option>
+                            </select>
+                            @error('pangkat')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label class="col-md-2 form-label">Jabatan Fungsional</label>
+                        <div class="col-md-10">
+                            
+                            <select name="jabfung" id="jabfung" class="form-control form-select @error('jabfung')
+                            is-invalid
+                            @enderror ">
+                                <option value="">Pilih Jabatan Fungsional</option>
+                                <option value="Guru Besar">Guru Besar</option>
+                                <option value="Lektor Kepala">Lektor Kepala</option>
+                                <option value="Lektor">Lektor</option>
+                                <option value="Asisten Ahli">Asisten Ahli</option>
+                                <option value="Tenaga Pengajar">Tenaga Pengajar</option>
+                            </select>
+                            @error('jabfung')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-4">
                         <label class="col-md-2 form-label">Research Interest</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control @error('research_interest') is-invalid @enderror" data-role="tagsinput"

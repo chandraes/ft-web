@@ -1,5 +1,10 @@
 @extends('layouts.frontend')
 @section('content')
+<style>
+.hover-pointer:hover {
+    cursor: pointer;
+}
+</style>
 
 <section class="page-title" style="background-image: url({{asset('assets_front/images/background/13.jpg')}})">
     <div class="auto-container">
@@ -12,40 +17,43 @@
 </section>
 <!-- End Page Title -->
 
-<!-- Team Section -->
-<section class="team-page-section">
+<section class="process-section" id="services" style="background-image:url(images/background/pattern-8.png)">
+    <div class="side-icon">
+        <img src="images/resource/process-icon.png" alt="" />
+    </div>
     <div class="auto-container">
         <!-- Sec Title -->
         <div class="sec-title centered">
-            <div class="title"><span class="separator"></span>Our Leader<span class="separator-two"></span></div>
+            <div class="title"><span class="separator"></span>Jurusan<span class="separator-two"></span></div>
             <h2>Staff Kepegawaian</h2>
         </div>
-        <div class="row clearfix aligns-items-center justify-content-center">
-            <!-- Team Block -->
-            @foreach ($pegawais as $e)
-                <div class="team-block col-lg-4 col-md-6 col-sm-12 ">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="pattern-layer" style="background-image:url({{asset($e->image)}})"></div>
-                        <div class="image">
-                            <a href="{{route('detail-employee', ['id'=> $e->id])}}"><img src="{{asset($e->image)}}" style="height: 300px"/></a>
-                            <!-- Social Box -->
-                            {{-- <ul class="social-box">
-								<li><a href="https://www.facebook.com/" class="fa fa-facebook-f"></a></li>
-								<li><a href="https://www.twitter.com/" class="fa fa-twitter"></a></li>
-								<li><a href="https://www.linkedin.com/" class="fa fa-linkedin"></a></li>
-								<li><a href="https://www.instagram.com/" class="fa fa-instagram"></a></li>
-								<li><a href="https://www.youtube.com/" class="fa fa-youtube-play"></a></li>
-							</ul> --}}
-                        </div>
-                        <div class="lower-content">
-                            <h4><a href="{{route('detail-employee', ['id'=> $e->id])}}">{{$e->name}}</a></h4>
-                            <div class="designation">{{$e->jabatan}}</div>
-                        </div>
+        <div class="row clearfix">
+            @php
+                $time = 0;
+                $number = 1;
+                $icon = ['flaticon-industrial-robot', 'flaticon-factory', 'flaticon-electric-car'];
+            @endphp
+            @foreach ($category as $c)
+                <div class="process-block col-lg-4 col-md-6 col-sm-12 hover-pointer" onclick="window.location.href='{{route('category-employee', ['id'=> $c->id])}}'">
+                    <div class="inner-box wow flipInY" data-wow-delay="{{$time}}ms" data-wow-duration="1500ms">
+                        <div class="process-number">{{$number}}</div>
+                        <div class="color-layer"></div>
+                        <div class="color-layer"></div>
+                        <div class="icon {{$icon[array_rand($icon)]}}"></div>
+                        <h5>{{$c->jurusan_prodi}}</h5>
                     </div>
                 </div>
+            @php
+                $time += 150;
+                $number += 1;
+            @endphp
             @endforeach
+            <!-- Process Block -->
+            
         </div>
-
-
+    </div>
 </section>
+<!-- End Proc
+
+<!-- Team Section -->
 @endsection

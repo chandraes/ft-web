@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Mews\Purifier\Casts\CleanHtml;
 use Illuminate\Support\Str;
 
+
 class Pegawai extends Model
 {
     use HasFactory;
@@ -29,5 +30,10 @@ class Pegawai extends Model
             nl2br(strip_tags($this->description)),
             20
         );
+    }
+
+    public function category()
+    {
+        return $this->hasOne(CategoryDosen::class, 'id', 'category_dosens_id');
     }
 }

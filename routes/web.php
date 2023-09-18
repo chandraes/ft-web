@@ -23,9 +23,11 @@ Route::get('information/{id}/{slug}', [App\Http\Controllers\frontend\Information
 Route::get('detail-information/{id}/{slug}', [App\Http\Controllers\frontend\InformationController::class, 'detail'])->name('detail-information');
 Route::post('search', [App\Http\Controllers\frontend\InformationController::class, 'search'])->name('search');
 Route::get('employee', [App\Http\Controllers\frontend\pegawaiController::class, 'index'])->name('employee');
+Route::get('employee/category/{id}', [App\Http\Controllers\frontend\pegawaiController::class, 'category'])->name('category-employee');
 Route::get('employee/{id}', [App\Http\Controllers\frontend\pegawaiController::class, 'detail'])->name('detail-employee');
 Route::get('dosen', [App\Http\Controllers\frontend\dosenController::class, 'index'])->name('dosen');
 Route::get('dosen/{id}', [App\Http\Controllers\frontend\dosenController::class, 'detail'])->name('detail-dosen');
+Route::get('dosen/category/{id}', [App\Http\Controllers\frontend\dosenController::class, 'category'])->name('category-dosen');
 Route::get('fakultas', [App\Http\Controllers\frontend\fakultasController::class, 'index'])->name('fakultas');
 Route::get('journal', [App\Http\Controllers\frontend\JournalController::class, 'index'])->name('journal');
 Route::get('contact', [App\Http\Controllers\frontend\ContactController::class, 'index'])->name('contact');

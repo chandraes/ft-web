@@ -11,30 +11,41 @@
 </section>
 <!-- End Page Title -->
 
-<!-- Team Section -->
-<section class="team-page-section">
+<section class="process-section" id="services" style="background-image:url(images/background/pattern-8.png)">
+    <div class="side-icon">
+        <img src="images/resource/process-icon.png" alt="" />
+    </div>
     <div class="auto-container">
         <!-- Sec Title -->
         <div class="sec-title centered">
-            <div class="title"><span class="separator"></span>Our Lecturer<span class="separator-two"></span></div>
-            <h2>Dosen</h2>
+            <div class="title"><span class="separator"></span>Jurusan<span class="separator-two"></span></div>
+            <h2>Dosen Pengajar</h2>
         </div>
-        <div class="row clearfix aligns-items-center justify-content-center">
-            <!-- Team Block -->
-            @foreach ($dosens as $d)
-                <div class="team-block col-lg-4 col-md-6 col-sm-12 ">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="pattern-layer" style="background-image:url({{asset($d->image)}})"></div>
-                        <div class="image">
-                            <a href="{{route('detail-dosen', ['id'=> $d->id])}}"><img style="height: 450px" src="{{asset($d->image)}}"/></a>
-                        </div>
-                        <div class="lower-content">
-                            <h4><a href="{{route('detail-dosen', ['id'=> $d->id])}}">{{$d->name}}</a></h4>
-                            <div class="designation">{{$d->jurusan_prodi}}</div>
-                        </div>
+        <div class="row clearfix">
+            @php
+                $time = 0;
+                $number = 1;
+                $icon = ['flaticon-industrial-robot', 'flaticon-factory', 'flaticon-electric-car'];
+            @endphp
+            @foreach ($category as $c)
+                <div class="process-block col-lg-4 col-md-6 col-sm-12 hover-pointer" onclick="window.location.href='{{route('category-dosen', ['id'=> $c->id])}}'">
+                    <div class="inner-box wow flipInY" data-wow-delay="{{$time}}ms" data-wow-duration="1500ms">
+                        <div class="process-number">{{$number}}</div>
+                        <div class="color-layer"></div>
+                        <div class="color-layer"></div>
+                        <div class="icon {{$icon[array_rand($icon)]}}"></div>
+                        <h5>{{$c->jurusan_prodi}}</h5>
                     </div>
                 </div>
+            @php
+                $time += 150;
+                $number += 1;
+            @endphp
             @endforeach
+            <!-- Process Block -->
+            
         </div>
+    </div>
 </section>
+<!-- Team Section -->
 @endsection

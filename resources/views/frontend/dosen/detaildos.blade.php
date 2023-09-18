@@ -41,10 +41,16 @@
                     </table> --}}
                     <ul class="post-meta">
                         @if (!empty($dosen->nip_nidn))
-                        <li>NIP / NIDN: {{$dosen->nip_nidn}}</li>
+                        <li>NIP / NIDN: {{$dosen->nip_nidn}}</li><br>
+                        @endif
+                        @if (!empty($dosen->pangkat))
+                        <li>Golongan / Pangkat: {{$dosen->pangkat}}</li><br>
+                        @endif
+                        @if (!empty($dosen->jabfung))
+                        <li>Jabatan Fungsional: {{$dosen->jabfung}}</li><br>
                         @endif
 
-                        <li><span class="icon flaticon-email-1"></span> <a
+                        <li>Email: <a
                                 href="mailto:{{$dosen->email}}">{{$dosen->email}}</a></li>
 
                         {{-- <li><span class="icon flaticon-call"></span> <a href="tel:000-000-0000">000 - 000 -

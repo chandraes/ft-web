@@ -20,6 +20,7 @@ class PegawaiController extends Controller
     {
         $data = Pegawai::all();
         $category = CategoryDosen::all();
+        
         return view('backend.profiles.pegawai.index', compact('data', 'category'));
     }
 

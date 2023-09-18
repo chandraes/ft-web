@@ -52,53 +52,12 @@
                     </div>
                     @endif
                     <div class="row mb-4">
-                        <label class="col-md-2 form-label">Dosen yang menguji</label>
-                        <div class="col-md-10">
-                            <select class="form-control select2 @error('dosen_uji') is-invalid @enderror"
-                                data-placeholder="Choose team" multiple name="dosen_uji[]">
-                                @foreach ($dosen as $d)
-                                <option value="{{$d->id}}" @if (in_array($d->id, json_decode($data->dosen_uji))) selected
-                                    
-                                    
-                                @endif>
-                                    {{$d->name}}
-                                </option>
-                                @endforeach
-                            </select>
-                            @error('dosen_uji')
-                            <span class="text-red">{{$message}}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <label class="col-md-2 form-label">Pengujian <br> <span style="color: #929292"> *Pisahkan dengan
-                                (;)</span> </label>
-                        <div class="col-md-10">
-                            <input type="text" name="pengujian" id="pengujian-tag"
-                                class="form-control tagify @error('pengujian') is-invalid @enderror" value="{{$data->pengujian}}" />
-                            @error('pengujian')
-                            <span class="text-red">{{$message}}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="row mb-4">
                         <label class="col-md-2 form-label">Standar Pengujian <br> <span style="color: #929292">
                                 *Pisahkan dengan (;)</span> </label>
                         <div class="col-md-10">
                             <input type="text" name="std_pengujian" id="pengujian-tag"
                                 class="form-control tagify @error('std_pengujian') is-invalid @enderror" value="{{$data->std_pengujian}}"/>
                             @error('std_pengujian')
-                            <span class="text-red">{{$message}}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <label class="col-md-2 form-label">Capaian <br> <span style="color: #929292"> *Pisahkan dengan
-                                (;)</span> </label>
-                        <div class="col-md-10">
-                            <input type="text" name="capaian" id="pengujian-tag"
-                                class="form-control tagify @error('capaian') is-invalid @enderror" value="{{$data->capaian}}" />
-                            @error('capaian')
                             <span class="text-red">{{$message}}</span>
                             @enderror
                         </div>

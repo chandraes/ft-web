@@ -60,6 +60,8 @@ class DosenController extends Controller
             'wos_link' => 'nullable|active_url',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5012',
+            'pangkat' => 'nullable|string|max:255',
+            'jabfung' => 'nullable|string|max:255',
         
         ]);
 
@@ -165,6 +167,8 @@ class DosenController extends Controller
             'wos_link' => 'nullable|active_url',
             'description' => 'nullable',
             'image' => 'nullable|image|mimes:png,jpg,jpeg|max:5012',
+            'pangkat' => 'nullable|string|max:255',
+            'jabfung' => 'nullable|string|max:255',
         ]);
 
         $dosen = Dosen::find($id);

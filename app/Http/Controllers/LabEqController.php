@@ -50,45 +50,22 @@ class LabEqController extends Controller
             'name' => 'required',
             'eq_image' => 'nullable',
             'eq_image.+.*' => ['image','mimes:jpeg,png','max:10000'],
-            'dosen_uji' => 'required',
-            'dosen_uji.+.*' => 'integer',
-            'pengujian' => 'required',
             'std_pengujian' => 'required',
-            'capaian' => 'required',
         ]);
 
-        //get each data[pengujian] json into array without key
-        $pengujian = [];
-        foreach (json_decode($data['pengujian'], true) as $key => $value) {
-            $pengujian[] = $value['value'];
-        }
-        $data['pengujian'] = json_encode($pengujian, true);
         //get each data[std_pengujian] json into array without key
         $std_pengujian = [];
         foreach (json_decode($data['std_pengujian'], true) as $key => $value) {
             $std_pengujian[] = $value['value'];
         }
         $data['std_pengujian'] = json_encode($std_pengujian, true);
-        //get each data[capaian] json into array without key
-        $capaian = [];
-        foreach (json_decode($data['capaian'], true) as $key => $value) {
-            $capaian[] = $value['value'];
-        }
-        $data['capaian'] = json_encode($capaian,true);
-
-
-
-        
 
         DB::transaction(function () use ($request, $data) {
             
             $eq = LabEquipment::create([
                 'lab_id' => $data['lab_id'],
                 'name' => $data['name'],
-                'dosen_uji' => json_encode($data['dosen_uji'], true),
-                'pengujian' => $data['pengujian'],
                 'std_pengujian' => $data['std_pengujian'],
-                'capaian' => $data['capaian'],
             ]);
             
             if ($request->hasFile('eq_image')) {
@@ -151,31 +128,15 @@ class LabEqController extends Controller
             'name' => 'required',
             'eq_image' => 'nullable',
             'eq_image.+.*' => ['image','mimes:jpeg,png','max:10000'],
-            'dosen_uji' => 'required',
-            'dosen_uji.+.*' => 'integer',
-            'pengujian' => 'required',
             'std_pengujian' => 'required',
-            'capaian' => 'required',
         ]);
 
-        //get each data[pengujian] json into array without key
-        $pengujian = [];
-        foreach (json_decode($data['pengujian'], true) as $key => $value) {
-            $pengujian[] = $value['value'];
-        }
-        $data['pengujian'] = json_encode($pengujian, true);
         //get each data[std_pengujian] json into array without key
         $std_pengujian = [];
         foreach (json_decode($data['std_pengujian'], true) as $key => $value) {
             $std_pengujian[] = $value['value'];
         }
         $data['std_pengujian'] = json_encode($std_pengujian, true);
-        //get each data[capaian] json into array without key
-        $capaian = [];
-        foreach (json_decode($data['capaian'], true) as $key => $value) {
-            $capaian[] = $value['value'];
-        }
-        $data['capaian'] = json_encode($capaian,true);
 
         DB::transaction(function () use ($request, $data, $id) {
             
@@ -183,10 +144,7 @@ class LabEqController extends Controller
             $eq->update([
                 'lab_id' => $data['lab_id'],
                 'name' => $data['name'],
-                'dosen_uji' => json_encode($data['dosen_uji'], true),
-                'pengujian' => $data['pengujian'],
                 'std_pengujian' => $data['std_pengujian'],
-                'capaian' => $data['capaian'],
             ]);
             
             if ($request->hasFile('eq_image')) {

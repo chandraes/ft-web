@@ -29,7 +29,8 @@
             <!-- Content Column -->
             <div class="content-column col-lg-8 col-md-12 col-sm-12">
                 <div class="inner-column">
-                    <h2>{{$pegawai->name}}<span class="category">{{$pegawai->jabatan}}</span></h2>
+                    <h2>{{$pegawai->name}}</h2>
+                    <h4><span class="category">{{$pegawai->jabatan}}</span></h4>
                     {{-- <ul class="post-meta">
                         <li><span class="icon flaticon-email-1"></span> <a href="mailto:kanstr@gmail.com">kanstr@gmail.com</a></li>
                         <li><span class="icon flaticon-call"></span> <a href="tel:000-000-0000">000 - 000 - 0000</a></li>

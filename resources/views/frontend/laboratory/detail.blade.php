@@ -100,9 +100,7 @@
                     <tr class="text-center">
                         <th>No</th>
                         <th>Alat</th>
-                        <th>Dosen</th>
                         <th>Standar Pengujian</th>
-                        <th>Capaian</th>
                         <th>Foto Alat</th>
                     </tr>
                 </thead>
@@ -111,26 +109,10 @@
                     <tr>
                         <td class="text-center">{{$loop->iteration}}</td>
                         <td>{{$e->name}}</td>
-                        <td>@if (json_decode($e->dosen_uji))
-                            <ul style="list-style-type: circle;">
-                                @foreach (json_decode($e->dosen_uji) as $i)
-                                <li>{{$loop->iteration}}. {{\App\Models\Profiles\Dosen::where('id', $i)->value('name')}}
-                                </li>
-                                @endforeach
-                            </ul>
-                            @endif
-                        </td>
                         <td>
                             @if (json_decode($e->std_pengujian))
                             <ul style="list-style-type: circle;">
                                 @foreach (json_decode($e->std_pengujian) as $i)
-                                <li>{{$loop->iteration}}. {{$i}}</li>
-                                @endforeach
-                            </ul>
-                            @endif
-                        <td>@if (json_decode($e->capaian))
-                            <ul style="list-style-type: circle;">
-                                @foreach (json_decode($e->capaian) as $i)
                                 <li>{{$loop->iteration}}. {{$i}}</li>
                                 @endforeach
                             </ul>
@@ -144,7 +126,7 @@
                                     <div class="gallery-block">
                                         <div class="inner-box">
                                             <figure class="image-box">
-                                                <img src="{{asset($i->eq_image)}}" alt="" style="height: 100px">
+                                                <img src="{{asset($i->eq_image)}}" alt="" class="img-responsive" style="max-height: 100px; max-width: 100px">
                                                 <!-- Overlay Box -->
                                                 <div class="overlay-box">
                                                     <div class="overlay-inner">
